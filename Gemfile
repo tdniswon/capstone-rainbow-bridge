@@ -1,12 +1,21 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+# ruby '2.6.3'
+ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use Postgresql as the database for Active Record
-gem 'pg'
+# gem 'pg'
+# Added by Tyler 1/31, Use sqlite3 as the database for Active Record - for local development
+group :development do
+  gem 'sqlite3', '~> 1.4'
+end
+# Added by Tyler 1/31, use postgresql for production
+group :production do
+  gem 'pg'
+end
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -21,6 +30,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Added by Tyler for User Authentication
+gem 'devise'
+
+# Added by Tyler 1/31, admin dashboard for employee controls of database and reporting
+gem 'rails_admin'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
