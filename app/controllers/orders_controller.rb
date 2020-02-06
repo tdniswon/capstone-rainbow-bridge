@@ -9,7 +9,14 @@ class OrdersController < ApplicationController
     end
 
     def create
-        @test = Test.create(params[:test_params])
+        puts"**********"
+        puts params[:test][:first_name]
+        puts"**********"
+        # @test = Test.create(params[params[:test]])
+        @test = Test.new
+        @test.first_name = params[:test][:first_name]
+        @test.last_name = params[:test][:last_name]
+        @test.order = params[:test][:order]
         if @test.save
             render 'success'
         else
