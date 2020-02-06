@@ -31,11 +31,17 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Added by Tyler for User Authentication
+# Added by Tyler 1/31, for User Authentication
 gem 'devise'
 
 # Added by Tyler 1/31, admin dashboard for employee controls of database and reporting
 gem 'rails_admin'
+
+# Added by Tyler 2/6, Access control through roles
+gem 'cancancan'
+
+# Added by Tyler 2/6, for form creation
+gem 'simple_form'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

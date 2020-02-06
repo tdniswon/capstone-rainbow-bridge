@@ -12,6 +12,7 @@
   <body>
 
     <!-- Added By Tyler 1/31, for navigation creation of navigation bar -->
+    <!-- Update By Tyler 2/6, created admin only access on Admin Dashboard -->
     <div class = "navbar">
       <ul>
         <li><%= link_to "Home", root_path %></li>
@@ -27,7 +28,13 @@
         <% else %>
           <li id = "navbar" class = "navbar-fr"><%= link_to "Employee Login", new_user_session_path, :class => 'navbar-link'  %></li>
         <% end %>
-        <li><%= link_to "Admin Dashboard", rails_admin.dashboard_path %></li>
+        <% if current_user != nil %>
+          <% if current_user.role != nil %>
+            <% if current_user.role.name == 'Admin' || current_user.role.name == 'Read' %>
+              <li><%= link_to "Admin Dashboard", rails_admin.dashboard_path %></li>
+            <% end %>
+          <% end %>
+        <% end %>
       </ul>
     </div>
 
