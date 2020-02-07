@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+    # Added by Tyler 2/7, respond to JSON to allow API capability
+    respond_to :json
+    skip_before_action :verify_authenticity_token
+
     # Added by Tyler 2/6, initialize test for form
     def show
         @test = Test.find(params[:id])
