@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
     def create
         puts"**********"
-        puts params[:test][:first_name]
+        puts params[:test]
         puts"**********"
         # @test = Test.create(params[params[:test]])
         @test = Test.new

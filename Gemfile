@@ -43,6 +43,9 @@ gem 'cancancan'
 # Added by Tyler 2/6, for form creation
 gem 'simple_form'
 
+# Added by Tyler 2/11, for reporting with graphs
+gem 'chartkick'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

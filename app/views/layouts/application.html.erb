@@ -17,6 +17,13 @@
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Orders", orders_path %></li>
+        <% if current_user != nil %>
+          <% if current_user.role != nil %>
+            <% if current_user.role.name == 'Admin' || current_user.role.name == 'Read' %>
+              <li><%= link_to "Reports", reports_path %></li>
+            <% end %>
+          <% end %>
+        <% end %>
         <% if user_signed_in? %>
           <li class = "profile-drpdwn">
             <a href="javascript:void(0)" class="dropbtn"><%= current_user.email %></a>

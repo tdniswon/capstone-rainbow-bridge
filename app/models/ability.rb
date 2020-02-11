@@ -34,10 +34,12 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.role.name == 'Admin'
       can :manage, :all
+      can :manage, :reports
     elsif user.role.name == 'Read'
       can :access, :rails_admin
       can :read, :all
       can :export, :all
+      can :manage, :reports
     end
   end
 end

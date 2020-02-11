@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   resources :main
   root "main#index"
+
+  resources :reports
   
   # Added by Tyler 1/31, routs to orders page
   resources :orders
