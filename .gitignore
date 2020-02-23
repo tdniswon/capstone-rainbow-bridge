@@ -35,5 +35,5 @@
 yarn-debug.log*
 .yarn-integrity
 
-# Ignore because it contains application credentials
-/config/appplication.yml
+# Ignore application credentials
+/config/application.yml
