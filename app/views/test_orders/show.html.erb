@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @test_order.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @test_order.notes %>
+</p>
+
+<p>
+  <strong>Test Products</strong>
+</p>
+
+<% @test_order.test_products.each do |tp| %>
+  <p>
+    <strong>Name:</strong>
+    <%= tp.name %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= tp.description %>
+  </p>
+  <p>
+    <strong>Notes:</strong>
+    <%= tp.notes %>
+  </p>
+  <% tp.images.each do |image| %>
+    <%= image_tag(image) %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_test_order_path(@test_order) %> |
+<%= link_to 'Back', test_orders_path %>

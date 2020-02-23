@@ -46,6 +46,9 @@ gem 'simple_form'
 # Added by Tyler 2/11, for reporting with graphs
 gem 'chartkick'
 
+# Added by Tyler 2/22, for aws sdk image storage
+gem 'aws-sdk-s3', require: false
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

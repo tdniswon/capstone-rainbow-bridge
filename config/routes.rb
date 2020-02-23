@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :test_products
+  resources :test_orders
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
