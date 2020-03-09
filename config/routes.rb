@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :rental_lines
   resources :orders
   resources :order_line_restrictions
@@ -23,5 +24,8 @@ Rails.application.routes.draw do
   resources :order_types
   resources :order_statuses
   resources :customer_statuses
+  resources :main
+  root "main#index"
+  resources :reports
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

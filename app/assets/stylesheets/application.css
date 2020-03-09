@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+ 
+ .navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+a:link {
+    color: black;
+    background-color: transparent;
+}

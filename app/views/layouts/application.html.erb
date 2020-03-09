@@ -7,9 +7,31 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <%= link_to 'Home', main_app.root_path, :class => "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Customers', rails_admin.index_path('customer'), :class => "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Reports', main_app.reports_path, :class => "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Dashboard', rails_admin.dashboard_path, :class => "nav-link" %>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">      
+      <%= yield %>
+    </div>
+
   </body>
 </html>
