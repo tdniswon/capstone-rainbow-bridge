@@ -1,0 +1,82 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :order_description %>
+    <%= form.text_field :order_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_cost %>
+    <%= form.text_field :order_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_start_date %>
+    <%= form.datetime_select :order_start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_due_date %>
+    <%= form.datetime_select :order_due_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_date_finish %>
+    <%= form.datetime_select :order_date_finish %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_delivery %>
+    <%= form.check_box :order_delivery %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delivery_street_address %>
+    <%= form.text_field :delivery_street_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delivery_city %>
+    <%= form.text_field :delivery_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delivery_state %>
+    <%= form.text_field :delivery_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delivery_zip_code %>
+    <%= form.text_field :delivery_zip_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_type_id %>
+    <%= form.text_field :order_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_status_id %>
+    <%= form.text_field :order_status_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

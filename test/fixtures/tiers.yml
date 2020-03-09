@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position: 1
+  tier_size: 1
+  tier_special_notes: MyString
+  cake_flavor: one
+  frosting_flavor: one
+  shape: one
+
+two:
+  position: 1
+  tier_size: 1
+  tier_special_notes: MyString
+  cake_flavor: two
+  frosting_flavor: two
+  shape: two

@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_description: MyString
+  order_cost: 9.99
+  order_start_date: 2020-03-08 19:37:17
+  order_due_date: 2020-03-08 19:37:17
+  order_date_finish: 2020-03-08 19:37:17
+  order_delivery: false
+  delivery_street_address: MyString
+  delivery_city: MyString
+  delivery_state: MyString
+  delivery_zip_code: MyString
+  customer: one
+  order_type: one
+  order_status: one
+
+two:
+  order_description: MyString
+  order_cost: 9.99
+  order_start_date: 2020-03-08 19:37:17
+  order_due_date: 2020-03-08 19:37:17
+  order_date_finish: 2020-03-08 19:37:17
+  order_delivery: false
+  delivery_street_address: MyString
+  delivery_city: MyString
+  delivery_state: MyString
+  delivery_zip_code: MyString
+  customer: two
+  order_type: two
+  order_status: two

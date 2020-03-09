@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order description:</strong>
+  <%= @order.order_description %>
+</p>
+
+<p>
+  <strong>Order cost:</strong>
+  <%= @order.order_cost %>
+</p>
+
+<p>
+  <strong>Order start date:</strong>
+  <%= @order.order_start_date %>
+</p>
+
+<p>
+  <strong>Order due date:</strong>
+  <%= @order.order_due_date %>
+</p>
+
+<p>
+  <strong>Order date finish:</strong>
+  <%= @order.order_date_finish %>
+</p>
+
+<p>
+  <strong>Order delivery:</strong>
+  <%= @order.order_delivery %>
+</p>
+
+<p>
+  <strong>Delivery street address:</strong>
+  <%= @order.delivery_street_address %>
+</p>
+
+<p>
+  <strong>Delivery city:</strong>
+  <%= @order.delivery_city %>
+</p>
+
+<p>
+  <strong>Delivery state:</strong>
+  <%= @order.delivery_state %>
+</p>
+
+<p>
+  <strong>Delivery zip code:</strong>
+  <%= @order.delivery_zip_code %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer_id %>
+</p>
+
+<p>
+  <strong>Order type:</strong>
+  <%= @order.order_type_id %>
+</p>
+
+<p>
+  <strong>Order status:</strong>
+  <%= @order.order_status_id %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

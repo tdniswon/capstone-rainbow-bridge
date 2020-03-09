@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order line:</strong>
+  <%= @order_line_restriction.order_line_id %>
+</p>
+
+<p>
+  <strong>Dietary restriction:</strong>
+  <%= @order_line_restriction.dietary_restriction_id %>
+</p>
+
+<%= link_to 'Edit', edit_order_line_restriction_path(@order_line_restriction) %> |
+<%= link_to 'Back', order_line_restrictions_path %>
