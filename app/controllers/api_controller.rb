@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
-    # respond_to :json
-    # skip_before_action :verify_authenticity_token
+    # respond_to :html, :json
+    skip_before_action :verify_authenticity_token
 
     def index
     end
@@ -15,15 +15,16 @@ class ApiController < ApplicationController
         puts"**********"
         puts params[:api]
         puts"**********"
-        # @customer = Test.new
-        # @test.first_name = params[:test][:first_name]
-        # @test.last_name = params[:test][:last_name]
+        # @customer = Customer.new
+        # @customer.customer_first_name = params[:api][:first_name]
+        # @customer.customer_last_name = params[:api][:last_name]
         # @test.order = params[:test][:order]
         # if @test.save
         #     render 'success'
         # else
         #     render 'failed'
         # end
+        respond_to :json
     end
 
     private
