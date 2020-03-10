@@ -7,7 +7,7 @@ class Employee < ApplicationRecord
   validates :employee_last_name, presence: true
   validates :empployee_email, presence: true
   validates :employee_phone, presence: true
-
+  validates :employee_phone, length: {minimum: 10}
   rails_admin do
     object_label_method :display_name
   end

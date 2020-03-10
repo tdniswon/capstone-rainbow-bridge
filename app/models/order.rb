@@ -7,7 +7,7 @@ class Order < ApplicationRecord
 
   validates :order_due_date, presence: true
   validates :order_start_date, presence: true
-
+  validates :delivery_zip_code, length: {is: 5}
   accepts_nested_attributes_for :order_lines
   accepts_nested_attributes_for :rental_lines
 

@@ -5,7 +5,8 @@ class Customer < ApplicationRecord
   validates :customer_first_name, presence: true
   validates :customer_last_name, presence: true
   validates :customer_email, presence: true
-
+  validates :customer_zip_code, length: {is:5}
+  validates :customer_phone, length: {minimum: 10}
   accepts_nested_attributes_for :orders
 
   rails_admin do
