@@ -5,11 +5,21 @@ class Tier < ApplicationRecord
   belongs_to :order_line
   has_many :tier_fillings
 
+  validates :tier_size, presence: true
+
   accepts_nested_attributes_for :tier_fillings
 
   rails_admin do
     nested do
       configure :order_line do
+        hide
+      end
+      configure :position do
+        hide
+      end
+    end
+    create do
+      configure :position do
         hide
       end
     end
@@ -21,5 +31,24 @@ class Tier < ApplicationRecord
 
   def display_name
       "Order Line " + self.order_line_id.to_s + ' Position ' + self.position.to_s
+  end
+
+  # after_initialize do
+  #   self.position = 0
+  # end
+
+
+  before_create do
+    @sameOrderLineTiers = Tier.where(order_line_id: self.order_line_id)
+    puts(@sameOrderLineTiers)
+    @maxPosition = @sameOrderLineTiers.maximum("position")
+    puts(@maxPosition)
+    if !@maxPosition
+      puts("nil")
+      @maxPosition = 0
+    end
+    @setPosition = @maxPosition + 1
+    puts(@setPosition)
+    self.position = @setPosition
   end
 end

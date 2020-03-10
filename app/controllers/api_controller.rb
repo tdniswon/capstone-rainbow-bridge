@@ -1,5 +1,4 @@
 class ApiController < ApplicationController
-    # respond_to :html, :json
     skip_before_action :verify_authenticity_token
 
     def index
@@ -24,7 +23,6 @@ class ApiController < ApplicationController
         # else
         #     render 'failed'
         # end
-        respond_to :json
     end
 
     private

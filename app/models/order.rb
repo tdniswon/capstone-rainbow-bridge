@@ -5,6 +5,9 @@ class Order < ApplicationRecord
   has_many :order_lines
   has_many :rental_lines
 
+  validates :order_due_date, presence: true
+  validates :order_start_date, presence: true
+
   accepts_nested_attributes_for :order_lines
   accepts_nested_attributes_for :rental_lines
 

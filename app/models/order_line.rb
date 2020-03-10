@@ -6,6 +6,8 @@ class OrderLine < ApplicationRecord
   has_many :tasks
   has_many :order_line_restrictions
 
+  validates :order_line_start_date, presence: true
+
   accepts_nested_attributes_for :tiers
   accepts_nested_attributes_for :tasks
   accepts_nested_attributes_for :order_line_restrictions

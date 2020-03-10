@@ -2,6 +2,10 @@ class Customer < ApplicationRecord
   belongs_to :customer_status
   has_many :orders
 
+  validates :customer_first_name, presence: true
+  validates :customer_last_name, presence: true
+  validates :customer_email, presence: true
+
   accepts_nested_attributes_for :orders
 
   rails_admin do
