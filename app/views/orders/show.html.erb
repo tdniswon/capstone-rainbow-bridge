@@ -57,13 +57,39 @@
 
 <p>
   <strong>Order type:</strong>
-  <%= @order.order_type_id %>
+  <%= @order.order_type.order_description %>
 </p>
 
 <p>
   <strong>Order status:</strong>
-  <%= @order.order_status_id %>
+  <%= @order.order_status.order_status_name %>
 </p>
+
+<hr>
+
+<table>
+        <tbody>
+          <tr>
+            <th>Order Line Description</th>
+            <th>Order Line Start Date</th>
+            <th>Order Line Finish Date</th>
+            <th>Special Order Notes</th>
+            <th>Product</th>
+            <th>Order Line Status</th>
+          </tr>
+          
+          <% @order.order_lines.each do |ol| %>
+            <tr>
+              <td><%= ol.order_line_description %></td>
+              <td><%= ol.order_line_start_date %></td>
+              <td><%= ol.order_line_finish_date %></td>
+              <td><%= ol.special_order_notes %></td>
+              <td><%= ol.product.product_name %></td>
+              <td><%= ol.order_line_status.order_line_status_name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

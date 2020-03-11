@@ -42,8 +42,46 @@
 
 <p>
   <strong>Customer status:</strong>
-  <%= @customer.customer_status_id %>
+  <%= @customer.customer_status.customer_status_name %>
 </p>
 
+<hr>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Order Description</th>
+      <th>Order Cost</th>
+      <th>Order Start Date</th>
+      <th>Order Due Date</th>
+      <th>Order Finish Date</th>
+      <th>Order Delivery</th>
+      <th>Delivery Street Address</th>
+      <th>Delivery City</th>
+      <th>Delivery State</th>
+      <th>Delivery Zip Code</th>
+      <th>Order type</th>
+      <th>Order status</th>
+    </tr>
+    <% @customer.orders.each do |order| %>
+      <tr>
+        <td><%= order.order_description %></td>
+        <td><%= order.order_cost %></td>
+        <td><%= order.order_start_date %></td>
+        <td><%= order.order_due_date %></td>
+        <td><%= order.order_date_finish %></td>
+        <td><%= order.order_delivery %></td>
+        <td><%= order.delivery_street_address %></td>
+        <td><%= order.delivery_city %></td>
+        <td><%= order.delivery_state %></td>
+        <td><%= order.delivery_zip_code %></td>
+        <td><%= order.order_type.order_description %></td>
+        <td><%= order.order_status.order_status_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>

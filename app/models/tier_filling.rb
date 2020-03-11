@@ -4,7 +4,7 @@ class TierFilling < ApplicationRecord
 
   rails_admin do
     nested do
-      configure :order_line do
+      configure :tier do
         hide
       end
     end

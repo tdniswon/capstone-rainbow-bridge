@@ -17,23 +17,37 @@
 
 <p>
   <strong>Cake flavor:</strong>
-  <%= @tier.cake_flavor_id %>
+  <%= @tier.cake_flavor.flavor_name %>
 </p>
 
 <p>
   <strong>Frosting flavor:</strong>
-  <%= @tier.frosting_flavor_id %>
+  <%= @tier.frosting_flavor.frosting_name %>
 </p>
 
 <p>
   <strong>Shape:</strong>
-  <%= @tier.shape_id %>
+  <%= @tier.shape.shape_name %>
 </p>
 
 <p>
   <strong>Order line:</strong>
   <%= @tier.order_line_id %>
 </p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Filling</th>
+    </tr>
+    <hr>
+    <% @tier.tier_fillings.each do |tf| %>
+      <tr>
+        <td><%= tf.filling.filling_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_tier_path(@tier) %> |
 <%= link_to 'Back', tiers_path %>
