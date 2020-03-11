@@ -22,18 +22,45 @@
 
 <p>
   <strong>Product:</strong>
-  <%= @order_line.product_id %>
+  <%= @order_line.product.product_name %>
 </p>
 
 <p>
   <strong>Order line status:</strong>
-  <%= @order_line.order_line_status_id %>
+  <%= @order_line.order_line_status.order_line_status_name %>
 </p>
 
 <p>
-  <strong>Order line status:</strong>
+  <strong>Order line id:</strong>
   <%= @order_line.order_id %>
 </p>
+
+<hr>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Tier Position</th>
+      <th>Tier Size</th>
+      <th>Tier Special Notes</th>
+      <th>Cake Flavor</th>
+      <th>Frosting Flavor</th>
+      <th>Shape</th>
+    </tr>
+    <% @order_line.tiers.each do |ot| %>
+      <tr>
+        <td><%= ot.position %></td>
+        <td><%= ot.tier_size %></td>
+        <td><%= ot.tier_special_notes %></td>
+        <td><%= ot.cake_flavor.flavor_name %></td>
+        <td><%= ot.frosting_flavor.frosting_name %></td>
+        <td><%= ot.shape.shape_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
 
 <%= link_to 'Edit', edit_order_line_path(@order_line) %> |
 <%= link_to 'Back', order_lines_path %>

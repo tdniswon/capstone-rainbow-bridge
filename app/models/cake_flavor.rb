@@ -1,7 +1,7 @@
 class CakeFlavor < ApplicationRecord
     has_many :tiers
 
-    validates :cake_name, presence: true
+    validates :flavor_name, presence: true
 
     rails_admin do
         object_label_method :display_name
