@@ -36,6 +36,7 @@ gem 'devise'
 
 # Added by Tyler 1/31, admin dashboard for employee controls of database and reporting
 gem 'rails_admin'
+gem 'rails_admin_history_rollback'
 
 # Added by Tyler 2/6, Access control through roles
 gem 'cancancan'
@@ -48,6 +49,10 @@ gem 'chartkick'
 
 # Added by Tyler 2/22, for aws sdk image storage
 gem 'aws-sdk-s3', require: false
+
+# paper trail gem for versioning
+gem 'paper_trail'
+gem 'paper_trail-association_tracking'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
