@@ -14,6 +14,8 @@ class ApiController < ApplicationController
         puts"**********"
         puts params[:api]
         puts"**********"
+        var = request.body.read
+        puts(var)
         # @customer = Customer.new
         # @customer.customer_first_name = params[:api][:first_name]
         # @customer.customer_last_name = params[:api][:last_name]
