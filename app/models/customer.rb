@@ -1,12 +1,14 @@
 class Customer < ApplicationRecord
   belongs_to :customer_status
   has_many :orders
+  validates :customer_first_name, presence: true, format: { with: /\A[a-zA-Z0-9]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}
+  validates :customer_last_name, presence: true, format: {with: /\A[a-zA-Z0-9]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}
+  validates :customer_email, format: { with: /\A([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)\z/ }, presence: true, uniqueness: true
+  validates :customer_phone, length: {minimum: 10 }, format: { with: /\A(([\d]{3})[-][\d]{3}[-][\d]{4})\z/, message: 'Use Format - XXX-XXX-XXXX'}, allow_blank: true
+  validates :customer_street_address, format: { with: /\A[a-zA-Z]+\z/, message: 'Only Alphanumerical characters'}
+  validates :customer_city, format:{ with: /\A[a-zA-Z]+\z/, message: 'Only Alphanumerical characters'} # Might include periods later
+  validates :customer_zip_code, length: {is:5 }, allow_blank: true, numericality: { only_integer:true }
 
-  validates :customer_first_name, presence: true
-  validates :customer_last_name, presence: true
-  validates :customer_email, presence: true
-  validates :customer_zip_code, length: {is:5}
-  validates :customer_phone, length: {minimum: 10}
   accepts_nested_attributes_for :orders
 
   rails_admin do
