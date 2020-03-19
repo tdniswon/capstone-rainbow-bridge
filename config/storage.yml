@@ -12,7 +12,7 @@ amazon:
   access_key_id: <%= ENV["AWS_ACCESS_KEY"] %>
   secret_access_key: <%= ENV["AWS_SECRECT_KEY"] %>
   region: us-east-2
-  bucket: capstone-testing
+  bucket: capstone-testing2
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
