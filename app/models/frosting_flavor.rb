@@ -10,4 +10,6 @@ class FrostingFlavor < ApplicationRecord
     def display_name
         self.frosting_name
     end
+
+    has_paper_trail
 end

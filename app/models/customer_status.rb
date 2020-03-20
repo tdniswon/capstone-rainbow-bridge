@@ -10,4 +10,6 @@ class CustomerStatus < ApplicationRecord
     def display_name
         self.customer_status_name
     end
+
+    has_paper_trail
 end

@@ -10,4 +10,6 @@ class DietaryRestriction < ApplicationRecord
     def display_name
         self.dietary_restriction_name
     end
+
+    has_paper_trail
 end

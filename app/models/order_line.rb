@@ -30,4 +30,5 @@ class OrderLine < ApplicationRecord
       self.order_line_description
   end
 
+  has_paper_trail
 end

@@ -24,4 +24,6 @@ class Task < ApplicationRecord
   def display_name
       self.task_name
   end
+
+  has_paper_trail
 end

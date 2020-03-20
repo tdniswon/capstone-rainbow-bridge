@@ -10,4 +10,6 @@ class TaskStatus < ApplicationRecord
     def display_name
         self.task_status_name
     end
+
+    has_paper_trail
 end

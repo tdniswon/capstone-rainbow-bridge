@@ -31,4 +31,5 @@ class Order < ApplicationRecord
       self.order_description
   end
 
+  has_paper_trail
 end

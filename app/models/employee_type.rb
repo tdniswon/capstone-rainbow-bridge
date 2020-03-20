@@ -10,4 +10,6 @@ class EmployeeType < ApplicationRecord
     def display_name
         self.employee_type_description
     end
+
+    has_paper_trail
 end

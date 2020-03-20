@@ -10,4 +10,5 @@ class Shape < ApplicationRecord
     def display_name
         self.shape_name
     end
+    has_paper_trail
 end

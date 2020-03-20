@@ -11,4 +11,6 @@ class RentalItem < ApplicationRecord
     def display_name
         self.rental_item_name
     end
+
+    has_paper_trail
 end

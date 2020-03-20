@@ -10,4 +10,6 @@ class OrderStatus < ApplicationRecord
     def display_name
         self.order_status_name
     end
+
+    has_paper_trail
 end

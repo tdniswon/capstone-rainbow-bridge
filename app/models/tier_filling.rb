@@ -10,4 +10,5 @@ class TierFilling < ApplicationRecord
     end
   end
   
+  has_paper_trail
 end

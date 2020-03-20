@@ -10,4 +10,6 @@ class CakeFlavor < ApplicationRecord
     def display_name
         self.flavor_name
     end
+
+    has_paper_trail
 end

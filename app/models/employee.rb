@@ -17,4 +17,6 @@ class Employee < ApplicationRecord
       self.employee_first_name + ' ' + self.employee_last_name
     end
   end
+
+  has_paper_trail
 end

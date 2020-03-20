@@ -20,4 +20,6 @@ class Customer < ApplicationRecord
       self.customer_first_name + ' ' + self.customer_last_name
     end
   end
+
+  has_paper_trail
 end

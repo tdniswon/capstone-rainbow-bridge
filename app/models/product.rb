@@ -11,4 +11,6 @@ class Product < ApplicationRecord
     def display_name
         self.product_name
     end
+
+    has_paper_trail
 end

@@ -52,4 +52,6 @@ class Tier < ApplicationRecord
     puts(@setPosition)
     self.position = @setPosition
   end
+  
+  has_paper_trail
 end

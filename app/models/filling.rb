@@ -10,4 +10,6 @@ class Filling < ApplicationRecord
     def display_name
         self.filling_name
     end
+
+    has_paper_trail
 end

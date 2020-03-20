@@ -10,4 +10,6 @@ class EmployeeStatus < ApplicationRecord
     def display_name
         self.employee_status_name
     end
+
+    has_paper_trail
 end
