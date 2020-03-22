@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Task:</strong>
-  <%= @task_assignment.task_id %>
+    <strong>Task:</strong>
+    <%= @task_assignment.task_id %>
 </p>
 
 <p>
-  <strong>Employee:</strong>
-  <%= @task_assignment.employee_id %>
+    <strong>Employee:</strong>
+    <%= @task_assignment.employee_id %>
 </p>
 
-<%= link_to 'Edit', edit_task_assignment_path(@task_assignment) %> |
-<%= link_to 'Back', task_assignments_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'task_assignment', id: @task_assignment.id) %> |
+<%= link_to 'Back', :back %>

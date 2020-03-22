@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Employee first name:</strong>
-  <%= @employee.employee_first_name %>
+    <strong>Employee first name:</strong>
+    <%= @employee.employee_first_name %>
 </p>
 
 <p>
-  <strong>Employee last name:</strong>
-  <%= @employee.employee_last_name %>
+    <strong>Employee last name:</strong>
+    <%= @employee.employee_last_name %>
 </p>
 
 <p>
-  <strong>Employee email:</strong>
-  <%= @employee.employee_email %>
+    <strong>Employee email:</strong>
+    <%= @employee.employee_email %>
 </p>
 
 <p>
-  <strong>Employee phone:</strong>
-  <%= @employee.employee_phone %>
+    <strong>Employee phone:</strong>
+    <%= @employee.employee_phone %>
 </p>
 
 <p>
-  <strong>Employee status:</strong>
-  <%= @employee.employee_status_id %>
+    <strong>Employee status:</strong>
+    <%= @employee.employee_status_id %>
 </p>
 
 <p>
-  <strong>Employee type:</strong>
-  <%= @employee.employee_type_id %>
+    <strong>Employee type:</strong>
+    <%= @employee.employee_type_id %>
 </p>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'employee', id: @employee.id) %> |
+<%= link_to 'Back', :back %>

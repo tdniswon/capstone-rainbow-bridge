@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Rental item name:</strong>
-  <%= @rental_item.rental_item_name %>
+    <strong>Rental item name:</strong>
+    <%= @rental_item.rental_item_name %>
 </p>
 
 <p>
-  <strong>Rental item description:</strong>
-  <%= @rental_item.rental_item_description %>
+    <strong>Rental item description:</strong>
+    <%= @rental_item.rental_item_description %>
 </p>
 
 <p>
-  <strong>Rental item cost:</strong>
-  <%= @rental_item.rental_item_cost %>
+    <strong>Rental item cost:</strong>
+    <%= @rental_item.rental_item_cost %>
 </p>
 
-<%= link_to 'Edit', edit_rental_item_path(@rental_item) %> |
-<%= link_to 'Back', rental_items_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'rental_item', id: @rental_item.id) %> |
+<%= link_to 'Back', :back %>

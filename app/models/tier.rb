@@ -5,7 +5,7 @@ class Tier < ApplicationRecord
   belongs_to :order_line
   has_many :tier_fillings
 
-  validates :position, presence: true, numericality: {only_integer: true}
+  #validates :position, presence: true, numericality: {only_integer: true}
   validates :tier_size, presence: true, format: {with: /\A[a-zA-Z0-9]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}
 
   accepts_nested_attributes_for :tier_fillings

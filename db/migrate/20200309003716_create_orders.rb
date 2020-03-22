@@ -3,10 +3,10 @@ class CreateOrders < ActiveRecord::Migration[6.0]
     create_table :orders do |t|
       t.string :order_description
       t.decimal :order_cost
-      t.datetime :order_start_date, null: false
-      t.datetime :order_due_date, null: false
+      t.datetime :order_start_date
+      t.datetime :order_due_date
       t.datetime :order_date_finish
-      t.boolean :order_delivery, null: false
+      t.boolean :order_delivery
       t.string :delivery_street_address
       t.string :delivery_city
       t.string :delivery_state

@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Order:</strong>
-  <%= @rental_line.order_id %>
+    <strong>Order:</strong>
+    <%= @rental_line.order_id %>
 </p>
 
 <p>
-  <strong>Rental item:</strong>
-  <%= @rental_line.rental_item_id %>
+    <strong>Rental item:</strong>
+    <%= @rental_line.rental_item_id %>
 </p>
 
-<%= link_to 'Edit', edit_rental_line_path(@rental_line) %> |
-<%= link_to 'Back', rental_lines_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'rental_line', id: @rental_line.id) %> |
+<%= link_to 'Back', :back %>
