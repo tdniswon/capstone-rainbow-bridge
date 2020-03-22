@@ -5,6 +5,7 @@ class OrderLine < ApplicationRecord
   has_many :tiers
   has_many :tasks
   has_many :order_line_restrictions
+  has_many_attached :images
 
   validates :order_line_start_date, presence: true
   # validates :order_line_finish_date, allow_blank: true
