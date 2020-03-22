@@ -8,10 +8,17 @@ class Order < ApplicationRecord
   validates :order_description, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
   validates :delivery_street_address, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
   validates :delivery_city, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, allow_blank: true
+<<<<<<< HEAD
   validates :delivery_state, format: {with: /\A[a-zA-Z]+\z/, message: 'Only Alphanumerical'}, allow_blank: true
   validates :delivery_zip_code, length: {is: 5}, numericality: true, allow_blank: true
   validates :order_due_date, presence: true, allow_blank: true
   validates :order_start_date, presence: true, allow_blank: true
+=======
+  validates :delivery_state, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, allow_blank: true
+  validates :delivery_zip_code, length: {is: 5}, numericality: true, allow_blank: true
+  validates :order_due_date, presence: true
+  validates :order_start_date, presence: true
+>>>>>>> ec29bd280f4dc0ef8643e2ad6ebc47b90fbfdbe5
   accepts_nested_attributes_for :order_lines
   accepts_nested_attributes_for :rental_lines
 

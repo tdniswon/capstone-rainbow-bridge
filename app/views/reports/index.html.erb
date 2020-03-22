@@ -1,1 +1,19 @@
-<h1>Reports</h1>
+<div class="wrapper">
+
+    <nav id="sidebar">
+        <ul class="list-unstyled components">
+            <li class="sidebar-header">Navigation</li>
+            <li><%= link_to "Test Report", new_report_path(report: "test_report"), :class => "nav-link" %></li>
+            <li><%= link_to "Test Report", new_report_path(report: "test_report2"), :class => "nav-link" %></li>
+        </ul>
+
+    </nav>
+
+    <div id="content">
+
+        <h1>Reports</h1>
+        <%= render partial: @report %>
+
+    </div>
+
+</div>
