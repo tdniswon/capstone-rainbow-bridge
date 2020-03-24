@@ -35,11 +35,11 @@ class ApiController < ApplicationController
             @order = Order.new
             @order.customer_id = @oldCustomer.id
             #@order.order_delivery = params[:api][:order_delivery] #probably won't need this due to nature of boolean
-            @order.order_start_date = params[:api][:order_start_date]
+            @order.order_start_date = DateTime.now # params[:api][:order_start_date]
             @order.order_due_date = params[:api][:order_due_date]
             @order.order_description = params[:api][:order_description]
-            @order.order_type_id = params[:api][:order_type]
-            @order.order_status_id = params[:api][:order_status]
+            @order.order_type_id = 1 # params[:api][:order_type]
+            @order.order_status_id = 1 # params[:api][:order_status]
             @order.save
             #@customer = Customer.new
         else
@@ -53,7 +53,7 @@ class ApiController < ApplicationController
             @customer.customer_city = params[:api][:city]
             @customer.customer_state = params[:api][:state]
             #@customerid = CustomerStatus.where(customer_status_name: "Active").first
-            @customer.customer_status_id = params[:api][:customer_status] #change this later
+            @customer.customer_status_id = 1 # params[:api][:customer_status] #change this later
             @customer.save
             @newCustomer = Customer.where(customer_email: params[:api][:email]).last
             puts"the customer email is"
@@ -64,11 +64,11 @@ class ApiController < ApplicationController
             @order = Order.new
             @order.customer_id = @newCustomer.id
             #@order.order_delivery = params[:api][:order_delivery] #probably won't need this due to nature of boolean
-            @order.order_start_date = params[:api][:order_start_date]
+            @order.order_start_date = DateTime.now # params[:api][:order_start_date]
             @order.order_due_date = params[:api][:order_due_date]
             @order.order_description = params[:api][:order_description]
-            @order.order_type_id = params[:api][:order_type]
-            @order.order_status_id = params[:api][:order_status]
+            @order.order_type_id = 1 # params[:api][:order_type]
+            @order.order_status_id = 1 # params[:api][:order_status]
             @order.save
             @newCustomer = Order.where(order_description: params[:api][:order_description]).last
             puts"the order description is"
