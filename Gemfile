@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'rails_admin'
 gem 'rails_admin_history_rollback'
 
+gem "aws-sdk-s3", require: false
+
 # for versioning and history
 gem 'paper_trail'
 gem 'paper_trail-association_tracking'

@@ -69,6 +69,6 @@ class OrderLinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_line_params
-      params.require(:order_line).permit(:order_line_description, :order_line_start_date, :order_line_finish_date, :special_order_notes, :product_id, :order_line_status_id)
+      params.require(:order_line).permit(:order_line_description, :order_line_start_date, :order_line_finish_date, :special_order_notes, :product_id, :order_line_status_id, :image)
     end
 end
