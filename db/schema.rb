@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_003954) do
+ActiveRecord::Schema.define(version: 2020_03_21_031817) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "cake_flavors", force: :cascade do |t|
     t.string "flavor_name", null: false
@@ -36,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
     t.string "customer_city"
     t.string "customer_state"
     t.string "customer_zip_code"
-    t.bigint "customer_status_id", null: false
+    t.integer "customer_status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_status_id"], name: "index_customers_on_customer_status_id"
@@ -65,8 +83,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
     t.string "employee_last_name", null: false
     t.string "employee_email", null: false
     t.string "employee_phone", null: false
-    t.bigint "employee_status_id", null: false
-    t.bigint "employee_type_id", null: false
+    t.integer "employee_status_id", null: false
+    t.integer "employee_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["employee_status_id"], name: "index_employees_on_employee_status_id"
@@ -87,8 +105,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
   end
 
   create_table "order_line_restrictions", force: :cascade do |t|
-    t.bigint "order_line_id", null: false
-    t.bigint "dietary_restriction_id", null: false
+    t.integer "order_line_id", null: false
+    t.integer "dietary_restriction_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dietary_restriction_id"], name: "index_order_line_restrictions_on_dietary_restriction_id"
@@ -106,9 +124,9 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
     t.datetime "order_line_start_date", null: false
     t.datetime "order_line_finish_date"
     t.string "special_order_notes"
-    t.bigint "product_id", null: false
-    t.bigint "order_line_status_id", null: false
-    t.bigint "order_id", null: false
+    t.integer "product_id", null: false
+    t.integer "order_line_status_id", null: false
+    t.integer "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_order_lines_on_order_id"
@@ -131,17 +149,17 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
   create_table "orders", force: :cascade do |t|
     t.string "order_description"
     t.decimal "order_cost"
-    t.datetime "order_start_date", null: false
-    t.datetime "order_due_date", null: false
+    t.datetime "order_start_date"
+    t.datetime "order_due_date"
     t.datetime "order_date_finish"
-    t.boolean "order_delivery", null: false
+    t.boolean "order_delivery"
     t.string "delivery_street_address"
     t.string "delivery_city"
     t.string "delivery_state"
     t.string "delivery_zip_code"
-    t.bigint "customer_id", null: false
-    t.bigint "order_type_id", null: false
-    t.bigint "order_status_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "order_type_id", null: false
+    t.integer "order_status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
@@ -165,8 +183,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
   end
 
   create_table "rental_lines", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "rental_item_id", null: false
+    t.integer "order_id", null: false
+    t.integer "rental_item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_rental_lines_on_order_id"
@@ -180,8 +198,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
   end
 
   create_table "task_assignments", force: :cascade do |t|
-    t.bigint "task_id", null: false
-    t.bigint "employee_id", null: false
+    t.integer "task_id", null: false
+    t.integer "employee_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["employee_id"], name: "index_task_assignments_on_employee_id"
@@ -200,8 +218,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
     t.datetime "task_start_date", null: false
     t.datetime "task_due_date", null: false
     t.datetime "task_finish_date"
-    t.bigint "task_status_id", null: false
-    t.bigint "order_line_id", null: false
+    t.integer "task_status_id", null: false
+    t.integer "order_line_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_line_id"], name: "index_tasks_on_order_line_id"
@@ -209,8 +227,8 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
   end
 
   create_table "tier_fillings", force: :cascade do |t|
-    t.bigint "tier_id", null: false
-    t.bigint "filling_id", null: false
+    t.integer "tier_id", null: false
+    t.integer "filling_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["filling_id"], name: "index_tier_fillings_on_filling_id"
@@ -221,10 +239,10 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
     t.integer "position", null: false
     t.integer "tier_size", null: false
     t.string "tier_special_notes"
-    t.bigint "cake_flavor_id", null: false
-    t.bigint "frosting_flavor_id", null: false
-    t.bigint "shape_id", null: false
-    t.bigint "order_line_id", null: false
+    t.integer "cake_flavor_id", null: false
+    t.integer "frosting_flavor_id", null: false
+    t.integer "shape_id", null: false
+    t.integer "order_line_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cake_flavor_id"], name: "index_tiers_on_cake_flavor_id"
@@ -233,6 +251,29 @@ ActiveRecord::Schema.define(version: 2020_03_09_003954) do
     t.index ["shape_id"], name: "index_tiers_on_shape_id"
   end
 
+  create_table "version_associations", force: :cascade do |t|
+    t.integer "version_id"
+    t.string "foreign_key_name", null: false
+    t.integer "foreign_key_id"
+    t.string "foreign_type"
+    t.index ["foreign_key_name", "foreign_key_id", "foreign_type"], name: "index_version_associations_on_foreign_key"
+    t.index ["version_id"], name: "index_version_associations_on_version_id"
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.integer "item_id", limit: 8, null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.text "object_changes", limit: 1073741823
+    t.integer "transaction_id"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+    t.index ["transaction_id"], name: "index_versions_on_transaction_id"
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "customers", "customer_statuses"
   add_foreign_key "employees", "employee_statuses"
   add_foreign_key "employees", "employee_types"

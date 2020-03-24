@@ -9,4 +9,6 @@ class TaskAssignment < ApplicationRecord
       end
     end
   end
+
+  has_paper_trail
 end

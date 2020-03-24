@@ -1,39 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Task name:</strong>
-  <%= @task.task_name %>
+    <strong>Task name:</strong>
+    <%= @task.task_name %>
 </p>
 
 <p>
-  <strong>Task description:</strong>
-  <%= @task.task_description %>
+    <strong>Task description:</strong>
+    <%= @task.task_description %>
 </p>
 
 <p>
-  <strong>Task start date:</strong>
-  <%= @task.task_start_date %>
+    <strong>Task start date:</strong>
+    <%= @task.task_start_date %>
 </p>
 
 <p>
-  <strong>Task due date:</strong>
-  <%= @task.task_due_date %>
+    <strong>Task due date:</strong>
+    <%= @task.task_due_date %>
 </p>
 
 <p>
-  <strong>Task finish date:</strong>
-  <%= @task.task_finish_date %>
+    <strong>Task finish date:</strong>
+    <%= @task.task_finish_date %>
 </p>
 
 <p>
-  <strong>Task status:</strong>
-  <%= @task.task_status_id %>
+    <strong>Task status:</strong>
+    <%= @task.task_status_id %>
 </p>
 
 <p>
-  <strong>Task status:</strong>
-  <%= @task.order_line_id %>
+    <strong>Task status:</strong>
+    <%= @task.order_line_id %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'task', id: @task.id) %> |
+<%= link_to 'Back', :back %>

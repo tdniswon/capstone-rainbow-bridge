@@ -10,4 +10,6 @@ class OrderType < ApplicationRecord
     def display_name
         self.order_description
     end
+
+    has_paper_trail
 end

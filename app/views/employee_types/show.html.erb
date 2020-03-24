@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Employee type description:</strong>
-  <%= @employee_type.employee_type_description %>
+    <strong>Employee type description:</strong>
+    <%= @employee_type.employee_type_description %>
 </p>
 
-<%= link_to 'Edit', edit_employee_type_path(@employee_type) %> |
-<%= link_to 'Back', employee_types_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'employee_type', id: @employee_type.id) %> |
+<%= link_to 'Back', :back %>

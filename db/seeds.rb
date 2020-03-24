@@ -76,6 +76,7 @@ OrderType.destroy_all
 OrderType.create(order_description: "Residential")
 OrderType.create(order_description: "Wedding")
 OrderType.create(order_description: "Pick up")
+OrderType.create(order_description: "Not selected")
 
 OrderStatus.destroy_all
 OrderStatus.create(order_status_name: "Inquired")

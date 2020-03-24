@@ -1,3 +1,16 @@
 // Place all the styles related to the reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.sidebar-header {
+    padding: 15px 15px 3px;
+    font-weight: bold;
+    color: #555555;
+    text-transform: uppercase;
+    font-size: 12px;
+}

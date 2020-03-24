@@ -5,8 +5,11 @@ class OrderLine < ApplicationRecord
   has_many :tiers
   has_many :tasks
   has_many :order_line_restrictions
+  has_many_attached :images
 
   validates :order_line_start_date, presence: true
+  # validates :order_line_finish_date, allow_blank: true
+
 
   accepts_nested_attributes_for :tiers
   accepts_nested_attributes_for :tasks
@@ -27,5 +30,6 @@ class OrderLine < ApplicationRecord
   def display_name
       self.order_line_description
   end
-  
+
+  has_paper_trail
 end

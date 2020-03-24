@@ -5,9 +5,14 @@ class Order < ApplicationRecord
   has_many :order_lines
   has_many :rental_lines
 
+  validates :order_description, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
+  validates :delivery_street_address, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
+  validates :delivery_city, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, allow_blank: true
+  validates :delivery_state, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, allow_blank: true
+  validates :delivery_zip_code, length: {is: 5}, numericality: true, allow_blank: true
   validates :order_due_date, presence: true
   validates :order_start_date, presence: true
-  validates :delivery_zip_code, length: {is: 5}
+
   accepts_nested_attributes_for :order_lines
   accepts_nested_attributes_for :rental_lines
 
@@ -27,4 +32,5 @@ class Order < ApplicationRecord
       self.order_description
   end
 
+  has_paper_trail
 end
