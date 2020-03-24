@@ -34,7 +34,7 @@ class ApiController < ApplicationController
             puts @oldCustomer.id
             @order = Order.new
             @order.customer_id = @oldCustomer.id
-            #@order.order_delivery = params[:api][:order_delivery] #probably won't need this due to nature of boolean
+            @order.order_delivery = true # params[:api][:order_delivery] #probably won't need this due to nature of boolean
             @order.order_start_date = DateTime.now # params[:api][:order_start_date]
             @order.order_due_date = params[:api][:order_due_date]
             @order.order_description = params[:api][:order_description]
@@ -63,7 +63,7 @@ class ApiController < ApplicationController
             #############################
             @order = Order.new
             @order.customer_id = @newCustomer.id
-            #@order.order_delivery = params[:api][:order_delivery] #probably won't need this due to nature of boolean
+            @order.order_delivery = true # params[:api][:order_delivery] #probably won't need this due to nature of boolean
             @order.order_start_date = DateTime.now # params[:api][:order_start_date]
             @order.order_due_date = params[:api][:order_due_date]
             @order.order_description = params[:api][:order_description]
