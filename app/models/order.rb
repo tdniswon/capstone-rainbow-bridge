@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   belongs_to :order_status
   has_many :order_lines
   has_many :rental_lines
+  has_many_attached :inspiration_images
 
   validates :order_description, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
   validates :delivery_street_address, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
