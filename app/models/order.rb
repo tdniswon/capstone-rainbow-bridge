@@ -6,9 +6,9 @@ class Order < ApplicationRecord
   has_many :rental_lines
   has_many_attached :inspiration_images
 
-  validates :order_description, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
-  validates :delivery_street_address, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
-  validates :delivery_city, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, allow_blank: true
+  validates :order_description, format: {with: /\A[-a-zA-Z0-9. ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
+  validates :delivery_street_address, format: {with: /\A[-a-zA-Z0-9. ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
+  validates :delivery_city, format: {with: /\A[-a-zA-Z. ]+\z/, message: 'Only Alphanumerical'}, allow_blank: true
   validates :delivery_state, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, allow_blank: true
   validates :delivery_zip_code, length: {is: 5}, numericality: true, allow_blank: true
   validates :order_due_date, presence: true
