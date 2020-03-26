@@ -5,13 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>Task name</th>
-      <th>Task description</th>
-      <th>Task start date</th>
-      <th>Task due date</th>
-      <th>Task finish date</th>
-      <th>Task status</th>
-      <th>Order line</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>Due Date</th>
+      <th>Finish Date</th>
+      <th>Task Status</th>
+      <th>Order Line</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,11 +24,11 @@
         <td><%= task.task_start_date %></td>
         <td><%= task.task_due_date %></td>
         <td><%= task.task_finish_date %></td>
-        <td><%= task.task_status_id %></td>
+        <td><%= task.task_status.task_status_name %></td>
         <td><%= task.order_line_id %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
