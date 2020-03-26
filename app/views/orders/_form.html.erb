@@ -76,6 +76,17 @@
     <%= form.text_field :order_status_id %>
   </div>
 
+  <h3>Order Lines</h3>
+  <div id='order_lines'>
+    <%= form.fields_for :order_lines do |order_line| %>
+      <%= render 'order_line_fields', :f => order_line %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'Add an Order Line', form, :order_lines %>
+    </div>
+  </div>
+<hr>
+
   <div class="actions">
     <%= form.submit %>
   </div>
