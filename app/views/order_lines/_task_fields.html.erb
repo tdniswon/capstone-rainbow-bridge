@@ -1,0 +1,39 @@
+<div class='nested-fields'>
+<div class="field">
+    <%= f.label :task_name %>
+    <%= f.text_field :task_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :task_description %>
+    <%= f.text_field :task_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :task_start_date %>
+    <%= f.datetime_select :task_start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :task_due_date %>
+    <%= f.datetime_select :task_due_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :task_finish_date %>
+    <%= f.datetime_select :task_finish_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :task_status_id %>
+    <%= f.text_field :task_status_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :order_line_id %>
+    <%= f.text_field :order_line_id %>
+  </div>
+<%= link_to_remove_association "Remove Task", f %>
+
+</div>
+
