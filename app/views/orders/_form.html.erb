@@ -87,7 +87,19 @@
   </div>
 <hr>
 
+<h3>Rental Lines</h3>
+<div id='rental_lines'>
+  <%= form.fields_for :rental_lines do |rental_line| %>
+    <%= render 'rental_line_fields', :f => rental_line %>
+  <% end %>
+  <div class='links'>
+    <%= link_to_add_association 'Add a Rental Line', form, :rental_lines %>
+  </div>
+</div>
+<hr>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
