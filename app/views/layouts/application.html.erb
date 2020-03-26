@@ -20,7 +20,19 @@
                 <%= link_to 'Home', main_app.root_path, :class => "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to 'Customers', rails_admin.index_path('customer'), :class => "nav-link" %>
+                <%= link_to 'Customers', main_app.customers_path, :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Orders', main_app.orders_path, :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Products', main_app.order_lines_path, :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Tasks', main_app.tasks_path, :class => "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Employees', main_app.employees_path, :class => "nav-link" %>
             </li>
             <li class="nav-item">
                 <%= link_to 'Reports', main_app.reports_path, :class => "nav-link" %>
