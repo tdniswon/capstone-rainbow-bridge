@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Task status name:</strong>
-  <%= @task_status.task_status_name %>
+    <strong>Task status name:</strong>
+    <%= @task_status.task_status_name %>
 </p>
 
-<%= link_to 'Edit', edit_task_status_path(@task_status) %> |
-<%= link_to 'Back', task_statuses_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'task_status', id: @task_status.id) %> |
+<%= link_to 'Back', :back %>

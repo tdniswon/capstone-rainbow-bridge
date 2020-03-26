@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Product name:</strong>
-  <%= @product.product_name %>
+    <strong>Product name:</strong>
+    <%= @product.product_name %>
 </p>
 
 <p>
-  <strong>Product description:</strong>
-  <%= @product.product_description %>
+    <strong>Product description:</strong>
+    <%= @product.product_description %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'product', id: @product.id) %> |
+<%= link_to 'Back', :back %>

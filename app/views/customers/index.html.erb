@@ -5,15 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Customer first name</th>
-      <th>Customer last name</th>
-      <th>Customer email</th>
-      <th>Customer phone</th>
-      <th>Customer street address</th>
-      <th>Customer city</th>
-      <th>Customer state</th>
-      <th>Customer zip code</th>
-      <th>Customer status</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Street Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip Code</th>
+      <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,10 +29,10 @@
         <td><%= customer.customer_city %></td>
         <td><%= customer.customer_state %></td>
         <td><%= customer.customer_zip_code %></td>
-        <td><%= customer.customer_status_id %></td>
+        <td><%= customer.customer_status.customer_status_name %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

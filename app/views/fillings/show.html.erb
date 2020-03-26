@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Filling name:</strong>
-  <%= @filling.filling_name %>
+    <strong>Filling name:</strong>
+    <%= @filling.filling_name %>
 </p>
 
 <p>
-  <strong>Filling description:</strong>
-  <%= @filling.filling_description %>
+    <strong>Filling description:</strong>
+    <%= @filling.filling_description %>
 </p>
 
-<%= link_to 'Edit', edit_filling_path(@filling) %> |
-<%= link_to 'Back', fillings_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'filling', id: @filling.id) %> |
+<%= link_to 'Back', :back %>

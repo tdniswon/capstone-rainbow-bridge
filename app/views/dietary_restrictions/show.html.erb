@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Dietary restriction name:</strong>
-  <%= @dietary_restriction.dietary_restriction_name %>
+    <strong>Dietary restriction name:</strong>
+    <%= @dietary_restriction.dietary_restriction_name %>
 </p>
 
-<%= link_to 'Edit', edit_dietary_restriction_path(@dietary_restriction) %> |
-<%= link_to 'Back', dietary_restrictions_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'dietary_restriction', id: @dietary_restriction.id) %> |
+<%= link_to 'Back', :back %>

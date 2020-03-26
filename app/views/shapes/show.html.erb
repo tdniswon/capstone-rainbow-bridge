@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Shape name:</strong>
-  <%= @shape.shape_name %>
+    <strong>Shape name:</strong>
+    <%= @shape.shape_name %>
 </p>
 
-<%= link_to 'Edit', edit_shape_path(@shape) %> |
-<%= link_to 'Back', shapes_path %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'shape', id: @shape.id) %> |
+<%= link_to 'Back', :back %>
