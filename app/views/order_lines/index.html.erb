@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Order Lines</h1>
+<h1>Order Content</h1>
 
 <table>
   <thead>
@@ -21,8 +21,8 @@
     <% @order_lines.each do |order_line| %>
       <tr>
         <td><%= order_line.order_line_description %></td>
-        <td><%= order_line.order_line_start_date %></td>
-        <td><%= order_line.order_line_finish_date %></td>
+        <td><%= order_line.order_line_start_date.to_formatted_s(:long_ordinal) %></td>
+        <td><%= order_line.order_line_finish_date.to_formatted_s(:long_ordinal) %></td>
         <td><%= order_line.special_order_notes %></td>
         <td><%= order_line.product.product_name %></td>
         <td><%= order_line.order_line_status.order_line_status_name %></td>
@@ -38,4 +38,4 @@
 
 <br>
 
-<%= link_to 'New Order Line', new_order_line_path %>
+<%= link_to 'New Order Content', new_order_line_path %>
