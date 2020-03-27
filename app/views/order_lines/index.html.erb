@@ -27,7 +27,7 @@
         <td><%= order_line.product.product_name %></td>
         <td><%= order_line.order_line_status.order_line_status_name %></td>
         <td><%= order_line.order_id %></td>
-        <td><%= order_line.Image %></td>
+        <td><%= order_line.images %></td>
         <td><%= link_to 'Show', order_line %></td>
         <td><%= link_to 'Edit', edit_order_line_path(order_line) %></td>
         <td><%= link_to 'Delete', order_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>

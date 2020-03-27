@@ -1,0 +1,68 @@
+<div class='nested-fields'>
+<div class="field">
+ <%= f.label :order_description %>
+ <%= f.text_field :order_description %>
+</div>
+
+<div class="field">
+ <%= f.label :order_cost %>
+ <%= f.text_field :order_cost %>
+</div>
+
+<div class="field">
+ <%= f.label :order_start_date %>
+ <%= f.datetime_select :order_start_date %>
+</div>
+
+<div class="field">
+ <%= f.label :order_due_date %>
+ <%= f.datetime_select :order_due_date %>
+</div>
+
+<div class="field">
+ <%= f.label :order_date_finish %>
+ <%= f.datetime_select :order_date_finish %>
+</div>
+
+<div class="field">
+ <%= f.label :order_delivery %>
+ <%= f.check_box :order_delivery %>
+</div>
+
+<div class="field">
+ <%= f.label :delivery_street_address %>
+ <%= f.text_field :delivery_street_address %>
+</div>
+
+<div class="field">
+ <%= f.label :delivery_city %>
+ <%= f.text_field :delivery_city %>
+</div>
+
+<div class="field">
+ <%= f.label :delivery_state %>
+ <%= f.text_field :delivery_state %>
+</div>
+
+<div class="field">
+ <%= f.label :delivery_zip_code %>
+ <%= f.text_field :delivery_zip_code %>
+</div>
+
+<div class="field">
+ <%= f.label :customer_id %>
+ <%= f.text_field :customer_id %>
+</div>
+
+<div class="field">
+ <%= f.label :order_type_id %>
+ <%= f.text_field :order_type_id %>
+</div>
+
+<div class="field">
+ <%= f.label :order_status_id %>
+ <%= f.text_field :order_status_id %>
+</div>
+<%= link_to_remove_association "Remove Order", f %>
+
+</div>
