@@ -171,24 +171,15 @@
   <div class="form-row">
     <div class="form-group col-md-3">
     <label for="inputCust">Customer</label>
-      <select id="inputCust" class="form-control">
-        <option selected>Choose One...</option>
-        <option>...</option>
-      </select>
+      <%= form.collection_select(:customer_id, Customer.all, :id, :customer_first_name,{prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
     <div class="form-group col-md-3">
-      <label for="inputState">Order Type</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose One...</option>
-        <option>...</option>
-      </select>
+      <label for="inputOrdType">Order Type</label>
+      <%= form.collection_select(:order_type_id, OrderType.all, :id, :order_description, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
     <div class="form-group col-md-3">
-      <label for="inputState">Order Status</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose One...</option>
-        <option>...</option>
-      </select>
+      <label for="inputOrderStat">Order Status</label>
+      <%= form.collection_select(:order_status_id, OrderStatus.all, :id, :order_status_name, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
   </div>
   </div>
