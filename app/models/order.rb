@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   with_options if: :order_delivery? do
     validates :delivery_street_address, format: {with: /\A[-a-zA-Z0-9. ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, presence: true
     validates :delivery_city, format: {with: /\A[-a-zA-Z. ]+\z/, message: 'Only Alphanumerical'}, presence: true
-    validates :delivery_state, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, presence: true
+    validates :delivery_state, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, presence: true, length: {is:2}
     validates :delivery_zip_code, length: {is: 5}, numericality: true, presence: true
   end
 
