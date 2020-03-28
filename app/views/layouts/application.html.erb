@@ -13,8 +13,8 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#ff00ff;">
+    <%=image_tag("logo/logo_transparent (2).png", alt: "Icednfrostedlogo", :size => "200x100", :align => "d-inline-block align-top") %>
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
                 <%= link_to 'Home', main_app.root_path, :class => "nav-link" %>
@@ -41,8 +41,9 @@
                 <%= link_to 'Dashboard', rails_admin.dashboard_path, :class => "nav-link" %>
             </li>
         </ul>
-    </nav>
 
+    </nav>
+   
     <%= yield %>
 
 </body>
