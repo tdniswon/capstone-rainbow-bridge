@@ -27,9 +27,9 @@
       <tr>
         <td><%= order.order_description %></td>
         <td><%= order.order_cost %></td>
-        <td><%= order.order_start_date %></td>
-        <td><%= order.order_due_date %></td>
-        <td><%= order.order_date_finish %></td>
+        <td><%= order.order_start_date.to_formatted_s(:long_ordinal) %></td>
+        <td><%= order.order_due_date.to_formatted_s(:long_ordinal) %></td>
+        <td><%= order.order_date_finish.try(:to_formatted_s,:long_ordinal) %></td>
         <td><%= order.order_delivery %></td>
         <td><%= order.delivery_street_address %></td>
         <td><%= order.delivery_city %></td>

@@ -12,28 +12,28 @@
 
 <p>
     <strong>Task start date:</strong>
-    <%= @task.task_start_date %>
+    <%= @task.task_start_date.to_formatted_s(:long_ordinal) %>
 </p>
 
 <p>
     <strong>Task due date:</strong>
-    <%= @task.task_due_date %>
+    <%= @task.task_due_date.to_formatted_s(:long_ordinal) %>
 </p>
 
 <p>
     <strong>Task finish date:</strong>
-    <%= @task.task_finish_date %>
+    <%= @task.task_finish_date.to_formatted_s(:long_ordinal) %>
 </p>
 
 <p>
     <strong>Task status:</strong>
-    <%= @task.task_status_id %>
+    <%= @task.task_status.task_status_name %>
 </p>
 
 <p>
-    <strong>Task status:</strong>
+    <strong>Order Line:</strong>
     <%= @task.order_line_id %>
 </p>
 
-<%= link_to 'Edit', rails_admin.edit_path(model_name: 'task', id: @task.id) %> |
+<%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', :back %>
