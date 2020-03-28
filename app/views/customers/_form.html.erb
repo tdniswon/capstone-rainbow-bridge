@@ -37,7 +37,7 @@
 
       <div class="form-group col-md-4">
         <%= form.label "Status" %>
-        <%= form.text_field :customer_status_id, class: "form-control" %>
+        <%= form.collection_select(:customer_status_id, CustomerStatus.all, :id, :customer_status_name, {prompt: "Select One..."}, {class: "form-control"}) %>
       </div>
     </div>
 
