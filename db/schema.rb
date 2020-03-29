@@ -149,10 +149,10 @@ ActiveRecord::Schema.define(version: 2020_03_21_031817) do
   create_table "orders", force: :cascade do |t|
     t.string "order_description"
     t.decimal "order_cost"
-    t.datetime "order_start_date"
-    t.datetime "order_due_date"
+    t.datetime "order_start_date", null: false
+    t.datetime "order_due_date", null: false
     t.datetime "order_date_finish"
-    t.boolean "order_delivery"
+    t.boolean "order_delivery", null: false
     t.string "delivery_street_address"
     t.string "delivery_city"
     t.string "delivery_state"

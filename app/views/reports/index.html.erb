@@ -3,10 +3,14 @@
     <nav id="sidebar">
         <ul class="list-unstyled components">
             <li class="sidebar-header">Navigation</li>
-            <li><%= link_to "Test Report", new_report_path(report: "test_report"), :class => "nav-link" %></li>
-            <li><%= link_to "Test Report", new_report_path(report: "test_report2"), :class => "nav-link" %></li>
+
+            <li><%= link_to "Bakers", new_report_path(report: "bakers"), :class => "nav-link" %></li>
+            <li><%= link_to "Popular Fillings", new_report_path(report: "popular_fillings"), :class => "nav-link" %></li>
+            <li><%= link_to "Order Growth", new_report_path(report: "order_growth"), :class => "nav-link" %></li>
+            <li><%= link_to "Test Report2", new_report_path(report: "test_report2"), :class => "nav-link" %></li>
             <li><%= link_to "Most Popular Cake Flavors", new_report_path(report: "query_name"), :class => "nav-link" %></li>
             <li><%= link_to "Most Popular Frostings", new_report_path(report: "query_name2"), :class => "nav-link" %></li>
+
         </ul>
     </nav>
 </div>
