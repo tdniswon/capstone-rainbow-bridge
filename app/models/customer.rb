@@ -9,7 +9,7 @@ class Customer < ApplicationRecord
   validates :customer_city, format:{ with: /\A[a-zA-Z\- ]+\z/, message: 'Only Alphanumerical characters'}
   validates :customer_state, format:{with: /\A[\w]+\z/}, length: {is:2}
   validates :customer_zip_code, length: {is:5 }, allow_blank: true, numericality: { only_integer:true }
-
+   Date
   accepts_nested_attributes_for :orders
 
   rails_admin do

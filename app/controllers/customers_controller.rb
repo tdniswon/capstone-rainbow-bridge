@@ -1,6 +1,9 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-
+ 
+  def timething 
+  Datetime rightnow = Datetime.now
+  end
   # GET /customers
   # GET /customers.json
   def index
