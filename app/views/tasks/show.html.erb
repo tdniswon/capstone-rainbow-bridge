@@ -35,5 +35,26 @@
     <%= @task.order_line_id %>
 </p>
 
+<hr>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Task Name</th>
+            <th>Employee Name</th>
+        </tr>
+
+        <% @task.task_assignments.each do |ta| %>
+        <tr>
+            <td><%= ta.task.task_name %></td>
+            <td><%= ta.employee.fullname %></td>
+            <td><%= link_to 'Show Details', ta %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<hr>
+
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', :back %>

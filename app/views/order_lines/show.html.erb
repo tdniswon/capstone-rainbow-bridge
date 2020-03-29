@@ -40,6 +40,24 @@
 <table>
     <tbody>
         <tr>
+            <th>Order Line ID</th>
+            <th>Dietary Restriction</th>
+        </tr>
+        <% @order_line.order_line_restrictions.each do |olr| %>
+        <tr>
+            <td><%= olr.order_line_id %></td>
+            <td><%= olr.dietary_restriction.dietary_restriction_name %></td>
+            <td><%= link_to 'Show Details', olr %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<hr>
+
+<table>
+    <tbody>
+        <tr>
             <th>Tier Position</th>
             <th>Tier Size</th>
             <th>Tier Special Notes</th>
@@ -56,6 +74,34 @@
             <td><%= ot.frosting_flavor.frosting_name %></td>
             <td><%= ot.shape.shape_name %></td>
             <td><%= link_to 'Show Details', ot %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<hr>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Task Name</th>
+            <th>Task Description</th>
+            <th>Task Start Date</th>
+            <th>Task Due Date</th>
+            <th>Task Finish Date</th>
+            <th>Task Status</th>
+            <th>Order Line ID</th>
+        </tr>
+        <% @order_line.tasks.each do |otasks| %>
+        <tr>
+            <td><%= otasks.task_name %></td>
+            <td><%= otasks.task_description %></td>
+            <td><%= otasks.task_start_date %></td>
+            <td><%= otasks.task_due_date %></td>
+            <td><%= otasks.task_finish_date %></td>
+            <td><%= otasks.task_status.task_status_name %></td>
+            <td><%= otasks.order_line_id %></td>
+            <td><%= link_to 'Show Details', otasks %></td>
         </tr>
         <% end %>
     </tbody>
