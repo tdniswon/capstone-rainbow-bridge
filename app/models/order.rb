@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   validates :order_description, format: {with: /\A[-a-zA-Z0-9.' ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
   validates :order_due_date, presence: true
   validates :order_start_date, presence: true
-  validates :order_cost, format: {with: /\A\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.[0-9][0-9])?+\z/, message: 'Format: $XXX.XX'}
+  validates :order_cost, format: {with: /\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.[0-9][0-9])?+/, message: 'Format: $XXX.XX'}
   with_options if: :order_delivery? do
     validates :delivery_street_address, format: {with: /\A[-a-zA-Z0-9. ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, presence: true
     validates :delivery_city, format: {with: /\A[-a-zA-Z. ]+\z/, message: 'Only Alphanumerical'}, presence: true
