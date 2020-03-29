@@ -43,6 +43,17 @@ DietaryRestriction.find_or_create_by(dietary_restriction_name: "Gluten")
 DietaryRestriction.find_or_create_by(dietary_restriction_name: "Nuts")
 DietaryRestriction.find_or_create_by(dietary_restriction_name: "Soy")
 
+#RentalItem.destroy_all
+RentalItem.create(rental_item_name: "Gold Wedding Cake Stand")
+RentalItem.create(rental_item_description: "")
+RentalItem.create(rental_item_cost: 40.00)
+RentalItem.create(rental_item_name: "Silver Wedding Cake Stand")
+RentalItem.create(rental_item_description: "")
+RentalItem.create(rental_item_cost: 40.00)
+RentalItem.create(rental_item_name: "Pedestal Stand Set of Three")
+RentalItem.create(rental_item_description: "")
+RentalItem.create(rental_item_cost: 40.00)
+
 #Product.destroy_all
 Product.find_or_create_by(product_name: "Cake", product_description: "Custom cakes")
 Product.find_or_create_by(product_name: "Cookies", product_description: "Custom cookies")
@@ -96,6 +107,10 @@ OrderType.find_or_create_by(order_description: "Other")
 OrderStatus.find_or_create_by(order_status_name: "Inquired")
 OrderStatus.find_or_create_by(order_status_name: "In Progress")
 OrderStatus.find_or_create_by(order_status_name: "Complete")
+
+#OrderLineStatus.destroy_all
+OrderLineStatus.create(order_line_status_name: "Incomplete")
+OrderLineStatus.create(order_line_status_name: "Complete")
 
 #CustomerStatus.destroy_all
 CustomerStatus.find_or_create_by(customer_status_name: "Inactive")
@@ -193,6 +208,12 @@ Shape.find_or_create_by(shape_name: "Round")
 Shape.find_or_create_by(shape_name: "Square")
 Shape.find_or_create_by(shape_name: "Triangle")
 
+#TaskStatus.destroy_all
+TaskStatus.create(task_status_name: "Not Started")
+TaskStatus.create(task_status_name: "In Progress")
+TaskStatus.create(task_status_name: "Complete")
+
+
 Order.find_or_create_by(order_description: "Order description 1", order_cost: 53.75, order_start_date: "2020-03-29 10:57:51", order_due_date: "2020-04-29 10:57:51", order_date_finish: "2020-04-29 10:57:51", order_delivery: 'false', customer_id: 1, order_type_id: 3, order_status_id: 3)
 Order.find_or_create_by(order_description: "Order description 2", order_cost: 69.75, order_start_date: "2020-03-29 10:57:51", order_due_date: "2020-04-01 10:57:51", order_date_finish: "2020-04-01 10:57:51", order_delivery: 'false', customer_id: 2, order_type_id: 3, order_status_id: 2)
 Order.find_or_create_by(order_description: "Order description 3", order_cost: 100.15, order_start_date: "2020-03-30 10:57:51", order_due_date: "2020-04-01 10:57:51", order_date_finish: "2020-04-01 10:57:51", order_delivery: 'false', customer_id: 3, order_type_id: 3, order_status_id: 1)
@@ -200,3 +221,5 @@ Order.find_or_create_by(order_description: "Order description 4", order_cost: 85
 Order.find_or_create_by(order_description: "Order description 5", order_cost: 37.15, order_start_date: "2020-03-31 12:57:51", order_due_date: "2020-04-01 12:57:51", order_date_finish: "2020-04-01 12:57:51", order_delivery: 'true', delivery_street_address: "5005 North St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "73215", customer_id: 5, order_type_id: 7, order_status_id: 3)
 Order.find_or_create_by(order_description: "Order description 6", order_cost: 99.99, order_start_date: "2020-04-01 12:57:51", order_due_date: "2020-04-01 15:25:51", order_date_finish: "2020-04-01 15:25:51", order_delivery: 'true', delivery_street_address: "1234 South St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "73007", customer_id: 6, order_type_id: 2, order_status_id: 3)
 Order.find_or_create_by(order_description: "Order description 7", order_cost: 199.99, order_start_date: "2020-04-01 12:57:51", order_due_date: "2020-04-20 15:25:51", order_date_finish: "2020-04-20 15:25:51", order_delivery: 'true', delivery_street_address: "3443 Brother St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "70023", customer_id: 7, order_type_id: 2, order_status_id: 2)
+
+Tier.create(position: '1', cake_flavor_id: '1', frosting_flavor_id: '1', shape_id: '1', order_line_id: '1', tier_size: "Big ol' Pan", tier_special_notes: "This layer is a JoJo reference")
