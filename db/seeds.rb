@@ -448,7 +448,28 @@ TierFilling.create_or_find_by(tier_id: 1, filling_id: 1)
 
 TaskAssignment.create_or_find_by(task_id: 1, employee_id: 1)
 
+# Dietary Restrictions 1-5 Order lines 1-21
 OrderLineRestriction.create_or_find_by(order_line_id: 1, dietary_restriction_id: 1)
+OrderLineRestriction.create_or_find_by(order_line_id: 1, dietary_restriction_id: 4)
+OrderLineRestriction.create_or_find_by(order_line_id: 2, dietary_restriction_id: 2)
+OrderLineRestriction.create_or_find_by(order_line_id: 3, dietary_restriction_id: 1)
+OrderLineRestriction.create_or_find_by(order_line_id: 4, dietary_restriction_id: 5)
+OrderLineRestriction.create_or_find_by(order_line_id: 5, dietary_restriction_id: 3)
+OrderLineRestriction.create_or_find_by(order_line_id: 6, dietary_restriction_id: 1)
+OrderLineRestriction.create_or_find_by(order_line_id: 7, dietary_restriction_id: 1)
+OrderLineRestriction.create_or_find_by(order_line_id: 8, dietary_restriction_id: 2)
+OrderLineRestriction.create_or_find_by(order_line_id: 9, dietary_restriction_id: 4)
+OrderLineRestriction.create_or_find_by(order_line_id: 10, dietary_restriction_id: 4)
+OrderLineRestriction.create_or_find_by(order_line_id: 11, dietary_restriction_id: 4)
+OrderLineRestriction.create_or_find_by(order_line_id: 12, dietary_restriction_id: 1)
+OrderLineRestriction.create_or_find_by(order_line_id: 13, dietary_restriction_id: 1)
+OrderLineRestriction.create_or_find_by(order_line_id: 14, dietary_restriction_id: 3)
+OrderLineRestriction.create_or_find_by(order_line_id: 15, dietary_restriction_id: 1)
+OrderLineRestriction.create_or_find_by(order_line_id: 16, dietary_restriction_id: 2)
+OrderLineRestriction.create_or_find_by(order_line_id: 17, dietary_restriction_id: 4)
+OrderLineRestriction.create_or_find_by(order_line_id: 18, dietary_restriction_id: 5)
+OrderLineRestriction.create_or_find_by(order_line_id: 19, dietary_restriction_id: 1)
+OrderLineRestriction.create_or_find_by(order_line_id: 20, dietary_restriction_id: 1)
 
 
 
