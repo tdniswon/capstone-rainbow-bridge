@@ -48,40 +48,7 @@
       <%= form.collection_select(:order_id, Order.all, :id, :order_description, {prompt: "Select One...", selected: @order}, {class: "form-control"}) %>
     </div>
   </div>
-    
-  <h3>Dietary Restrictions</h3>
-  <div id='order_line_restrictions'>
-      <%= form.fields_for :order_line_restrictions do |order_line_restriction| %>
-      <%= render 'order_line_restriction_fields', :f => order_line_restriction %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'Add a Dietary Restriction', form, :order_line_restrictions %>
-    </div>
-  </div>
-  <hr>
 
-  <h3>Tiers</h3>
-  <div id='tiers'>
-    <%= form.fields_for :tiers do |tier| %>
-      <%= render 'tiers', :f => tier %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'Add a Tier', form, :tiers %>
-    </div>
-  </div>
-  <hr>
-
-  <h3>Tasks</h3>
-  <div id='Tasks'>
-    <%= form.fields_for :tasks do |task| %>
-      <%= render 'task_fields', :f => task %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'Add a Task', form, :tasks %>
-    </div>
-  </div>
-  <hr>
-
-  <button type="submit" class="btn btn-primary">Create Order Content</button>
+  <button type="submit" class="btn btn-primary">Update Order Content</button>
 
 <% end %>

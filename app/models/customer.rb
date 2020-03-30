@@ -22,5 +22,9 @@ class Customer < ApplicationRecord
     end
   end
 
+  def full_name
+    "#{customer_first_name} #{customer_last_name}"
+  end
+
   has_paper_trail
 end

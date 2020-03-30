@@ -89,7 +89,8 @@
 
     <div class="form-group col-md-4">
       <label for="inputCust">Customer</label>
-      <%= form.collection_select(:customer_id, Customer.all, :id, :full_name,{prompt: "Select One...", selected: @customer}, {class: "form-control"}) %>
+      <%# <%= form.collection_select(:customer_id, Customer.all, :id, :full_name,{prompt: "Select One...", selected: @customer}, {class: "form-control"}) %> %>
+      <%= form.collection_select(:customer_id, Customer.all, :id, :full_name,{}, {class: "form-control"}) %>
     </div>
 
     <div class="form-group col-md-4">
@@ -124,30 +125,8 @@
       </div>
   </div> -->
 
-  <h3>Order Contents</h3>
-  <div id='order_lines'>
-    <%= form.fields_for :order_lines do |order_line| %>
-      <%= render 'order_line_fields', :f => order_line %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'Add an Order Line', form, :order_lines %>
-    </div>
-  </div>
-  <hr>
-  <h3>Rental Items</h3>
-  <div id='rental_lines'>
-    <%= form.fields_for :rental_lines do |rental_line| %>
-      <%= render 'rental_line_fields', :f => rental_line %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'Add a Rental Line', form, :rental_lines %>
-    </div>
-  </div>
-  <hr>
-
   <div class="actions">
-    <%# <%= form.submit , class: "btn btn-primary"%>
-    <button type="submit" class="btn btn-primary">Create Order</button>
+    <button type="submit" class="btn btn-primary">Update Order</button>
   </div>
 
 <% end %>
