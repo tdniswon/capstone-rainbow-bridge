@@ -372,13 +372,72 @@ order_line_description: "Nanananan batman", special_order_notes: "wt-")
 OrderLine.find_or_create_by(order_id: "14", product_id: "1", order_line_status_id: "2", 
 order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",
 order_line_description: "2020 Graduation Cake", special_order_notes: "Happy Graduation 2020")
+#wow
 
 
 
 Tier.create_or_find_by(position: '1', cake_flavor_id: '1', frosting_flavor_id: '1', shape_id: '1', order_line_id: '1', tier_size: '3', tier_special_notes: "This layer is a JoJo reference")
 Tier.create_or_find_by(position: '2', cake_flavor_id: '1', frosting_flavor_id: '2', shape_id: '2', order_line_id: '1', tier_size: '2', tier_special_notes: "This layer is a bad joke")
 
-Task.create_or_find_by(order_line_id: '1', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Advanced Cake Baking 4301", task_description: "An advancment of the cake baking industry", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '1', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Advanced Cake Baking 4301", 
+task_description: "An advancment of the cake baking industry", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '2', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Cake Design", 
+task_description: "Desiging the League of Legends cake", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '3', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Cake Baking", 
+task_description: "Making the League of Legends cake", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '4', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Making the Pizza Cake", 
+task_description: "Making the Pizza cake", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '5', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Designing Best Wedding Cake", 
+task_description: "Design of the best wedding cake", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '6', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Baking best wedding Cake", 
+task_description: "Baking the best bake", task_status_id: '2')
+Task.create_or_find_by(order_line_id: '7', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Frosting best wedding Cake", 
+task_description: "Frosting the best bake", task_status_id: '2')
+Task.create_or_find_by(order_line_id: '8', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Freestyling the small cake", 
+task_description: "Freestyling the small cake", task_status_id: '2')
+Task.create_or_find_by(order_line_id: '9', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Coronavirus celebration", 
+task_description: "Celebrating virus going away with cake", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '10', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Coronavirus Cake Pops", 
+task_description: "Coronavirus Cake pops making each batch 1", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '11', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Coronavirus Cake Pops", 
+task_description: "Coronavirus Cake pops making each batch 2", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '12', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Baking best wedding Cake", 
+task_description: "Coronavirus Cake pops making each batch 3", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '13', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Cake inside Cake", 
+task_description: "Putting a cake in a cake", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '14', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Baking best wedding Cake", 
+task_description: "Baking the best bake", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '15', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Gomez wedding Cake", 
+task_description: "Gomez wedding cake steps", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '16', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Bake cookies", 
+task_description: "Bake special cookies", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '17', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Quick crazy cake", 
+task_description: "Quick crazy cake baking", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '18', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Batman cake making", 
+task_description: "Making the batman cake", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '19', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", 
+task_finish_date: "2020-04-29 10:57:51", task_name: "Bake wedding cake", 
+task_description: "Baking graduation cake", task_status_id: '1')
+
+
 
 Tier.create_or_find_by(position: 1, cake_flavor_id: 1, frosting_flavor_id: 1, shape_id: 1, order_line_id: 1, tier_size: 3, tier_special_notes: "This layer is a JoJo reference")
 Tier.create_or_find_by(position: 2, cake_flavor_id: 1, frosting_flavor_id: 2, shape_id: 2, order_line_id: 1, tier_size: 2, tier_special_notes: "This layer is a bad joke")
