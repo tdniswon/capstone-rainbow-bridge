@@ -15,6 +15,7 @@ class OrderLinesController < ApplicationController
   # GET /order_lines/new
   def new
     @order_line = OrderLine.new
+    @order = params[:order_id]
   end
 
   # GET /order_lines/1/edit

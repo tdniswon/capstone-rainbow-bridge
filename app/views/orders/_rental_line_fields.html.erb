@@ -1,15 +1,12 @@
 <div class='nested-fields'>
 
-<div class="field">
-<%= f.label :order_id %>
-<%= f.text_field :order_id %>
-</div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <%= f.label :rental_item_id %>
+            <%= f.collection_select(:rental_item_id, RentalItem.all, :id, :rental_item_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+        </div>
+    </div>
 
-<div class="field">
-<%= f.label :rental_item_id %>
-<%= f.text_field :rental_item_id %>
-</div>
-
-<%= link_to_remove_association "Remove Rental Line", f %>
+    <%= link_to_remove_association "Remove Rental Line", f %>
 
 </div>
