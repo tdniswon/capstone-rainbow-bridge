@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.7'
  gem "cocoon"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'pagy'
+
 
 #Chartkick for making reports - Daniel 3/27
 gem "chartkick"
