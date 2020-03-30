@@ -447,6 +447,31 @@ RentalLine.create_or_find_by(order_id: 1, rental_item_id: 1)
 TierFilling.create_or_find_by(tier_id: 1, filling_id: 1)
 
 TaskAssignment.create_or_find_by(task_id: 1, employee_id: 1)
+TaskAssignment.create_or_find_by(task_id: 2, employee_id: 5)
+TaskAssignment.create_or_find_by(task_id: 2, employee_id: 4)
+TaskAssignment.create_or_find_by(task_id: 2, employee_id: 3)
+TaskAssignment.create_or_find_by(task_id: 3, employee_id: 3)
+TaskAssignment.create_or_find_by(task_id: 3, employee_id: 2)
+TaskAssignment.create_or_find_by(task_id: 3, employee_id: 1)
+TaskAssignment.create_or_find_by(task_id: 4, employee_id: 2)
+TaskAssignment.create_or_find_by(task_id: 5, employee_id: 5)
+TaskAssignment.create_or_find_by(task_id: 6, employee_id: 5)
+TaskAssignment.create_or_find_by(task_id: 7, employee_id: 2)
+TaskAssignment.create_or_find_by(task_id: 8, employee_id: 1)
+TaskAssignment.create_or_find_by(task_id: 9, employee_id: 1)
+TaskAssignment.create_or_find_by(task_id: 10, employee_id: 3)
+TaskAssignment.create_or_find_by(task_id: 10, employee_id: 4)
+TaskAssignment.create_or_find_by(task_id: 11, employee_id: 4)
+TaskAssignment.create_or_find_by(task_id: 12, employee_id: 4)
+TaskAssignment.create_or_find_by(task_id: 13, employee_id: 5)
+TaskAssignment.create_or_find_by(task_id: 14, employee_id: 4)
+TaskAssignment.create_or_find_by(task_id: 15, employee_id: 2)
+TaskAssignment.create_or_find_by(task_id: 16, employee_id: 2)
+TaskAssignment.create_or_find_by(task_id: 17, employee_id: 3)
+TaskAssignment.create_or_find_by(task_id: 18, employee_id: 1)
+TaskAssignment.create_or_find_by(task_id: 18, employee_id: 1)
+
+
 
 OrderLineRestriction.create_or_find_by(order_line_id: 1, dietary_restriction_id: 1)
 
@@ -456,13 +481,3 @@ OrderLineRestriction.create_or_find_by(order_line_id: 1, dietary_restriction_id:
 
 
 
-
-=begin
-t.string "order_line_description"
-t.datetime "order_line_start_date", null: false
-t.datetime "order_line_finish_date"
-t.string "special_order_notes"
-t.integer "product_id", null: false
-t.integer "order_line_status_id", null: false
-t.integer "order_id", null: false
-=end 
