@@ -149,10 +149,10 @@ ActiveRecord::Schema.define(version: 2020_03_21_031817) do
   create_table "orders", force: :cascade do |t|
     t.string "order_description"
     t.decimal "order_cost"
-    t.datetime "order_start_date", null: false
-    t.datetime "order_due_date", null: false
+    t.datetime "order_start_date"
+    t.datetime "order_due_date"
     t.datetime "order_date_finish"
-    t.boolean "order_delivery", null: false
+    t.boolean "order_delivery"
     t.string "delivery_street_address"
     t.string "delivery_city"
     t.string "delivery_state"
@@ -237,7 +237,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_031817) do
 
   create_table "tiers", force: :cascade do |t|
     t.integer "position", null: false
-    t.integer "tier_size", null: false
+    t.string "tier_size", null: false
     t.string "tier_special_notes"
     t.integer "cake_flavor_id", null: false
     t.integer "frosting_flavor_id", null: false
