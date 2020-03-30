@@ -224,5 +224,15 @@ Order.create_or_find_by(order_description: "Order description 7", order_cost: 19
 
 OrderLine.find_or_create_by(order_id: "1", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-29 10:57:51", order_line_finish_date: "2020-04-29 10:57:51",order_line_description: "Baking the cake", special_order_notes: "HA you thought")
 
-Tier.create_or_find_by(position: '1', cake_flavor_id: '1', frosting_flavor_id: '1', shape_id: '1', order_line_id: '1', tier_size: '3', tier_special_notes: "This layer is a JoJo reference")
-Tier.create_or_find_by(position: '2', cake_flavor_id: '1', frosting_flavor_id: '2', shape_id: '2', order_line_id: '1', tier_size: '2', tier_special_notes: "This layer is a bad joke")
+Task.create_or_find_by(order_line_id: '1', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Advanced Cake Baking 4301", task_description: "An advancment of the cake baking industry", task_status_id: '3')
+
+Tier.create_or_find_by(position: 1, cake_flavor_id: 1, frosting_flavor_id: 1, shape_id: 1, order_line_id: 1, tier_size: 3, tier_special_notes: "This layer is a JoJo reference")
+Tier.create_or_find_by(position: 2, cake_flavor_id: 1, frosting_flavor_id: 2, shape_id: 2, order_line_id: 1, tier_size: 2, tier_special_notes: "This layer is a bad joke")
+
+RentalLine.create_or_find_by(order_id: 1, rental_item_id: 1)
+
+TierFilling.create_or_find_by(tier_id: 1, filling_id: 1)
+
+TaskAssignment.create_or_find_by(task_id: 1, employee_id: 1)
+
+OrderLineRestriction.create_or_find_by(order_line_id: 1, dietary_restriction_id: 1)
