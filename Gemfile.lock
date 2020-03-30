@@ -149,6 +149,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
+    pagy (3.7.0)
     paper_trail (10.3.1)
       activerecord (>= 4.2)
       request_store (~> 1.1)
@@ -281,6 +282,7 @@ DEPENDENCIES
   cocoon
   groupdate
   jbuilder (~> 2.7)
+  pagy
   paper_trail
   paper_trail-association_tracking
   pg
@@ -298,7 +300,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.5.5p157
+   ruby 2.6.3p62
 
 BUNDLED WITH
    2.1.4

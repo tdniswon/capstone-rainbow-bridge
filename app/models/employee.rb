@@ -18,5 +18,9 @@ class Employee < ApplicationRecord
     end
   end
 
+  def fullname
+    "#{employee_first_name} #{employee_last_name}"
+  end
+
   has_paper_trail
 end

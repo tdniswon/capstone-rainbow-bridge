@@ -1,107 +1,117 @@
-<div class="container-fluid">
-    <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-    <h1>Order Details</h1>
+<h1>Order Details</h1>
 
-    <p>
-        <strong>Order Description:</strong>
-        <%= @order.order_description %>
-    </p>
+<p>
+    <strong>Order Description:</strong>
+    <%= @order.order_description %>
+</p>
 
-    <p>
-        <strong>Order Cost:</strong>
-        <%= @order.order_cost %>
-    </p>
+<p>
+    <strong>Order Cost:</strong>
+    <%= @order.order_cost %>
+</p>
 
-    <p>
-        <strong>Order Start Date:</strong>
-        <%= @order.order_start_date.to_formatted_s(:long_ordinal) %>
-    </p>
+<p>
+    <strong>Order Start Date:</strong>
+    <%= @order.order_start_date.to_formatted_s(:long_ordinal) %>
+</p>
 
-    <p>
-        <strong>Order Due Date:</strong>
-        <%= @order.order_due_date.to_formatted_s(:long_ordinal) %>
-    </p>
+<p>
+    <strong>Order Due Date:</strong>
+    <%= @order.order_due_date.to_formatted_s(:long_ordinal) %>
+</p>
 
-    <p>
-        <strong>Order Date Finish:</strong>
-        <%= @order.order_date_finish.try(:to_formatted_s, :long_ordinal)%>
-    </p>
+<p>
+    <strong>Order Date Finish:</strong>
+    <%= @order.order_date_finish.try(:to_formatted_s, :long_ordinal)%>
+</p>
 
-    <p>
-        <strong>Order Delivery:</strong>
-        <%= @order.order_delivery %>
-    </p>
+<p>
+    <strong>Order Delivery:</strong>
+    <%= @order.order_delivery %>
+</p>
 
-    <p>
-        <strong>Delivery Street Address:</strong>
-        <%= @order.delivery_street_address %>
-    </p>
+<p>
+    <strong>Delivery Street Address:</strong>
+    <%= @order.delivery_street_address %>
+</p>
 
-    <p>
-        <strong>Delivery City:</strong>
-        <%= @order.delivery_city %>
-    </p>
+<p>
+    <strong>Delivery City:</strong>
+    <%= @order.delivery_city %>
+</p>
 
-    <p>
-        <strong>Delivery State:</strong>
-        <%= @order.delivery_state %>
-    </p>
+<p>
+    <strong>Delivery State:</strong>
+    <%= @order.delivery_state %>
+</p>
 
-    <p>
-        <strong>Delivery Zip Code:</strong>
-        <%= @order.delivery_zip_code %>
-    </p>
+<p>
+    <strong>Delivery Zip Code:</strong>
+    <%= @order.delivery_zip_code %>
+</p>
 
-    <p>
-        <strong>Customer:</strong>
-        <%= @order.customer.customer_first_name %> <%= @order.customer.customer_last_name %>
-    </p>
+<p>
+    <strong>Customer:</strong>
+    <%= @order.customer.customer_first_name %> <%= @order.customer.customer_last_name %>
+</p>
 
-    <p>
-        <strong>Order Type:</strong>
-        <%= @order.order_type.order_description %>
-    </p>
+<p>
+    <strong>Order Type:</strong>
+    <%= @order.order_type.order_description %>
+</p>
 
-    <p>
-        <strong>Order Status:</strong>
-        <%= @order.order_status.order_status_name %>
-    </p>
+<p>
+    <strong>Order Status:</strong>
+    <%= @order.order_status.order_status_name %>
+</p>
 
-    <hr>
+<hr>
 
-    <div class="text-center">
-        <h2 class="text-center">Order Contents</h2>
+<table>
+    <tbody>
+        <tr>
+            <th>Order Line Description</th>
+            <th>Order Line Start Date</th>
+            <th>Order Line Finish Date</th>
+            <th>Special Order Notes</th>
+            <th>Product</th>
+            <th>Order Line Status</th>
+        </tr>
 
-        <%= button_to 'Add Order Contents', new_order_line_path, params: {order_id: @order.id}, method: :get, class: "btn btn-primary" %>
-        <br>
-    </div>
+        <% @order.order_lines.each do |ol| %>
+        <tr>
+            <td><%= ol.order_line_description %></td>
+            <td><%= ol.order_line_start_date.to_formatted_s(:long_ordinal) %></td>
+            <td><%= ol.order_line_finish_date.to_formatted_s(:long_ordinal) %></td>
+            <td><%= ol.special_order_notes %></td>
+            <td><%= ol.product.product_name %></td>
+            <td><%= ol.order_line_status.order_line_status_name %></td>
+            <td><%= link_to 'Show Details', ol %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Order Line Description</th>
-                <th>Order Line Start Date</th>
-                <th>Order Line Finish Date</th>
-                <th>Special Order Notes</th>
-                <th>Product</th>
-                <th>Order Line Status</th>
-            </tr>
+<hr>
 
-            <% @order.order_lines.each do |ol| %>
-            <tr>
-                <td><%= ol.order_line_description %></td>
-                <td><%= ol.order_line_start_date.to_formatted_s(:long_ordinal) %></td>
-                <td><%= ol.order_line_finish_date.to_formatted_s(:long_ordinal) %></td>
-                <td><%= ol.special_order_notes %></td>
-                <td><%= ol.product.product_name %></td>
-                <td><%= ol.order_line_status.order_line_status_name %></td>
-                <td><%= link_to 'Show Details', ol %></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
+<table>
+    <tbody>
+        <tr>
+            <th>Order ID</th>
+            <th>Rental Item ID</th>
+        </tr>
 
-    <%= link_to 'Edit', edit_order_path(@order) %> |
-    <%= link_to 'Back', :back %>
-</div>
+        <% @order.rental_lines.each do |rl| %>
+        <tr>
+            <td><%= rl.order_id %></td>
+            <td><%= rl.rental_item_id %></td>
+            <td><%= link_to 'Show Details', rl %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', :back %>
