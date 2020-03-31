@@ -27,22 +27,22 @@ table.dataTable thead .sorting_desc_disabled:before {
 bottom: .5em;
 }
 
-body {
-    background-color: #d8b6d8;
-}
-
- .navbar {
-    position: relative;
-    min-height: 50px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 1px;
-    color:magenta;
-}
-
+.nav {
+    width: 100%;
+    background-color: #F5EBEE;
+    overflow: auto;
+  }
+  
+.navbar a:hover {
+    color:palevioletred;
+  }
+  .img{
+      align-items: center;  
+    }
 a:link {
-    color: black;
-    background-color: transparent;
+    color:black;
+    scrollbar-highlight-color: blue;
+    background-color:transparent;
 }
 
 

@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<form>
   <div class="form-row">
     <div class="form-group col-md-4">
       <%= form.label "First Name" %>
@@ -57,10 +57,12 @@
       <%= form.label "State" %>
       <%= form.text_field :customer_state, class: "form-control" %>
     </div>
-   
-   
+   </form>
+   </div>
     <button type="submit" class="btn btn-primary">Update Customer</button>
+
   <% end %>
-</div>
+
+
 
 <%#Customer.find(@order.customer_id).order_date_finished %>
