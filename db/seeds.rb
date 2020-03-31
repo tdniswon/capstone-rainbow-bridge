@@ -201,14 +201,11 @@ Order.create_or_find_by(order_description: "Avdol's Get Well Soon cake", order_c
 #Order 1 OL 1
 OrderLine.create_or_find_by(order_id: "1", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-29 10:57:51", order_line_finish_date: "2020-04-29 10:57:51",order_line_description: "Baking the cake", special_order_notes: "2 Tier Cake w/ Brain Blast")
 #Order 2 OL 2
-#OrderLine.create_or_find_by(order_id: "2", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Desiging Cake", special_order_notes: "Cool looking cake")
 OrderLine.create_or_find_by(order_id: "2", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Making Cake", special_order_notes: "Cool looking cake")
 #Order 3 OL 3
 OrderLine.create_or_find_by(order_id: "3", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Making the Pizza Cake", special_order_notes: "Pizza Pizza")
 #Order 4 OL 4
-#OrderLine.create_or_find_by(order_id: "4", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Designing Best Weddding Cake", special_order_notes: "Cool looking cake")
 OrderLine.create_or_find_by(order_id: "4", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Baking Best Cake", special_order_notes: "Cool looking cake")
-#OrderLine.create_or_find_by(order_id: "4", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Frosting cake and putting gold leaflets Cake", special_order_notes: "Cool looking cake")
 #Order 5 OL 5
 OrderLine.create_or_find_by(order_id: "5", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Able to freestyle a small beautiful wedding Cake", special_order_notes: "Cool looking cake")
 #Order 6 OL 6
