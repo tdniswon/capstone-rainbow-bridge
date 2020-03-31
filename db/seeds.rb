@@ -179,15 +179,9 @@ Order.create_or_find_by(order_description: "Celebration Cookies", order_cost: 10
 #12 OK
 Order.create_or_find_by(order_description: "Crazy Cake", order_cost: 400.00, order_start_date: "2020-03-31 09:57:51", order_due_date: "2020-05-30 14:00:00", order_delivery: 'true', delivery_street_address: "30 East Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77023", customer_id: 12, order_type_id: "1", order_status_id: "2")
 #13 OK
-<<<<<<< HEAD
 Order.find_or_create_by(order_description: "Make a cake that looks like Robin from Batman and Robin From Fire Emblem", order_cost: 880.00, order_start_date: "2020-04-01 16:20:00", order_due_date: "2020-05-15 16:20:00", order_delivery: 'true', delivery_street_address: "202 Fake Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77014", customer_id: 13, order_type_id: "9", order_status_id: "2")
 #14 OK
 Order.find_or_create_by(order_description: "Class of 2020 Wedding Cake", order_cost: 100.00, order_start_date: "2020-04-05 14:50:50", order_due_date: "2020-06-10 18:00:00", order_delivery: 'true', delivery_street_address: "202 Fake Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77014", customer_id: 14, order_type_id: "8", order_status_id: "2")
-=======
-Order.create_or_find_by(order_description: "Make a cake that looks like Robin from Batman and Robin From Fire Emblem", order_cost: 880.00, order_start_date: "2020-04-05 16:20:00", order_due_date: "2020-05-15 16:20:00", order_delivery: 'true', delivery_street_address: "202 Fake Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77014", customer_id: 13, order_type_id: "9", order_status_id: "2")
-#14 OK
-Order.create_or_find_by(order_description: "Class of 2020 Wedding Cake", order_cost: 100.00, order_start_date: "2020-04-01 14:50:50", order_due_date: "2020-06-10 18:00:00", order_delivery: 'true', delivery_street_address: "202 Fake Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77014", customer_id: 14, order_type_id: "8", order_status_id: "2")
->>>>>>> 5ce4ee782b2280dae13e145385ca120c05d4ce2f
 #15 OK
 Order.create_or_find_by(order_description: "Treasure Chest Sculpture Cake", order_cost: 1249.99, order_start_date: "2020-04-10 10:57:51", order_due_date: "2020-06-29 11:00:00", order_delivery: 'false', customer_id: 15, order_type_id: 3, order_status_id: 3)
 #16 OK
@@ -206,7 +200,6 @@ Order.create_or_find_by(order_description: "Avdol's Get Well Soon cake", order_c
 Order.create_or_find_by(order_description: "Cake is a lie", order_cost: 999.99, order_start_date: "2020-06-01 13:00:21", order_due_date: "2020-12-25 15:00:00", order_delivery: 'true', delivery_street_address: "1337 Santa St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "70077", customer_id: 22, order_type_id: 2, order_status_id: 3)
 
 
-<<<<<<< HEAD
 #Order 1 OL 1 D
 OrderLine.find_or_create_by(order_id: "1", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-01-01 10:00:00", order_line_finish_date: "2020-02-15 10:30:35",order_line_description: "Baking the cake", special_order_notes: "2 Tier Cake w/ Brain Blast")
 #Order 2 OL 2 D
@@ -254,58 +247,6 @@ OrderLine.find_or_create_by(order_id: "20", product_id: "2", order_line_status_i
 OrderLine.find_or_create_by(order_id: "21", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-05-25 13:00:33", order_line_description: "Strawberry and Vanilla cake")
 #Order 22 OL 25
 OrderLine.find_or_create_by(order_id: "22", product_id: "1", order_line_status_id: "1", order_line_start_date: "2020-06-01 13:00:21", order_line_description: "Coffee cake w/ Chocolate Buttercream frosting")
-=======
-#Order 1 OL 1
-OrderLine.create_or_find_by(order_id: "1", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-29 10:57:51", order_line_finish_date: "2020-04-29 10:57:51",order_line_description: "Baking the cake", special_order_notes: "2 Tier Cake w/ Brain Blast")
-#Order 2 OL 2
-#OrderLine.create_or_find_by(order_id: "2", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Desiging Cake", special_order_notes: "Cool looking cake")
-OrderLine.create_or_find_by(order_id: "2", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Making Cake", special_order_notes: "Cool looking cake")
-#Order 3 OL 3
-OrderLine.create_or_find_by(order_id: "3", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Making the Pizza Cake", special_order_notes: "Pizza Pizza")
-#Order 4 OL 4
-#OrderLine.create_or_find_by(order_id: "4", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Designing Best Weddding Cake", special_order_notes: "Cool looking cake")
-OrderLine.create_or_find_by(order_id: "4", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Baking Best Cake", special_order_notes: "Cool looking cake")
-#OrderLine.create_or_find_by(order_id: "4", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Frosting cake and putting gold leaflets Cake", special_order_notes: "Cool looking cake")
-#Order 5 OL 5
-OrderLine.create_or_find_by(order_id: "5", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 11:00:00", order_line_finish_date: "2020-04-02 11:00:00",order_line_description: "Able to freestyle a small beautiful wedding Cake", special_order_notes: "Cool looking cake")
-#Order 6 OL 6
-OrderLine.create_or_find_by(order_id: "6", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Coronavirus celebration cake", special_order_notes: "Coronavirus is over")
-#Order 7 OL 7-9
-OrderLine.create_or_find_by(order_id: "7", product_id: "5", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Coronavirus cake pops", special_order_notes: "Coronavirus celebration cake pops first batch")
-OrderLine.create_or_find_by(order_id: "7", product_id: "5", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Coronavirus cake pops", special_order_notes: "Coronavirus celebration cake pops second batch")
-OrderLine.create_or_find_by(order_id: "7", product_id: "5", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Coronavirus cake pops", special_order_notes: "Coronavirus celebration cake pops third batch")
-#Order 8 OL 10
-OrderLine.create_or_find_by(order_id: "8", product_id: "5", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Cake inside a Cake", special_order_notes: "Weird cake design")
-#Order 9 OL 11
-OrderLine.create_or_find_by(order_id: "9", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Gomez Wedding Cake", special_order_notes: "Deliver ASAP")
-#Order 10 OL 12
-OrderLine.create_or_find_by(order_id: "10", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Benetiz Birthday Cake", special_order_notes: "Overcharge them hehe")
-#Order 11 OL 13
-OrderLine.create_or_find_by(order_id: "11", product_id: "11", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Cookies for April 20th", special_order_notes: "Blaze it")
-#Order 12 OL 14
-OrderLine.create_or_find_by(order_id: "12", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Quicky crazy cake", special_order_notes: "What makes crazy crazy?")
-#Order 13 OL 15
-OrderLine.create_or_find_by(order_id: "13", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "Nanananan batman", special_order_notes: "wt-")
-#Order 14 OL 16
-OrderLine.create_or_find_by(order_id: "14", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 11:00:00", order_line_finish_date: "2020-03-31 11:00:00",order_line_description: "2020 Graduation Cake", special_order_notes: "Happy Graduation 2020")
-#Order 15 OL 17-18
-OrderLine.create_or_find_by(order_id: "15", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-04-11 10:22:51", order_line_finish_date: "2020-04-14 12:57:51", order_line_description: "Baking inner cake")
-OrderLine.create_or_find_by(order_id: "15", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-04-17 13:30:01", order_line_finish_date: "2020-04-20 08:00:51", order_line_description: "Baking outer cake around inner cake", special_order_notes: "Be careful to not overcook the inner cake and undercook the outer cake")
-#Order 16 OL 19
-OrderLine.create_or_find_by(order_id: "16", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-04-11 10:20:51", order_line_finish_date: "2020-04-27 04:57:51", order_line_description: "Bake sculpture cake base", special_order_notes: "Can only use white frosting for detailing")
-#Order 17 OL 20
-OrderLine.create_or_find_by(order_id: "17", product_id: "5", order_line_status_id: "2", order_line_start_date: "2020-04-11 12:57:00", order_line_finish_date: "2020-05-05 04:57:51", order_line_description: "Bake 16 choclate and 16 vanilla cake pops")
-#Order 18 OL 21
-OrderLine.create_or_find_by(order_id: "18", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake Chocolate Marble Cake")
-#Order 19 OL 22
-OrderLine.create_or_find_by(order_id: "19", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake M&M covered vanilla cake", special_order_notes: "M&Ms need to be the regular sized milk chocolate ones")
-#Order 20 OL 23
-OrderLine.create_or_find_by(order_id: "20", product_id: "2", order_line_status_id: "2", order_line_start_date: "2020-03-31 12:57:51", order_line_finish_date: "2020-04-01 12:57:51", order_line_description: "Bake 13 milk chocolate chip cookies", special_order_notes: "Throw in an extra cookie to congratulate them on their newborn")
-#Order 21 OL 24
-OrderLine.create_or_find_by(order_id: "21", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "2020-03-31 16:00:51", order_line_description: "Strawberry and Vanilla cake")
-#Order 22 OL 25
-OrderLine.create_or_find_by(order_id: "22", product_id: "1", order_line_status_id: "1", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "", order_line_description: "Coffee cake w/ Chocolate Buttercream frosting")
->>>>>>> 5ce4ee782b2280dae13e145385ca120c05d4ce2f
 
 #OL 1 T 1-2
 Tier.create_or_find_by(position: '1', cake_flavor_id: '1', frosting_flavor_id: '1', shape_id: '4', order_line_id: '1', tier_size: '3', tier_special_notes: "This layer is a JoJo reference")
