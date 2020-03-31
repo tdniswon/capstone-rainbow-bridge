@@ -11,6 +11,7 @@ require("jquery")
 require("bootstrap")
 require("chartkick")
 require("chart.js")
+require("Chart.bundle")
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -22,4 +23,7 @@ import 'bootstrap'
 import './src/application.scss'
 import 'cocoon'
 
+document.addEventListener("turbolinks:load", () => {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 
