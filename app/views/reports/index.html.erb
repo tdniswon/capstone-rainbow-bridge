@@ -11,14 +11,15 @@
             <li><%= link_to "Most Popular Cake Flavors", new_report_path(report: "query_name"), :class => "nav-link" %></li>
             <li><%= link_to "Most Popular Frostings", new_report_path(report: "query_name2"), :class => "nav-link" %></li>
             <li><%= link_to "Product Sales (Descending)", new_report_path(report: "worstsales"), :class => "nav-link" %></li>
+            <li><%= link_to "Most Popular Dietary Restrictions", new_report_path(report: "dietary_restrictions"), :class => "nav-link" %></li>
+            <li><%= link_to "Top 10 Customers", new_report_path(report: "top_10_customers"), :class => "nav-link" %></li>
         </ul>
     </nav>
-</div>
-<div>
 
-<div id="content">
+    <div class = "container" id="content">
 
-    <h1>Reports</h1>
-    <%= render partial: @report %>
+        <%= render partial: @report %>
+
+    </div>
 
 </div>
