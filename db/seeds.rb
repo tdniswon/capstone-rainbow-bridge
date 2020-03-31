@@ -249,15 +249,15 @@ OrderLine.find_or_create_by(order_id: "16", product_id: "1", order_line_status_i
 #Order 17 OL 20
 OrderLine.find_or_create_by(order_id: "17", product_id: "5", order_line_status_id: "2", order_line_start_date: "2020-04-11 12:57:00", order_line_finish_date: "2020-05-05 04:57:51", order_line_description: "Bake 16 choclate and 16 vanilla cake pops")
 #Order 18 OL 21
-OrderLine.find_or_create_by(order_id: "18", product_id: "1", order_line_id: "2", order_line_start_date: "2020-03-30 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake Chocolate Marble Cake")
+OrderLine.find_or_create_by(order_id: "18", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake Chocolate Marble Cake")
 #Order 19 OL 22
-OrderLine.find_or_create_by(order_id: "19", product_id: "1", order_line_id: "2", order_line_start_date: "2020-03-31 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake M&M covered vanilla cake", special_order_notes: "M&Ms need to be the regular sized milk chocolate ones")
+OrderLine.find_or_create_by(order_id: "19", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake M&M covered vanilla cake", special_order_notes: "M&Ms need to be the regular sized milk chocolate ones")
 #Order 20 OL 23
-OrderLine.find_or_create_by(order_id: "20", product_id: "2", order_line_id: "2", order_line_start_date: "2020-03-31 12:57:51", order_line_finish_date: "2020-04-01 12:57:51", order_line_description: "Bake 13 milk chocolate chip cookies", special_order_notes: "Throw in an extra cookie to congratulate them on their newborn")
+OrderLine.find_or_create_by(order_id: "20", product_id: "2", order_line_status_id: "2", order_line_start_date: "2020-03-31 12:57:51", order_line_finish_date: "2020-04-01 12:57:51", order_line_description: "Bake 13 milk chocolate chip cookies", special_order_notes: "Throw in an extra cookie to congratulate them on their newborn")
 #Order 21 OL 24
-OrderLine.find_or_create_by(order_id: "21", product_id: "1", order_line_id: "2", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "2020-03-31 16:00:51", order_line_description: "Strawberry and Vanilla cake")
+OrderLine.find_or_create_by(order_id: "21", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "2020-03-31 16:00:51", order_line_description: "Strawberry and Vanilla cake")
 #Order 22 OL 25
-OrderLine.find_or_create_by(order_id: "22", product_id: "1", order_line_id: "1", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "", order_line_description: "Coffee cake w/ Chocolate Buttercream frosting")
+OrderLine.find_or_create_by(order_id: "22", product_id: "1", order_line_status_id: "1", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "", order_line_description: "Coffee cake w/ Chocolate Buttercream frosting")
 
 #OL 1 T 1-2
 Tier.create_or_find_by(position: '1', cake_flavor_id: '1', frosting_flavor_id: '1', shape_id: '4', order_line_id: '1', tier_size: '3', tier_special_notes: "This layer is a JoJo reference")
