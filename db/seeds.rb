@@ -48,19 +48,9 @@ DietaryRestriction.find_or_create_by(dietary_restriction_name: "Nuts")
 DietaryRestriction.find_or_create_by(dietary_restriction_name: "Soy")
 
 #RentalItem.destroy_all
-RentalItem.find_or_create_by(rental_item_name: "Gold Wedding Cake Stand")
-RentalItem.find_or_create_by(rental_item_description: "")
-RentalItem.find_or_create_by(rental_item_cost: 40.00)
-RentalItem.find_or_create_by(rental_item_name: "Silver Wedding Cake Stand")
-RentalItem.find_or_create_by(rental_item_description: "")
-RentalItem.find_or_create_by(rental_item_cost: 40.00)
-RentalItem.find_or_create_by(rental_item_name: "Pedestal Stand Set of Three")
-RentalItem.find_or_create_by(rental_item_description: "")
-RentalItem.find_or_create_by(rental_item_cost: 40.00)
-
 RentalItem.find_or_create_by(rental_item_name: "Gold Wedding Cake Stand", rental_item_description: "Gold cake stand for wedding cakes", rental_item_cost: "40.00")
-RentalItem.create(rental_item_name: "Silver Wedding Cake Stand", rental_item_description: "Silver cake stand for wedding cakes", rental_item_cost: "40.00")
-RentalItem.create(rental_item_name: "Pedestal Stand Set of Three", rental_item_description: "Three pedestal stands", rental_item_cost: "40.00")
+RentalItem.find_or_create_by(rental_item_name: "Silver Wedding Cake Stand", rental_item_description: "Silver cake stand for wedding cakes", rental_item_cost: "40.00")
+RentalItem.find_or_create_by(rental_item_name: "Pedestal Stand Set of Three", rental_item_description: "Three pedestal stands", rental_item_cost: "40.00")
 
 
 #Product.destroy_all
