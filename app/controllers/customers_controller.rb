@@ -2,13 +2,14 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
-  def timething 
-  Datetime rightnow = Datetime.now
-  end
+  # def timething 
+  #   Datetime rightnow = Datetime.now
+  # end
+  
   # GET /customers
   # GET /customers.json
   def index
-    @Pagy,@customers = pagy(Customer.all.order(sort_column + ' ' + sort_direction))
+    @pagy,@customers = pagy(Customer.all.order(sort_column + ' ' + sort_direction))
   end
 
   # GET /customers/1
