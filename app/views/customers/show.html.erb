@@ -40,6 +40,7 @@
 
 <hr>
 
+
 <table class="table table-hover">
     <tbody>
     <thead class="thead-light">
@@ -67,7 +68,7 @@
             <td><%= order.order_due_date.to_formatted_s(:long_ordinal) %></td>
             <td><%= order.order_date_finish.try(:to_formatted_s, :long_ordinal) %></td>
             <td><%= order.order_delivery %></td>
-            <td><%= order.delivery_street_address %></td>
+            <td><%= order.delivery_street_address %>" "<%= order.delivery_city %></td>
             <td><%= order.delivery_city %></td>
             <td><%= order.delivery_state %></td>
             <td><%= order.delivery_zip_code %></td>
@@ -80,6 +81,5 @@
 </table>
 
 <hr>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Edit', edit_customer_path(@customer), Class: "btn btn-primary"%>
+<%= link_to 'Back', :back, Class: "btn btn-primary" %>

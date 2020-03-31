@@ -69,15 +69,15 @@
 
 <hr>
 
-<table>
+<table class="table table-hover">
     <tbody>
         <tr>
-            <th>Order Line Description</th>
-            <th>Order Line Start Date</th>
-            <th>Order Line Finish Date</th>
-            <th>Special Order Notes</th>
-            <th>Product</th>
-            <th>Order Line Status</th>
+            <th scope="col">Order Line Description</th>
+            <th scope="col">Order Line Start Date</th>
+            <th scope="col">Order Line Finish Date</th>
+            <th scope="col">Special Order Notes</th>
+            <th scope="col">Product</th>
+            <th scope="col">Order Line Status</th>
         </tr>
 
         <% @order.order_lines.each do |ol| %>
@@ -96,11 +96,11 @@
 
 <hr>
 
-<table>
+<table class="table table-hover">
     <tbody>
         <tr>
-            <th>Order ID</th>
-            <th>Rental Item ID</th>
+            <th scope="col">Order ID</th>
+            <th scope="col">Rental Item ID</th>
         </tr>
 
         <% @order.rental_lines.each do |rl| %>
@@ -113,5 +113,5 @@
     </tbody>
 </table>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %> 
+<%= link_to 'Back', :back,class: "btn btn-primary" %>
