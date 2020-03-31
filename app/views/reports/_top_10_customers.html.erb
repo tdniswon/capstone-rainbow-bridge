@@ -17,7 +17,7 @@
 <br>
 
 <div class="container" >
-    <%= column_chart @topCustomerNames %>
+    <%= column_chart @topCustomerNames, id: "topCustomerNames", height: "500px", scales: { xAxes: {ticks: { fontSize: 20 } } } %>
    
 </div>
 

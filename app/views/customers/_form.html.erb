@@ -3,19 +3,18 @@
     <div id="error_explanation">
       <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
-      <ul>
-        <% customer.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <%= form.label "First Name" %>
-      <%= form.text_field :customer_first_name, class: "form-control" %>
-    </div>
+        <ul>
+          <% customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <%= form.label "First Name" %>
+        <%= form.text_field :customer_first_name, class: "form-control" %>
+      </div>
 
     <div class="form-group col-md-6">
       <%= form.label "Last Name" %>
@@ -78,4 +77,3 @@
   <button type="submit" class="btn btn-primary">Create Customer</button>
 <% end %>
 
-<%# #Customer.find(@order.customer_id).order_date_finished %>
