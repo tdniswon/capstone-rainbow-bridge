@@ -3,6 +3,7 @@
 # frozen_string_literal: true
 
 require 'pathname'
+require 'pagy/extras/bootstrap'
 
 class Pagy ; VERSION = '3.7.4'
 

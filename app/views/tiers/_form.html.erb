@@ -47,4 +47,17 @@
 
   <button type="submit" class="btn btn-primary">Create Tier</button>
 
+  <h3>Tier Contents</h3>
+  <div id='tier_fillings'>
+    <%= form.fields_for :tier_fillings do |tier_filling| %>
+      <%= render 'tier_filling_fields', :f => tier_filling %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'Add a Tier Filling', form, :tier_fillings %>
+    </div>
+  </div>
+  <hr>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>

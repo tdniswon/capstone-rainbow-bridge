@@ -17,10 +17,6 @@ CakeFlavor.find_or_create_by(flavor_name: "Coffee")
 CakeFlavor.find_or_create_by(flavor_name: "Almond")
 
 
-RentalItem.create(rental_item_name: "Gold Wedding Cake Stand", rental_item_description: "Gold cake stand for wedding cakes", rental_item_cost: "40.00")
-RentalItem.create(rental_item_name: "Silver Wedding Cake Stand", rental_item_description: "Silver cake stand for wedding cakes", rental_item_cost: "40.00")
-RentalItem.create(rental_item_name: "Pedestal Stand Set of Three", rental_item_description: "Three pedestal stands", rental_item_cost: "40.00")
-
 
 #Filling.destroy_all
 Filling.find_or_create_by(filling_name: "Strawberry Buttercream", filling_description: "Strawberry Buttercream")
@@ -61,6 +57,11 @@ RentalItem.find_or_create_by(rental_item_cost: 40.00)
 RentalItem.find_or_create_by(rental_item_name: "Pedestal Stand Set of Three")
 RentalItem.find_or_create_by(rental_item_description: "")
 RentalItem.find_or_create_by(rental_item_cost: 40.00)
+
+RentalItem.find_or_create_by(rental_item_name: "Gold Wedding Cake Stand", rental_item_description: "Gold cake stand for wedding cakes", rental_item_cost: "40.00")
+RentalItem.create(rental_item_name: "Silver Wedding Cake Stand", rental_item_description: "Silver cake stand for wedding cakes", rental_item_cost: "40.00")
+RentalItem.create(rental_item_name: "Pedestal Stand Set of Three", rental_item_description: "Three pedestal stands", rental_item_cost: "40.00")
+
 
 #Product.destroy_all
 Product.find_or_create_by(product_name: "Cake", product_description: "Custom cakes")
@@ -248,15 +249,15 @@ OrderLine.find_or_create_by(order_id: "16", product_id: "1", order_line_status_i
 #Order 17 OL 20
 OrderLine.find_or_create_by(order_id: "17", product_id: "5", order_line_status_id: "2", order_line_start_date: "2020-04-11 12:57:00", order_line_finish_date: "2020-05-05 04:57:51", order_line_description: "Bake 16 choclate and 16 vanilla cake pops")
 #Order 18 OL 21
-OrderLine.find_or_create_by(order_id: "18", product_id: "1", order_line_id: "2", order_line_start_date: "2020-03-30 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake Chocolate Marble Cake")
+OrderLine.find_or_create_by(order_id: "18", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-30 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake Chocolate Marble Cake")
 #Order 19 OL 22
-OrderLine.find_or_create_by(order_id: "19", product_id: "1", order_line_id: "2", order_line_start_date: "2020-03-31 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake M&M covered vanilla cake", special_order_notes: "M&Ms need to be the regular sized milk chocolate ones")
+OrderLine.find_or_create_by(order_id: "19", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-03-31 10:57:51", order_line_finish_date: "2020-04-01 10:57:51", order_line_description: "Bake M&M covered vanilla cake", special_order_notes: "M&Ms need to be the regular sized milk chocolate ones")
 #Order 20 OL 23
-OrderLine.find_or_create_by(order_id: "20", product_id: "2", order_line_id: "2", order_line_start_date: "2020-03-31 12:57:51", order_line_finish_date: "2020-04-01 12:57:51", order_line_description: "Bake 13 milk chocolate chip cookies", special_order_notes: "Throw in an extra cookie to congratulate them on their newborn")
+OrderLine.find_or_create_by(order_id: "20", product_id: "2", order_line_status_id: "2", order_line_start_date: "2020-03-31 12:57:51", order_line_finish_date: "2020-04-01 12:57:51", order_line_description: "Bake 13 milk chocolate chip cookies", special_order_notes: "Throw in an extra cookie to congratulate them on their newborn")
 #Order 21 OL 24
-OrderLine.find_or_create_by(order_id: "21", product_id: "1", order_line_id: "2", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "2020-03-31 16:00:51", order_line_description: "Strawberry and Vanilla cake")
+OrderLine.find_or_create_by(order_id: "21", product_id: "1", order_line_status_id: "2", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "2020-03-31 16:00:51", order_line_description: "Strawberry and Vanilla cake")
 #Order 22 OL 25
-OrderLine.find_or_create_by(order_id: "22", product_id: "1", order_line_id: "1", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "", order_line_description: "Coffee cake w/ Chocolate Buttercream frosting")
+OrderLine.find_or_create_by(order_id: "22", product_id: "1", order_line_status_id: "1", order_line_start_date: "2020-04-01 12:57:51", order_line_finish_date: "", order_line_description: "Coffee cake w/ Chocolate Buttercream frosting")
 
 #OL 1 T 1-2
 Tier.create_or_find_by(position: '1', cake_flavor_id: '1', frosting_flavor_id: '1', shape_id: '4', order_line_id: '1', tier_size: '3', tier_special_notes: "This layer is a JoJo reference")
@@ -300,13 +301,49 @@ Tier.create_or_find_by(position: '1', cake_flavor_id: '1', frosting_flavor_id: '
 Tier.create_or_find_by(position: '1', cake_flavor_id: '5', frosting_flavor_id: '3', shape_id: '2', order_line_id: '25', tier_size: '3 x 3')
 
 TierFilling.create_or_find_by(tier_id: 1, filling_id: 1)
-
+TierFilling.create_or_find_by(tier_id: 2, filling_id: 1)
+TierFilling.create_or_find_by(tier_id: 3, filling_id: 12)
+TierFilling.create_or_find_by(tier_id: 4, filling_id: 13)
+TierFilling.create_or_find_by(tier_id: 5, filling_id: 2)
+TierFilling.create_or_find_by(tier_id: 6, filling_id: 11)
+TierFilling.create_or_find_by(tier_id: 7, filling_id: 7)
+TierFilling.create_or_find_by(tier_id: 8, filling_id: 3)
+TierFilling.create_or_find_by(tier_id: 9, filling_id: 11)
+TierFilling.create_or_find_by(tier_id: 10, filling_id: 11)
+TierFilling.create_or_find_by(tier_id: 11, filling_id: 11)
+TierFilling.create_or_find_by(tier_id: 12, filling_id: 4)
+TierFilling.create_or_find_by(tier_id: 13, filling_id: 8)
+TierFilling.create_or_find_by(tier_id: 14, filling_id: 5)
+TierFilling.create_or_find_by(tier_id: 15, filling_id: 9)
+TierFilling.create_or_find_by(tier_id: 16, filling_id: 6)
+TierFilling.create_or_find_by(tier_id: 17, filling_id: 10)
+TierFilling.create_or_find_by(tier_id: 18, filling_id: 10)
+TierFilling.create_or_find_by(tier_id: 19, filling_id: 12)
+TierFilling.create_or_find_by(tier_id: 20, filling_id: 5)
+TierFilling.create_or_find_by(tier_id: 21, filling_id: 1)
+TierFilling.create_or_find_by(tier_id: 22, filling_id: 4)
 
 Task.create_or_find_by(order_line_id: '1', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Advanced Cake Baking 4301", task_description: "An advancment of the cake baking industry", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '2', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Cake Design", task_description: "Desiging the League of Legends cake", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '3', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Cake Baking", task_description: "Making the League of Legends cake", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '4', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Making the Pizza Cake", task_description: "Making the Pizza cake", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '5', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Designing Best Wedding Cake", task_description: "Design of the best wedding cake", task_status_id: '3')
+Task.create_or_find_by(order_line_id: '6', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Baking best wedding Cake",task_description: "Baking the best bake", task_status_id: '2')
+Task.create_or_find_by(order_line_id: '7', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Frosting best wedding Cake",task_description: "Frosting the best bake", task_status_id: '2')
+Task.create_or_find_by(order_line_id: '8', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Freestyling the small cake", task_description: "Freestyling the small cake", task_status_id: '2')
+Task.create_or_find_by(order_line_id: '9', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Coronavirus celebration", task_description: "Celebrating virus going away with cake", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '10', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Coronavirus Cake Pops", task_description: "Coronavirus Cake pops making each batch 1", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '11', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Coronavirus Cake Pops", task_description: "Coronavirus Cake pops making each batch 2", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '12', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Baking best wedding Cake", task_description: "Coronavirus Cake pops making each batch 3", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '13', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Cake inside Cake", task_description: "Putting a cake in a cake", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '14', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Baking best wedding Cake", task_description: "Baking the best bake", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '15', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Gomez wedding Cake", task_description: "Gomez wedding cake steps", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '16', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Bake cookies", task_description: "Bake special cookies", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '17', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Quick crazy cake", task_description: "Quick crazy cake baking", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '18', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Batman cake making", task_description: "Making the batman cake", task_status_id: '1')
+Task.create_or_find_by(order_line_id: '19', task_start_date: "2020-03-29 10:57:51", task_due_date: "2020-04-29 09:57:51", task_finish_date: "2020-04-29 10:57:51", task_name: "Bake wedding cake", task_description: "Baking graduation cake", task_status_id: '1')
 
 RentalLine.create_or_find_by(order_id: 1, rental_item_id: 1)
-
-
 
 TaskAssignment.create_or_find_by(task_id: 1, employee_id: 1)
 TaskAssignment.create_or_find_by(task_id: 2, employee_id: 5)
