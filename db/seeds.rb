@@ -163,48 +163,48 @@ TaskStatus.find_or_create_by(task_status_name: "In Progress")
 TaskStatus.find_or_create_by(task_status_name: "Complete")
 
 
-#1
-Order.find_or_create_by(order_description: "Jimmy Neutron Head Replica", order_cost: 400.00, order_start_date: "2020-03-29 04:57:51", order_due_date: "2020-04-10 04:57:51",order_date_finish: "2020-04-11 04:57:51", order_delivery: 'true', delivery_street_address: "795 Kent Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77001", customer_id: "15", order_type_id: "1", order_status_id: "2")
-#2
-Order.find_or_create_by(order_description: "League of Legends Cake", order_cost: 245.00, order_start_date: "2020-02-29 04:57:51", order_due_date: "2020-03-10 04:57:51",order_date_finish: "2020-03-11 04:57:51", order_delivery: 'true', delivery_street_address: "179 Heather Court", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77023", customer_id: "16", order_type_id: "8", order_status_id: "3")
-#3
-Order.find_or_create_by(order_description: "Pizza Cake", order_cost: 50.00, order_start_date: "2020-05-10 04:57:51", order_due_date: "2020-05-30 04:57:51",order_date_finish: "2020-05-30 04:57:51", order_delivery: 'true', delivery_street_address: "104 East Lakeshore Drive", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77033", customer_id: "17", order_type_id: "9", order_status_id: "3")
-#4
-Order.find_or_create_by(order_description: "Wedding cake better than everyone elses", order_cost: 2000.00, order_start_date: "2020-04-01 08:20:51", order_due_date: "2020-04-10 10:57:51",order_date_finish: "2020-04-15 10:00:00", order_delivery: 'true', delivery_street_address: "77 Redwood Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77011", customer_id: "18", order_type_id: "2", order_status_id: "2")
-#5
-Order.find_or_create_by(order_description: "Small Wedding Cake", order_cost: 500.00, order_start_date: "2020-04-05 12:10:51", order_due_date: "2020-04-30 00:00:00",order_date_finish: "2020-05-05 00:00:00", order_delivery: 'true', delivery_street_address: "4 Grove St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77025", customer_id: "19", order_type_id: "2", order_status_id: "2")
-#6
-Order.find_or_create_by(order_description: "Coronavirus is over celebration cake", order_cost: 1.00, order_start_date: "2020-04-08 12:12:50", order_due_date: "2020-04-20 04:20:20",order_date_finish: "2020-04-20 04:21:21", order_delivery: 'true', delivery_street_address: "757 Manor Station Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "12344", customer_id: "20", order_type_id: "8", order_status_id: "1")
-#7
-Order.find_or_create_by(order_description: "Coronabegone Cake Pops", order_cost: 70.00, order_start_date: "2020-04-08 14:12:51", order_due_date: "2020-04-30 14:57:51",order_date_finish: "2020-04-30 14:57:00", order_delivery: 'true', delivery_street_address: "30 Chapel Drive", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77060", customer_id: "21", order_type_id: "8", order_status_id: "1")
-#8
-Order.find_or_create_by(order_description: "Cake inside a cake", order_cost: 300.00, order_start_date: "2020-04-10 08:00:51", order_due_date: "2020-04-20 08:00:51",order_date_finish: "2020-04-20 08:00:51", order_delivery: 'true', delivery_street_address: "472 Jennings Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77064", customer_id: "22", order_type_id: "9", order_status_id: "1")
-#9
-Order.find_or_create_by(order_description: "Gomez Birthday cake", order_cost: 1400.00, order_start_date: "2020-04-11 10:20:51", order_due_date: "2020-04-26 04:57:51",order_date_finish: "2020-04-27 04:57:51", order_delivery: 'true', delivery_street_address: "8 Illinois Dr", delivery_city: "La Plant Wedding Cake", delivery_state: "TX", delivery_zip_code: "77020", customer_id: "23", order_type_id: "4", order_status_id: "1")
-#10
-Order.find_or_create_by(order_description: "Benetiz Birthday Cake", order_cost: 600.00, order_start_date: "2020-04-11 12:57:00", order_due_date: "2020-05-05 09:05:51",order_date_finish: "2020-05-05 04:57:51", order_delivery: 'true', delivery_street_address: "7924 Overlook Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77035", customer_id: "24", order_type_id: "4", order_status_id: "1")
-#11
-Order.find_or_create_by(order_description: "Celebration Cookies", order_cost: 100.00, order_start_date: "2020-04-11 10:00:00", order_due_date: "2020-04-20 12:00:00",order_date_finish: "2020-04-21 04:57:51", order_delivery: 'true', delivery_street_address: "7 Selby Circle", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77019", customer_id: "25", order_type_id: "6", order_status_id: "1")
-#12
-Order.find_or_create_by(order_description: "Crazy Cake", order_cost: 400.00, order_start_date: "2020-04-15 09:57:51", order_due_date: "2020-05-30 14:57:51",order_date_finish: "2020-06-01 04:57:51", order_delivery: 'true', delivery_street_address: "30 East Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77023", customer_id: "26", order_type_id: "1", order_status_id: "1")
-#13
-Order.find_or_create_by(order_description: "Make a cake that looks like Robin from Batman and Robin From Fire Emblem", order_cost: 880.00, order_start_date: "2020-04-20 16:20:00", order_due_date: "2020-05-15 16:20:00",order_date_finish: "2020-05-16 04:57:51", order_delivery: 'true', delivery_street_address: "202 Fake Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77014", customer_id: "27", order_type_id: "9", order_status_id: "1")
-#15
-Order.find_or_create_by(order_description: "Class of 2020 Wedding Cake", order_cost: 100.00, order_start_date: "2020-05-01 14:50:50", order_due_date: "2020-05-30 08:00:00",order_date_finish: "2020-06-01 00:00:00", order_delivery: 'true', delivery_street_address: "202 Fake Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77014", customer_id: "28", order_type_id: "8", order_status_id: "1")
-#16
-Order.create_or_find_by(order_description: "Treasure Chest Sculpture Cake", order_cost: 1249.99, order_start_date: "2020-03-29 10:57:51", order_due_date: "2020-04-29 10:57:51", order_date_finish: "2020-04-29 10:57:51", order_delivery: 'false', customer_id: 1, order_type_id: 3, order_status_id: 3)
-#17
-Order.create_or_find_by(order_description: "32 pc. batch of choclate/vanilla cake pops", order_cost: 69.75, order_start_date: "2020-03-29 10:57:51", order_due_date: "2020-04-01 10:57:51", order_date_finish: "2020-04-01 10:57:51", order_delivery: 'false', customer_id: 2, order_type_id: 3, order_status_id: 2)
-#18
-Order.create_or_find_by(order_description: "Johnson's Birthday Cake", order_cost: 100.15, order_start_date: "2020-03-30 10:57:51", order_due_date: "2020-04-01 10:57:51", order_date_finish: "2020-04-01 10:57:51", order_delivery: 'false', customer_id: 3, order_type_id: 3, order_status_id: 1)
-#19
-Order.create_or_find_by(order_description: "M&M sponsor cake", order_cost: 185.15, order_start_date: "2020-03-31 10:57:51", order_due_date: "2020-04-01 10:57:51", order_date_finish: "2020-04-01 10:57:51", order_delivery: 'false', customer_id: 4, order_type_id: 3, order_status_id: 1)
-#20
-Order.create_or_find_by(order_description: "A dozen choclate chip cookies", order_cost: 37.15, order_start_date: "2020-03-31 12:57:51", order_due_date: "2020-04-01 12:57:51", order_date_finish: "2020-03-31 16:00:51", order_delivery: 'true', delivery_street_address: "5005 North St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "73215", customer_id: 5, order_type_id: 7, order_status_id: 3)
-#21
-Order.create_or_find_by(order_description: "Tran's wedding cake", order_cost: 99.99, order_start_date: "2020-04-01 12:57:51", order_due_date: "2020-04-01 15:25:51", order_date_finish: "2020-04-01 15:25:51", order_delivery: 'true', delivery_street_address: "1234 South St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "73007", customer_id: 6, order_type_id: 2, order_status_id: 3)
-#22
-Order.create_or_find_by(order_description: "Avdol's Get Well Soon cake", order_cost: 199.99, order_start_date: "2020-04-01 12:57:51", order_due_date: "2020-04-20 15:25:51", order_date_finish: "2020-04-20 15:25:51", order_delivery: 'true', delivery_street_address: "3443 Brother St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "70023", customer_id: 7, order_type_id: 2, order_status_id: 2)
+#1 OK
+Order.find_or_create_by(order_description: "Jimmy Neutron Head Replica", order_cost: 400.00, order_start_date: "2020-01-01 10:00:00", order_due_date: "2020-02-15 18:00:00", order_date_finish: "2020-02-15 10:30:35", order_delivery: 'true', delivery_street_address: "795 Kent Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77001", customer_id: 1, order_type_id: "1", order_status_id: "3")
+#2 OK
+Order.find_or_create_by(order_description: "League of Legends Cake", order_cost: 245.00, order_start_date: "2020-01-01 11:00:00", order_due_date: "2020-01-10 12:30:00",order_date_finish: "2020-01-10 12:20:51", order_delivery: 'true', delivery_street_address: "179 Heather Court", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77023", customer_id: 2, order_type_id: "8", order_status_id: "3")
+#3 OK
+Order.find_or_create_by(order_description: "Pizza Cake", order_cost: 50.00, order_start_date: "2020-01-10 13:57:51", order_due_date: "2020-01-30 15:00:00",order_date_finish: "2020-01-30 14:57:51", order_delivery: 'true', delivery_street_address: "104 East Lakeshore Drive", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77033", customer_id: 3, order_type_id: "9", order_status_id: "3")
+#4 OK
+Order.find_or_create_by(order_description: "Wedding cake better than everyone elses", order_cost: 2000.00, order_start_date: "2020-01-15 10:20:51", order_due_date: "2020-01-21 16:00:00",order_date_finish: "2020-01-21 14:00:00", order_delivery: 'true', delivery_street_address: "77 Redwood Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77011", customer_id: 4, order_type_id: "2", order_status_id: "3")
+#5 OK
+Order.find_or_create_by(order_description: "Small Wedding Cake", order_cost: 500.00, order_start_date: "2020-02-02 12:10:51", order_due_date: "2020-02-03 13:00:00",order_date_finish: "2020-02-03 12:30:00", order_delivery: 'true', delivery_street_address: "4 Grove St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77025", customer_id: 5, order_type_id: "2", order_status_id: "3")
+#6 OK
+Order.find_or_create_by(order_description: "Coronavirus is over celebration cake", order_cost: 1.00, order_start_date: "2020-02-05 12:12:50", order_due_date: "2020-02-06 15:00:00", order_date_finish: "2020-02-06 12:20:51", order_delivery: 'true', delivery_street_address: "757 Manor Station Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "12344", customer_id: 6, order_type_id: "8", order_status_id: "3")
+#7 OK
+Order.find_or_create_by(order_description: "Coronabegone Cake Pops", order_cost: 70.00, order_start_date: "2020-02-16 14:12:51", order_due_date: "2020-02-20 12:00:00", order_date_finish: "2020-02-20 10:57:51", order_delivery: 'true', delivery_street_address: "30 Chapel Drive", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77060", customer_id: 7, order_type_id: "8", order_status_id: "3")
+#8 OK
+Order.find_or_create_by(order_description: "Cake inside a cake", order_cost: 300.00, order_start_date: "2020-02-28 09:00:51", order_due_date: "2020-05-01 15:00:00", order_delivery: 'true', delivery_street_address: "472 Jennings Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77064", customer_id: 8, order_type_id: "9", order_status_id: "2")
+#9 OK
+Order.find_or_create_by(order_description: "Gomez Birthday cake", order_cost: 1400.00, order_start_date: "2020-03-01 10:20:51", order_due_date: "2020-04-26 12:30:00", order_delivery: 'true', delivery_street_address: "8 Illinois Dr", delivery_city: "La Plant Wedding Cake", delivery_state: "TX", delivery_zip_code: "77020", customer_id: 9, order_type_id: "4", order_status_id: "2")
+#10 OK
+Order.find_or_create_by(order_description: "Benetiz Birthday Cake", order_cost: 600.00, order_start_date: "2020-03-05 12:57:00", order_due_date: "2020-05-05 13:00:00", order_delivery: 'true', delivery_street_address: "7924 Overlook Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77035", customer_id: 10, order_type_id: "4", order_status_id: "2")
+#11 OK
+Order.find_or_create_by(order_description: "Celebration Cookies", order_cost: 100.00, order_start_date: "2020-03-15 10:00:00", order_due_date: "2020-04-20 12:00:00", order_delivery: 'true', delivery_street_address: "7 Selby Circle", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77019", customer_id: 11, order_type_id: "6", order_status_id: "2")
+#12 OK
+Order.find_or_create_by(order_description: "Crazy Cake", order_cost: 400.00, order_start_date: "2020-03-31 09:57:51", order_due_date: "2020-05-30 14:00:00", order_delivery: 'true', delivery_street_address: "30 East Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77023", customer_id: 12, order_type_id: "1", order_status_id: "2")
+#13 OK
+Order.find_or_create_by(order_description: "Make a cake that looks like Robin from Batman and Robin From Fire Emblem", order_cost: 880.00, order_start_date: "2020-04-05 16:20:00", order_due_date: "2020-05-15 16:20:00", order_delivery: 'true', delivery_street_address: "202 Fake Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77014", customer_id: 13, order_type_id: "9", order_status_id: "2")
+#14 OK
+Order.find_or_create_by(order_description: "Class of 2020 Wedding Cake", order_cost: 100.00, order_start_date: "2020-04-01 14:50:50", order_due_date: "2020-06-10 18:00:00", order_delivery: 'true', delivery_street_address: "202 Fake Street", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77014", customer_id: 14, order_type_id: "8", order_status_id: "2")
+#15 OK
+Order.create_or_find_by(order_description: "Treasure Chest Sculpture Cake", order_cost: 1249.99, order_start_date: "2020-04-10 10:57:51", order_due_date: "2020-06-29 11:00:00", order_delivery: 'false', customer_id: 15, order_type_id: 3, order_status_id: 3)
+#16 OK
+Order.create_or_find_by(order_description: "32 pc. batch of choclate/vanilla cake pops", order_cost: 69.75, order_start_date: "2020-04-18 10:57:51", order_due_date: "2020-07-01 15:00:00", order_delivery: 'false', customer_id: 16, order_type_id: 3, order_status_id: 3)
+#17 OK
+Order.create_or_find_by(order_description: "Johnson's Birthday Cake", order_cost: 100.15, order_start_date: "2020-04-30 9:36:51", order_due_date: "2020-08-15 12:00:00", order_delivery: 'false', customer_id: 17, order_type_id: 3, order_status_id: 3)
+#18 OK
+Order.create_or_find_by(order_description: "M&M sponsor cake", order_cost: 185.15, order_start_date: "2020-05-01 10:20:20", order_due_date: "2020-09-01 12:00:00", order_delivery: 'false', customer_id: 18, order_type_id: 3, order_status_id: 3)
+#19 OK
+Order.create_or_find_by(order_description: "A dozen choclate chip cookies", order_cost: 37.15, order_start_date: "2020-05-10 12:00:30", order_due_date: "2020-09-02 13:00:00", order_delivery: 'true', delivery_street_address: "5005 North St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "73215", customer_id: 19, order_type_id: 7, order_status_id: 3)
+#20 OK
+Order.create_or_find_by(order_description: "Tran's wedding cake", order_cost: 99.99, order_start_date: "2020-05-20 12:30:51", order_due_date: "2020-10-28 15:00:00", order_delivery: 'true', delivery_street_address: "1234 South St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "73007", customer_id: 20, order_type_id: 2, order_status_id: 3)
+#21 OK
+Order.create_or_find_by(order_description: "Avdol's Get Well Soon cake", order_cost: 199.99, order_start_date: "2020-05-25 13:00:33", order_due_date: "2020-12-15 14:00:00", order_delivery: 'true', delivery_street_address: "3443 Brother St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "70023", customer_id: 21, order_type_id: 2, order_status_id: 3)
 
 
 #Order 1 OL 1
