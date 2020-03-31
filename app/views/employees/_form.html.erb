@@ -39,8 +39,9 @@
       <label for="">Employee Type</label>
       <%= form.collection_select(:employee_type_id, EmployeeType.all, :id, :employee_type_description, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
-  </div>
 
-  <button type="submit" class="btn btn-primary">Create Employee</button>
-
+  </div> 
+    </form>
+    <button type="submit" class="btn btn-primary">Create Employee</button>
+    <br>
 <% end %>
