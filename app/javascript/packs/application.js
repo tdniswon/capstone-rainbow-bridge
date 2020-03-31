@@ -22,4 +22,7 @@ import 'bootstrap'
 import './src/application.scss'
 import 'cocoon'
 
+document.addEventListener("turbolinks:load", () => {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 
