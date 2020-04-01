@@ -37,3 +37,7 @@ yarn-debug.log*
 
 # Ignore application credentials
 /config/application.yml
+
+#Ignore .db files
+/db/development
+/db/test
