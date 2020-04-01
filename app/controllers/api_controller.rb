@@ -40,7 +40,7 @@ class ApiController < ApplicationController
             @order.order_description = params[:api][:order_description]
             @order.order_type_id = 1 # params[:api][:order_type]
             @order.order_status_id = 1 # params[:api][:order_status]
-            @order.inspiration_images.attach(io: request.body, filename: 'base.png')
+            # @order.inspiration_images.attach(io: request.body, filename: 'base.png')
             @order.save
             #@customer = Customer.new
         else
@@ -70,7 +70,7 @@ class ApiController < ApplicationController
             @order.order_description = params[:api][:order_description]
             @order.order_type_id = 1 # params[:api][:order_type]
             @order.order_status_id = 1 # params[:api][:order_status]
-            @order.inspiration_images.attach(io: request.body, filename: 'base.png')
+            # @order.inspiration_images.attach(io: request.body, filename: 'base.png')
             @order.save
             @newCustomer = Order.where(order_description: params[:api][:order_description]).last
             puts"the order description is"
