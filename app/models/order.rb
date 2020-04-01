@@ -11,10 +11,10 @@ class Order < ApplicationRecord
   validates :order_start_date, presence: true
   validates :order_cost, format: {with: /\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.[0-9][0-9])?+/, message: 'Format: $XXX.XX'}, allow_blank: true
   # with_options if: :order_delivery? do
-  validates :delivery_street_address, format: {with: /\A[-a-zA-Z0-9. ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'} # presence: true
-  validates :delivery_city, format: {with: /\A[-a-zA-Z. ]+\z/, message: 'Only Alphanumerical'} #presence: true
-  validates :delivery_state, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, length: {is:2} # presence: true
-  validates :delivery_zip_code, length: {is: 5}, numericality: true #, presence: true
+  validates :delivery_street_address, format: {with: /\A[-a-zA-Z0-9. ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true # presence: true
+  validates :delivery_city, format: {with: /\A[-a-zA-Z. ]+\z/, message: 'Only Alphanumerical'}, allow_blank: true #presence: true
+  validates :delivery_state, format: {with: /\A[a-zA-Z ]+\z/, message: 'Only Alphanumerical'}, length: {is:2}, allow_blank: true # presence: true
+  validates :delivery_zip_code, length: {is: 5}, numericality: true, allow_blank: true #, presence: true
   # end
 
 
