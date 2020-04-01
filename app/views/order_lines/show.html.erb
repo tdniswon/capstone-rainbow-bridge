@@ -37,12 +37,15 @@
 
 <hr>
 
-<table>
+<table  class="table table-hover">
     <tbody>
+    <thead class="thead-light">
         <tr>
-            <th>Order Line ID</th>
-            <th>Dietary Restriction</th>
+            <th scope="col">Order Line ID</th>
+            <th scope="col">Dietary Restriction</th>
+            <th col span="3">
         </tr>
+        </thead>
         <% @order_line.order_line_restrictions.each do |olr| %>
         <tr>
             <td><%= olr.order_line_id %></td>
@@ -55,16 +58,19 @@
 
 <hr>
 
-<table>
+<table class="table table-hover">
     <tbody>
+    <thead class="thead-light">
         <tr>
-            <th>Tier Position</th>
-            <th>Tier Size</th>
-            <th>Tier Special Notes</th>
-            <th>Cake Flavor</th>
-            <th>Frosting Flavor</th>
-            <th>Shape</th>
+            <th scope="col">Tier Position</th>
+            <th scope="col">Tier Size</th>
+            <th scope="col">Tier Special Notes</th>
+            <th scope="col">Cake Flavor</th>
+            <th scope="col">Frosting Flavor</th>
+            <th scope="col">Shape</th>
+            <th col span="3">
         </tr>
+        </thead>
         <% @order_line.tiers.each do |ot| %>
         <tr>
             <td><%= ot.position %></td>
@@ -81,17 +87,20 @@
 
 <hr>
 
-<table>
+<table class="table table-hover">
     <tbody>
+   <thead class="thead-light">
         <tr>
-            <th>Task Name</th>
-            <th>Task Description</th>
-            <th>Task Start Date</th>
-            <th>Task Due Date</th>
-            <th>Task Finish Date</th>
-            <th>Task Status</th>
-            <th>Order Line ID</th>
+            <th scope="col" >Task Name</th>
+            <th scope="col">Task Description</th>
+            <th scope="col">Task Start Date</th>
+            <th scope="col">Task Due Date</th>
+            <th scope="col">Task Finish Date</th>
+            <th scope="col">Task Status</th>
+            <th scope="col">Order Line ID</th>
+            <th col span="3">
         </tr>
+        </thead>
         <% @order_line.tasks.each do |otasks| %>
         <tr>
             <td><%= otasks.task_name %></td>
@@ -109,5 +118,5 @@
 
 <hr>
 
-<%= link_to 'Edit', edit_order_line_path(@order_line), Class:"btn btn-primary" %> |
+<%= link_to 'Edit', edit_order_line_path(@order_line), Class:"btn btn-primary" %> 
 <%= link_to 'Back', :back,Class:"btn btn-primary" %>

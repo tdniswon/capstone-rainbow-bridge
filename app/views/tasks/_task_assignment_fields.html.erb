@@ -1,19 +1,18 @@
+<br>
 <div class='nested-fields'>
-
+  <form>
   <div class="form-row">
-
-  <div class="field">
-  <%= f.label :employee_id %>
-  <%= f.text_field :employee_id %>
-</div>
-
-<div class="field">
-  <%= f.label :task_id %>
-  <%= f.text_field :task_id %>
-</div>
+    <div class="form-group col-md-5">
+      <label for="employeeName">Employee</label>
+      <%= f.collection_select(:employee_id, Employee.all, :id, :fullname, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
+    <div class="form-group col-md-5">
+      <label for="employeeName">Task</label>
+      <%= f.collection_select(:task_id, Task.all, :id, :task_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
+</form>
 
   </div>
-
-  <%= link_to_remove_association "Remove Assignment", f %>
-
+  <%= link_to_remove_association "Remove Task Assignment", f %>
 </div>
+
