@@ -71,6 +71,7 @@
 
 <table class="table table-hover">
     <tbody>
+    <thead class="thead-light">
         <tr>
             <th scope="col">Order Line Description</th>
             <th scope="col">Order Line Start Date</th>
@@ -78,8 +79,9 @@
             <th scope="col">Special Order Notes</th>
             <th scope="col">Product</th>
             <th scope="col">Order Line Status</th>
+            <th colspan="3"></th>
         </tr>
-
+        </thead>
         <% @order.order_lines.each do |ol| %>
         <tr>
             <td><%= ol.order_line_description %></td>
@@ -98,11 +100,13 @@
 
 <table class="table table-hover">
     <tbody>
+    <thead class="thead-light">
         <tr>
             <th scope="col">Order ID</th>
             <th scope="col">Rental Item ID</th>
+            <th colspan="3"></th>
         </tr>
-
+        </thead>
         <% @order.rental_lines.each do |rl| %>
         <tr>
             <td><%= rl.order_id %></td>

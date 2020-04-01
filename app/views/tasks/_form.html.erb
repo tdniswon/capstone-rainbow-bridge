@@ -57,12 +57,12 @@
       <%= form.fields_for :task_assignments do |task_assignment| %>
         <%= render 'task_assignment_fields', :f => task_assignment %>
       <% end %>
+      <br>
       <div class='links'>
         <%= link_to_add_association 'Add a task assignment', form, :task_assignments %>
       </div>
     </div>
     <hr>
-
-  <button type="submit" class="btn btn-primary">Create Task</button>
-
+</div>
+<button type="submit" class="btn btn-primary">Create Task</button>
 <% end %>

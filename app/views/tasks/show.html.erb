@@ -37,13 +37,15 @@
 
 <hr>
 
-<table>
+<table class="table table-hover">
     <tbody>
+    <thead class="thead-light">
         <tr>
             <th>Task Name</th>
             <th>Employee Name</th>
+            <th col span="3">
         </tr>
-
+    </thead>
         <% @task.task_assignments.each do |ta| %>
         <tr>
             <td><%= ta.task.task_name %></td>
