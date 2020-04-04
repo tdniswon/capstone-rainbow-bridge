@@ -3,8 +3,8 @@
 
 
 
-<%= @dinguses = OrderLine.group(:product_id).count =%>
-<%= @dkeys = @dinguses.keys =%>
+<% @dinguses = OrderLine.group(:product_id).count %>
+<% @dkeys = @dinguses.keys %>
 
 
 <h1>Product Orders</h1>
@@ -14,8 +14,7 @@
         <th>Orders<th>
 	</tr>
 	<tr>
-   
-        
-		
-</table>
 
+
+
+</table>

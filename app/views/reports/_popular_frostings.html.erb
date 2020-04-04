@@ -1,0 +1,3 @@
+<h1>Most Popular Frostings</h1>
+<% @tiers = FrostingFlavor.joins(:tiers) %>
+<%= pie_chart @tiers.group(:frosting_name).count %>
