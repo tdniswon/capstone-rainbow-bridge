@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :order_line_id %>
-    <%= form.text_field :order_line_id %>
-  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label>Order Content</label>
+      <%= form.collection_select(:order_line_id, OrderLine.all, :id, :order_line_description, {prompt: "Select One...", selected: @order_line}, {class: "form-control"}) %>
+    </div>
 
-  <div class="field">
-    <%= form.label :dietary_restriction_id %>
-    <%= form.text_field :dietary_restriction_id %>
+    <div class="form-group col-md-4">
+      <label>Dietary Restriction</label>
+      <%= form.collection_select(:dietary_restriction_id, DietaryRestriction.all, :id, :dietary_restriction_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

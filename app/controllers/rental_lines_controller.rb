@@ -15,6 +15,7 @@ class RentalLinesController < ApplicationController
   # GET /rental_lines/new
   def new
     @rental_line = RentalLine.new
+    @order = params[:order_id]
   end
 
   # GET /rental_lines/1/edit

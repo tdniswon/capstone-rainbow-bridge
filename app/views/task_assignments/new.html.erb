@@ -1,5 +1,7 @@
-<h1>New Task Assignment</h1>
+<div class="container">
+    <h1>New Task Assignment</h1>
 
-<%= render 'form', task_assignment: @task_assignment %>
+    <%= render 'form', task_assignment: @task_assignment %>
 
-<%= link_to 'Back', task_assignments_path %>
+    <%= link_to 'Back', task_assignments_path, class: "btn btn-primary" %>
+</div>

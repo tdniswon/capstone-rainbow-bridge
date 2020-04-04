@@ -15,6 +15,7 @@ class TiersController < ApplicationController
   # GET /tiers/new
   def new
     @tier = Tier.new
+    @order_line = params[:order_line_id]
   end
 
   # GET /tiers/1/edit
@@ -69,6 +70,6 @@ class TiersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tier_params
-      params.require(:tier).permit(:position, :tier_size, :tier_special_notes, :cake_flavor_id, :frosting_flavor_id, :shape_id, tier_fillings_attributes: [:tier_id, :filling_id, :_destroy])
+      params.require(:tier).permit(:order_line_id, :position, :tier_size, :tier_special_notes, :cake_flavor_id, :frosting_flavor_id, :shape_id, tier_fillings_attributes: [:tier_id, :filling_id, :_destroy])
     end
 end
