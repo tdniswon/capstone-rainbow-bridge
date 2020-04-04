@@ -15,10 +15,12 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @order_line = params[:order_line_id]
   end
 
   # GET /tasks/1/edit
   def edit
+    @order_line = @task.order_line
   end
 
   # POST /tasks
@@ -69,6 +71,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:task_name, :task_description, :task_start_date, :task_due_date, :task_finish_date, :task_status_id, task_assignments_attributes: [:_destroy, :task_id, :employee_id])
+      params.require(:task).permit(:order_line_id, :task_name, :task_description, :task_start_date, :task_due_date, :task_finish_date, :task_status_id, task_assignments_attributes: [:_destroy, :task_id, :employee_id])
     end
 end

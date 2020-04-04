@@ -15,6 +15,7 @@ class TaskAssignmentsController < ApplicationController
   # GET /task_assignments/new
   def new
     @task_assignment = TaskAssignment.new
+    @task = params[:task_id]
   end
 
   # GET /task_assignments/1/edit

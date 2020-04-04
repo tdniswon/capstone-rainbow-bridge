@@ -15,6 +15,7 @@ class TierFillingsController < ApplicationController
   # GET /tier_fillings/new
   def new
     @tier_filling = TierFilling.new
+    @tier = params[:tier_id]
   end
 
   # GET /tier_fillings/1/edit

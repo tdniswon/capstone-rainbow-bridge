@@ -41,11 +41,9 @@
 
     <div class="form-group col-md-4">
       <%= form.label :order_line_id %>
-      <%= form.collection_select(:order_line_id, OrderLine.all, :id, :order_line_description, {prompt: "Select One..."}, {class: "form-control"}) %>
+      <%= form.collection_select(:order_line_id, OrderLine.all, :id, :order_line_description, {prompt: "Select One...", selected: @order_line}, {class: "form-control"}) %>
     </div>
   </div>
-
-  <button type="submit" class="btn btn-primary">Create Tier</button>
 
   <h3>Tier Contents</h3>
   <div id='tier_fillings'>
@@ -57,4 +55,9 @@
     </div>
   </div>
   <hr>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary"%>
+  </div>
+
 <% end %>

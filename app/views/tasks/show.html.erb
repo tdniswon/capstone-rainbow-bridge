@@ -1,62 +1,71 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+    <p id="notice"><%= notice %></p>
 
-<p>
-    <strong>Task name:</strong>
-    <%= @task.task_name %>
-</p>
+    <p>
+        <strong>Task name:</strong>
+        <%= @task.task_name %>
+    </p>
 
-<p>
-    <strong>Task description:</strong>
-    <%= @task.task_description %>
-</p>
+    <p>
+        <strong>Task description:</strong>
+        <%= @task.task_description %>
+    </p>
 
-<p>
-    <strong>Task start date:</strong>
-    <%= @task.task_start_date.to_formatted_s(:long_ordinal) %>
-</p>
+    <p>
+        <strong>Task start date:</strong>
+        <%= @task.task_start_date.to_formatted_s(:long_ordinal) %>
+    </p>
 
-<p>
-    <strong>Task due date:</strong>
-    <%= @task.task_due_date.to_formatted_s(:long_ordinal) %>
-</p>
+    <p>
+        <strong>Task due date:</strong>
+        <%= @task.task_due_date.to_formatted_s(:long_ordinal) %>
+    </p>
 
-<p>
-    <strong>Task finish date:</strong>
-    <%= @task.task_finish_date.to_formatted_s(:long_ordinal) %>
-</p>
+    <p>
+        <strong>Task finish date:</strong>
+        <%= @task.task_finish_date.to_formatted_s(:long_ordinal) %>
+    </p>
 
-<p>
-    <strong>Task status:</strong>
-    <%= @task.task_status.task_status_name %>
-</p>
+    <p>
+        <strong>Task status:</strong>
+        <%= @task.task_status.task_status_name %>
+    </p>
 
-<p>
-    <strong>Order Line:</strong>
-    <%= @task.order_line_id %>
-</p>
+    <p>
+        <strong>Order Line:</strong>
+        <%= @task.order_line_id %>
+    </p>
 
-<hr>
+    <hr>
 
-<table class="table table-hover">
-    <tbody>
-    <thead class="thead-light">
-        <tr>
-            <th>Task Name</th>
-            <th>Employee Name</th>
-            <th col span="3">
-        </tr>
-    </thead>
-        <% @task.task_assignments.each do |ta| %>
-        <tr>
-            <td><%= ta.task.task_name %></td>
-            <td><%= ta.employee.fullname %></td>
-            <td><%= link_to 'Show Details', ta %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+    <div class="container text-center">
+        <h2>Task's Employees</h2>
+        <%= button_to "Add an Employee", new_task_assignment_path, params: {task_id: @task}, method: :get, class: "text-center btn btn-primary" %>
+    </div>
 
-<hr>
+    <br>
 
-<%= link_to 'Edit', edit_task_path(@task),Class:"btn btn-primary" %> 
-<%= link_to 'Back', :back, Class:"btn btn-primary" %>
+    <table class="table table-hover">
+        <tbody>
+        <thead class="thead-light">
+            <tr>
+                <th>Task Name</th>
+                <th>Employee Name</th>
+                <th col span="3">
+            </tr>
+        </thead>
+            <% @task.task_assignments.each do |ta| %>
+            <tr>
+                <td><%= ta.task.task_name %></td>
+                <td><%= ta.employee.fullname %></td>
+                <td><%= link_to 'Show Details', ta %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <%= link_to 'Edit', edit_task_path(@task),Class:"btn btn-primary" %> 
+    <%= link_to 'Back', :back, Class:"btn btn-primary" %>
+</div>

@@ -15,6 +15,7 @@ class OrderLineRestrictionsController < ApplicationController
   # GET /order_line_restrictions/new
   def new
     @order_line_restriction = OrderLineRestriction.new
+    @order_line = params[:order_line_id]
   end
 
   # GET /order_line_restrictions/1/edit

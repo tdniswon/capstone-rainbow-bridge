@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :tier_id %>
-    <%= form.text_field :tier_id %>
-  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Tier</label>
+      <%= form.collection_select(:tier_id, Tier.all, :id, :position, {prompt: "Select One...", selected: @tier}, {class: "form-control"}) %>
+    </div>
 
-  <div class="field">
-    <%= form.label :filling_id %>
-    <%= form.text_field :filling_id %>
+    <div class="form-group col-md-6">
+      <label>Filling</label>
+      <%= form.collection_select(:tier_filling_id, Filling.all, :id, :filling_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
