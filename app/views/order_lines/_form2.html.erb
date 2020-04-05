@@ -10,6 +10,21 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="">Order</label>
+      <%= form.collection_select(:order_id, Order.all, :id, :order_description, {prompt: "Select One...", selected: @order}, {class: "form-control"}) %>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="">Order Line Status</label>
+      <%= form.collection_select(:order_line_status_id, OrderLineStatus.all, :id, :order_line_status_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="">Product</label>
+      <%= form.collection_select(:product_id, Product.all, :id, :product_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
+  </div>
   
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -33,22 +48,10 @@
       <%= form.datetime_select :order_line_finish_date, class: "form-control" %>
     </div>
   </div>
-    
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="">Product</label>
-      <%= form.collection_select(:product_id, Product.all, :id, :product_name, {prompt: "Select One..."}, {class: "form-control"}) %>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="">Order Line Status</label>
-      <%= form.collection_select(:order_line_status_id, OrderLineStatus.all, :id, :order_line_status_name, {prompt: "Select One..."}, {class: "form-control"}) %>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="">Order</label>
-      <%= form.collection_select(:order_id, Order.all, :id, :order_description, {prompt: "Select One...", selected: @order}, {class: "form-control"}) %>
-    </div>
-  </div>
 
   <button type="submit" class="btn btn-primary">Update Order Content</button>
+
+  <br>
+  <br>
 
 <% end %>

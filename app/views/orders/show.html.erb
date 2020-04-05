@@ -94,7 +94,7 @@
             <tr>
                 <td><%= ol.order_line_description %></td>
                 <td><%= ol.order_line_start_date.to_formatted_s(:long_ordinal) %></td>
-                <td><%= ol.order_line_finish_date.to_formatted_s(:long_ordinal) %></td>
+                <td><%= ol.order_line_finish_date.try(:to_formatted_s, :long_ordinal) %></td>
                 <td><%= ol.special_order_notes %></td>
                 <td><%= ol.product.product_name %></td>
                 <td><%= ol.order_line_status.order_line_status_name %></td>

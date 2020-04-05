@@ -27,11 +27,17 @@ class OrderLinesController < ApplicationController
   # POST /order_lines.json
   def create
     @order_line = OrderLine.new(order_line_params)
+    @nested_o = params[:nested_o]
 
     respond_to do |format|
       if @order_line.save
-        format.html { redirect_to @order_line, notice: 'Order line was successfully created.' }
-        format.json { render :show, status: :created, location: @order_line }
+        if @nested_o != ""
+          @o = Order.where(id: @nested_o).take
+          format.html { redirect_to @o, notice: 'Tier was successfully created.' }
+        else
+          format.html { redirect_to @order_line, notice: 'Order line was successfully created.' }
+          format.json { render :show, status: :created, location: @order_line }
+        end
       else
         format.html { render :new }
         format.json { render json: @order_line.errors, status: :unprocessable_entity }

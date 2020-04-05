@@ -1,37 +1,34 @@
 <div class='nested-fields'>
 
-<div class="field">
-<%= f.label :position %>
-<%= f.number_field :position %>
-</div>
+    <div class="form-row">
 
-<div class="field">
-<%= f.label :tier_size %>
-<%= f.number_field :tier_size %>
-</div>
+        <div class="form-group col-md-6">
+        <%= f.label :frosting_flavor_id %>
+        <%= f.collection_select(:frosting_flavor_id, FrostingFlavor.all, :id, :frosting_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+        </div>
 
-<div class="field">
-<%= f.label :tier_special_notes %>
-<%= f.text_field :tier_special_notes %>
-</div>
+        <div class="form-group col-md-6">
+        <%= f.label :cake_flavor_id %>
+        <%= f.collection_select(:cake_flavor_id, CakeFlavor.all, :id, :flavor_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+        </div>
+        
+    </div>
 
-<div class="field">
-<%= f.label :cake_flavor_id %>
-<%= f.text_field :cake_flavor_id %> 
-</div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+        <%= f.label :tier_size %>
+        <%= f.text_field :tier_size, class: "form-control" %>
+        </div>
 
-<div class="field">
-<%= f.label :frosting_flavor_id %>
-<%= f.text_field :frosting_flavor_id %>
-</div>
+        <div class="form-group col-md-3">
+        <%= f.label :shape_id %>
+        <%= f.collection_select(:shape_id, Shape.all, :id, :shape_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+        </div>
 
-<div class="field">
-<%= f.label :shape_id %>
-<%= f.text_field :shape_id %>
-</div>
+        <div class="form-group col-md-6">
+        <%= f.label :tier_special_notes %>
+        <%= f.text_area :tier_special_notes, class: "form-control" %>
+        </div>
+    </div>
 
-<div class="field">
-<%= f.label :order_line_id %>
-<%= f.text_field :order_line_id %>
-</div>
 <%= link_to_remove_association "Remove Tier", f %>
