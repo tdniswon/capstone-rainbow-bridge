@@ -26,11 +26,17 @@ class TierFillingsController < ApplicationController
   # POST /tier_fillings.json
   def create
     @tier_filling = TierFilling.new(tier_filling_params)
+    @nested_tier = params[:nested_tier]
 
     respond_to do |format|
       if @tier_filling.save
-        format.html { redirect_to @tier_filling, notice: 'Tier filling was successfully created.' }
-        format.json { render :show, status: :created, location: @tier_filling }
+        if @nested_tier != ""
+          @t = Tier.where(id: @nested_tier).take
+          format.html { redirect_to @t, notice: 'Tier was successfully created.' }
+        else
+          format.html { redirect_to @tier_filling, notice: 'Tier filling was successfully created.' }
+          format.json { render :show, status: :created, location: @tier_filling }
+        end
       else
         format.html { render :new }
         format.json { render json: @tier_filling.errors, status: :unprocessable_entity }

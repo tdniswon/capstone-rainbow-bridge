@@ -13,6 +13,25 @@
 
   <div class="form-row">
 
+    <div class="form-group col-md-4">
+      <label for="inputCust">Customer</label>
+      <%= form.collection_select(:customer_id, Customer.all, :id, :full_name,{prompt: "Select One...", selected: @customer}, {class: "form-control"}) %>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputOrdType">Order Type</label>
+      <%= form.collection_select(:order_type_id, OrderType.all, :id, :order_description, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputOrderStat">Order Status</label>
+      <%= form.collection_select(:order_status_id, OrderStatus.all, :id, :order_status_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+
     <div class="form-group col-md-6">
       <label :order_description>Order Description</label>
       <%= form.text_area :order_description, class: "form-control" %>
@@ -25,7 +44,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text">$</div>
         </div>
-        <%= form.text_field :order_cost, class: "form-control", placeholder:"0.00" %>
+        <%= form.text_field :order_cost, class: "form-control text-right", placeholder:"0.00" %>
       </div>
     </div>
 
@@ -85,25 +104,6 @@
 
   </div>
 
-  <div class="form-row">
-
-    <div class="form-group col-md-4">
-      <label for="inputCust">Customer</label>
-      <%= form.collection_select(:customer_id, Customer.all, :id, :full_name,{prompt: "Select One...", selected: @customer}, {class: "form-control"}) %>
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputOrdType">Order Type</label>
-      <%= form.collection_select(:order_type_id, OrderType.all, :id, :order_description, {prompt: "Select One..."}, {class: "form-control"}) %>
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputOrderStat">Order Status</label>
-      <%= form.collection_select(:order_status_id, OrderStatus.all, :id, :order_status_name, {prompt: "Select One..."}, {class: "form-control"}) %>
-    </div>
-
-  </div>
-
   <!-- <div class="dropdown">
       <%= form.label :order_delivery %>
       <%= form.check_box :order_delivery %>
@@ -144,6 +144,10 @@
     </div>
   </div>
   <hr>
+
+  <div class="actions">
+      <%= hidden_field_tag 'nested_customer', @customer  %>
+  </div>
 
   <div class="actions">
     <%# <%= form.submit , class: "btn btn-primary"%>

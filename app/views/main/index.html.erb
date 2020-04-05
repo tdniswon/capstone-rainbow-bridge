@@ -1,10 +1,16 @@
 <% @inquiries = Order.where(order_status_id: 1) %>
-<h2>Create</h2>
-<%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
-<%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
-<h2>View</h2>
-<%= link_to 'Customers', main_app.customers_path, class: "btn btn-primary" %>
-<%= link_to 'Orders', main_app.orders_path, class: "btn btn-primary" %>
+
+<div class="container text-center">
+    <h2>Create</h2>
+    <%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
+    <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
+    <h2>View</h2>
+    <%= link_to 'Customers', main_app.customers_path, class: "btn btn-primary" %>
+    <%= link_to 'Orders', main_app.orders_path, class: "btn btn-primary" %>
+</div>
+
+<br>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
@@ -32,6 +38,7 @@
                 </tbody>
             </table>
         </div>
+
         <div class="col-md-6">
             <h2 class="sub-header text-center">Upcoming Due Dates</h2>
             <table class="table table-hover">

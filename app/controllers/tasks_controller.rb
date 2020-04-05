@@ -27,11 +27,17 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    @nested_ol = params[:nested_ol]
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        if @nested_ol != ""
+          @ol = OrderLine.where(id: @nested_ol).take
+          format.html { redirect_to @ol, notice: 'Tier was successfully created.' }
+        else
+          format.html { redirect_to @task, notice: 'Task was successfully created.' }
+          format.json { render :show, status: :created, location: @task }
+        end
       else
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }

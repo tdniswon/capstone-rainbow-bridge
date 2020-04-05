@@ -26,11 +26,17 @@ class TaskAssignmentsController < ApplicationController
   # POST /task_assignments.json
   def create
     @task_assignment = TaskAssignment.new(task_assignment_params)
+    @nested_task = params[:nested_task]
 
     respond_to do |format|
       if @task_assignment.save
-        format.html { redirect_to @task_assignment, notice: 'Task assignment was successfully created.' }
-        format.json { render :show, status: :created, location: @task_assignment }
+        if @nested_task != ""
+          @task = Task.where(id: @nested_task).take
+          format.html { redirect_to @task, notice: 'Tier was successfully created.' }
+        else
+          format.html { redirect_to @task_assignment, notice: 'Task assignment was successfully created.' }
+          format.json { render :show, status: :created, location: @task_assignment }
+        end
       else
         format.html { render :new }
         format.json { render json: @task_assignment.errors, status: :unprocessable_entity }

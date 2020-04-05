@@ -24,6 +24,10 @@
   </div>
 
   <div class="actions">
+      <%= hidden_field_tag 'nested_ol', @order_line  %>
+  </div>
+
+  <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -26,11 +26,17 @@ class RentalLinesController < ApplicationController
   # POST /rental_lines.json
   def create
     @rental_line = RentalLine.new(rental_line_params)
+    @nested_o = params[:nested_o]
 
     respond_to do |format|
       if @rental_line.save
-        format.html { redirect_to @rental_line, notice: 'Rental line was successfully created.' }
-        format.json { render :show, status: :created, location: @rental_line }
+        if @nested_o != ""
+          @o = Order.where(id: @nested_o).take
+          format.html { redirect_to @o, notice: 'Tier was successfully created.' }
+        else
+          format.html { redirect_to @rental_line, notice: 'Rental line was successfully created.' }
+          format.json { render :show, status: :created, location: @rental_line }
+        end
       else
         format.html { render :new }
         format.json { render json: @rental_line.errors, status: :unprocessable_entity }

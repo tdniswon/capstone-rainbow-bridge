@@ -12,40 +12,46 @@
   <% end %>
 
   <div class="form-row">
-    <div class="form-group col-md-3">
-      <%= form.label :tier_size %>
-      <%= form.text_field :tier_size, class: "form-control" %>
+
+    <div class="form-group col-md-4">
+      <%= form.label :order_line_id %>
+      <%= form.collection_select(:order_line_id, OrderLine.all, :id, :order_line_description, {prompt: "Select One...", selected: @order_line}, {class: "form-control"}) %>
     </div>
 
-    <div class="form-group col-md-6">
-      <%= form.label :tier_special_notes %>
-      <%= form.text_area :tier_special_notes, class: "form-control" %>
-    </div>
-
-    <div class="form-group col-md-3">
-      <%= form.label :cake_flavor_id %>
-      <%= form.collection_select(:cake_flavor_id, CakeFlavor.all, :id, :flavor_name, {prompt: "Select One..."}, {class: "form-control"}) %>
-    </div>
-  </div>
-
-  <div class="form-row">
     <div class="form-group col-md-4">
       <%= form.label :frosting_flavor_id %>
       <%= form.collection_select(:frosting_flavor_id, FrostingFlavor.all, :id, :frosting_name, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
 
     <div class="form-group col-md-4">
+      <%= form.label :cake_flavor_id %>
+      <%= form.collection_select(:cake_flavor_id, CakeFlavor.all, :id, :flavor_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+    </div>
+    
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <%= form.label :tier_size %>
+      <%= form.text_field :tier_size, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-3">
       <%= form.label :shape_id %>
       <%= form.collection_select(:shape_id, Shape.all, :id, :shape_name, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
 
-    <div class="form-group col-md-4">
-      <%= form.label :order_line_id %>
-      <%= form.collection_select(:order_line_id, OrderLine.all, :id, :order_line_description, {prompt: "Select One...", selected: @order_line}, {class: "form-control"}) %>
+    <div class="form-group col-md-6">
+      <%= form.label :tier_special_notes %>
+      <%= form.text_area :tier_special_notes, class: "form-control" %>
     </div>
   </div>
 
-  <h3>Tier Contents</h3>
+  <div class="actions">
+      <%= hidden_field_tag 'nested_ol', @order_line  %>
+  </div>
+
+  <h3>Tier Fillings</h3>
   <div id='tier_fillings'>
     <%= form.fields_for :tier_fillings do |tier_filling| %>
       <%= render 'tier_filling_fields', :f => tier_filling %>

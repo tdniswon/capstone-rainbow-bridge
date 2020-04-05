@@ -26,11 +26,25 @@ class TiersController < ApplicationController
   # POST /tiers.json
   def create
     @tier = Tier.new(tier_params)
+    @nested_ol = params[:nested_ol]
 
     respond_to do |format|
       if @tier.save
-        format.html { redirect_to @tier, notice: 'Tier was successfully created.' }
-        format.json { render :show, status: :created, location: @tier }
+        if @nested_ol != ""
+          @ol = OrderLine.where(id: @nested_ol).take
+          format.html { redirect_to @ol, notice: 'Tier was successfully created.' }
+          puts("**********************")
+          puts(params)
+          puts(@ol)
+          puts(@ol.id)
+          puts("**********************")
+        else
+          format.html { redirect_to @tier, notice: 'Tier was successfully created.' }
+          format.json { render :show, status: :created, location: @tier }
+          puts("@@@@@@@@@@@@@@@@@@@@@@")
+          puts(params)
+          puts("@@@@@@@@@@@@@@@@@@@@@@")
+        end
       else
         format.html { render :new }
         format.json { render json: @tier.errors, status: :unprocessable_entity }

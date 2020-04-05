@@ -15,7 +15,7 @@
 
     <p>
         <strong>Order Line Finish Date:</strong>
-        <%= @order_line.order_line_finish_date.to_formatted_s(:long_ordinal) %>
+        <%= @order_line.order_line_finish_date.try(:to_formatted_s, :long_ordinal) %>
     </p>
 
     <p>

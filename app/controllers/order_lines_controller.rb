@@ -1,10 +1,11 @@
 class OrderLinesController < ApplicationController
   before_action :set_order_line, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /order_lines
   # GET /order_lines.json
   def index
-    @order_lines = OrderLine.all
+    @pagy,@order_lines = pagy(OrderLine.all.order(sort_column + ' ' + sort_direction))
   end
 
   # GET /order_lines/1
@@ -26,11 +27,17 @@ class OrderLinesController < ApplicationController
   # POST /order_lines.json
   def create
     @order_line = OrderLine.new(order_line_params)
+    @nested_o = params[:nested_o]
 
     respond_to do |format|
       if @order_line.save
-        format.html { redirect_to @order_line, notice: 'Order line was successfully created.' }
-        format.json { render :show, status: :created, location: @order_line }
+        if @nested_o != ""
+          @o = Order.where(id: @nested_o).take
+          format.html { redirect_to @o, notice: 'Tier was successfully created.' }
+        else
+          format.html { redirect_to @order_line, notice: 'Order line was successfully created.' }
+          format.json { render :show, status: :created, location: @order_line }
+        end
       else
         format.html { render :new }
         format.json { render json: @order_line.errors, status: :unprocessable_entity }
@@ -71,5 +78,13 @@ class OrderLinesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_line_params
       params.require(:order_line).permit(:order_id, :order_line_description, :order_line_start_date, :order_line_finish_date, :special_order_notes, :product_id, :order_line_status_id, order_line_restrictions_attributes: [:order_line_id, :dietary_restriction_id, :_destroy], tasks_attributes: [:task_name, :task_description, :task_start_date, :task_due_date, :task_finish_date, :task_status_id, :_destroy], tiers_attributes: [:position, :tier_size, :tier_special_notes, :cake_flavor_id, :frosting_flavor_id, :shape_id, :_destroy])
+    end
+
+    def sort_column
+      OrderLine.column_names.include?(params[:sort]) ? params[:sort] : "order_line_description"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
 end

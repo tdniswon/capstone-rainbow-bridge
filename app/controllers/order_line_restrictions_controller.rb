@@ -26,11 +26,17 @@ class OrderLineRestrictionsController < ApplicationController
   # POST /order_line_restrictions.json
   def create
     @order_line_restriction = OrderLineRestriction.new(order_line_restriction_params)
+    @nested_ol = params[:nested_ol]
 
     respond_to do |format|
       if @order_line_restriction.save
-        format.html { redirect_to @order_line_restriction, notice: 'Order line restriction was successfully created.' }
-        format.json { render :show, status: :created, location: @order_line_restriction }
+        if @nested_ol != ""
+          @ol = OrderLine.where(id: @nested_ol).take
+          format.html { redirect_to @ol, notice: 'Tier was successfully created.' }
+        else
+          format.html { redirect_to @order_line_restriction, notice: 'Order line restriction was successfully created.' }
+          format.json { render :show, status: :created, location: @order_line_restriction }
+        end
       else
         format.html { render :new }
         format.json { render json: @order_line_restriction.errors, status: :unprocessable_entity }

@@ -19,8 +19,12 @@
 
     <div class="form-group col-md-6">
       <label>Filling</label>
-      <%= form.collection_select(:tier_filling_id, Filling.all, :id, :filling_name, {prompt: "Select One..."}, {class: "form-control"}) %>
+      <%= form.collection_select(:filling_id, Filling.all, :id, :filling_name, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
+  </div>
+
+  <div class="actions">
+      <%= hidden_field_tag 'nested_tier', @tier  %>
   </div>
 
   <div class="actions">
