@@ -104,6 +104,15 @@
 
   </div>
 
+  <div class="form-row">
+
+    <div class="field">
+      <label>Inspiration Images</label>
+      <%= form.file_field :inspiration_images, multiple: "true" %>
+    </div>
+
+  </div>
+
   <!-- <div class="dropdown">
       <%= form.label :order_delivery %>
       <%= form.check_box :order_delivery %>
@@ -155,3 +164,4 @@
   </div>
 
 <% end %>
+

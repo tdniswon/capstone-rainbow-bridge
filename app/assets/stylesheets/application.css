@@ -45,4 +45,21 @@ a:link {
     background-color:transparent;
 }
 
+.img-fluid {
+  max-height: 50vh;
+}
 
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  filter: invert(1);
+}
+
+#carouselBorder {
+  border: 5px double black;
+  background-color: rgb(179, 114, 179);
+  padding: 15px;
+}
+
+.carousel-indicators {
+  filter: invert(1);
+}
