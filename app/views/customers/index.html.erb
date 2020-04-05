@@ -1,4 +1,4 @@
- 
+
 <div class="container-fluid">
   <p id="notice"><%= notice %></p>
 
@@ -7,8 +7,8 @@
   </div>
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <input class="searchBar" type="text" id="firstInput" onkeyup="firstName()" placeholder="Search by Customer's First Name" title="Type Employee's First Name">&nbsp;&nbsp;&nbsp;
+    <input class="searchBar" type="text" id="secondInput" onkeyup="lastName()" placeholder="Search by Customer's Last Name" title="Type Employee's Last Name">&nbsp;&nbsp;&nbsp;
   </form>
   <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary"%>
 
@@ -46,12 +46,51 @@
         </tr>
       <% end %>
     </tbody>
-   
+
   </table>
 
   <%==pagy_bootstrap_nav(@pagy)%>
- 
+
 </nav>
   <br>
-  
+  <script>
+  function firstName() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("firstInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("smort_table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+  }
+  </script>
+  <script>
+      function lastName() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("secondInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("smort_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+    </script>
 </div>
