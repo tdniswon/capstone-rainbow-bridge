@@ -68,6 +68,49 @@
         <%= @order.order_status.order_status_name %>
     </p>
 
+    <% @attached =  @order.inspiration_images.attached? %>
+
+    <% if @attached %>
+        <div class="text-center">
+            <h3>Inspiration Images</h3>
+        </div>
+        <div class="container" id="carouselBorder">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="ci">
+                    <ol class="carousel-indicators">
+                        <% @order.inspiration_images.each_with_index do |photo, n| %>
+                            <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+                        <% end %>
+                    </ol>
+                </div>
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="text-center">
+                            <%= image_tag(@order.inspiration_images.first, class: "img-fluid img-rounded") %>
+                        </div>
+                    </div>
+                    <% @order.inspiration_images.drop(1).each do |photo| %>
+                        <div class="carousel-item">
+                            <div class="text-center">
+                                <%= image_tag(photo, class: "img-fluid img-rounded")  %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    <% end %>
+
     <hr>
 
     <div class="container text-center">

@@ -92,6 +92,15 @@
     </div>
 
   </div>
+
+  <div class="form-row">
+
+    <div class="field">
+      <label>Inspiration Images</label>
+      <%= f.file_field :inspiration_images, multiple: "true" %>
+    </div>
+
+  </div>
   
   <%= link_to_remove_association "Remove Order", f %>
 

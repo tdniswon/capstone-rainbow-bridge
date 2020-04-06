@@ -48,6 +48,15 @@
       <%= form.datetime_select :order_line_finish_date, class: "form-control" %>
     </div>
   </div>
+
+  <div class="form-row">
+
+    <div class="field">
+      <label>Images</label>
+      <%= form.file_field :images, multiple: "true" %>
+    </div>
+
+  </div>
     
   <h3>Dietary Restrictions</h3>
   <div id='order_line_restrictions'>
@@ -58,6 +67,7 @@
       <%= link_to_add_association 'Add a Dietary Restriction', form, :order_line_restrictions %>
     </div>
   </div>
+
   <hr>
 
   <h3>Tiers</h3>
