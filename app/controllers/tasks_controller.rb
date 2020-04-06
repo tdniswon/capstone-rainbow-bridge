@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @pagy,@tasks = pagy(Task.all.order(sort_column + ' ' + sort_direction))
   end
 
   # GET /tasks/1
@@ -78,5 +79,13 @@ class TasksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def task_params
       params.require(:task).permit(:order_line_id, :task_name, :task_description, :task_start_date, :task_due_date, :task_finish_date, :task_status_id, task_assignments_attributes: [:_destroy, :task_id, :employee_id])
+    end
+
+    def sort_column
+      Task.column_names.include?(params[:sort]) ? params[:sort] : "task_name"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
 end
