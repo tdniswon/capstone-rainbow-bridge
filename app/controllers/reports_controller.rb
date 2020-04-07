@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
     def index
-        @report = "test_report2"
+        @report = "dietary_restrictions"
     end
 
 

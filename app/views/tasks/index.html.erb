@@ -6,11 +6,16 @@
 </div>
   <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <input class="form-control mr-sm-2" type="search" id="firstInput" onkeyup="task()"  title="Type Tasks" placeholder="Search" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" id="2Input" onkeyup="description()"  title="Type Tasks" placeholder="Search" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" id="3Input" onkeyup="start()"  title="Type Tasks" placeholder="Search" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" id="4Input" onkeyup="due()"  title="Type Tasks" placeholder="Search" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" id="5Input" onkeyup="finish()"  title="Type Tasks" placeholder="Search" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" id="6Input" onkeyup="status()"  title="Type Tasks" placeholder="Search" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" id="7Input" onkeyup="order_line()"  title="Type Tasks" placeholder="Search" aria-label="Search">
   </form>
 <%= link_to 'New Task', new_task_path, class: "btn btn-primary" %>
-  <table class="table table-hover">
+  <table id = "task_table" class="table table-hover">
     <thead class="thead-light">
       <tr>
         <th scope="col"><%= sortable "task_name", "Task Name" %></th>
@@ -43,4 +48,144 @@
   </table>
 
   <br>
+  <script>
+function task() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("firstInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("task_table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+<script>
+function description() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("2Input");
+filter = input.value.toUpperCase();
+table = document.getElementById("task_table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[1];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+}
+</script>
+<script>
+function start() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("3Input");
+filter = input.value.toUpperCase();
+table = document.getElementById("task_table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[2];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+}
+</script>
+<script>
+function due() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("4Input");
+filter = input.value.toUpperCase();
+table = document.getElementById("task_table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[3];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+}
+</script>
+<script>
+function finish() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("5Input");
+filter = input.value.toUpperCase();
+table = document.getElementById("task_table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[4];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+}
+</script>
+<script>
+function status() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("6Input");
+filter = input.value.toUpperCase();
+table = document.getElementById("task_table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[5];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+}
+</script>
+<script>
+function order_line() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("7Input");
+filter = input.value.toUpperCase();
+table = document.getElementById("task_table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[6];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+}
+</script>
 </div>
