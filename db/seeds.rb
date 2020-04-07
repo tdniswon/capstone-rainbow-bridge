@@ -102,6 +102,7 @@ OrderType.find_or_create_by(order_description: "Other")
 OrderStatus.find_or_create_by(order_status_name: "Inquired")
 OrderStatus.find_or_create_by(order_status_name: "In Progress")
 OrderStatus.find_or_create_by(order_status_name: "Complete")
+OrderStatus.find_or_create_by(order_status_name: "Archived")
 
 #OrderLineStatus.destroy_all
 OrderLineStatus.find_or_create_by(order_line_status_name: "Incomplete")
@@ -198,6 +199,8 @@ Order.create_or_find_by(order_description: "Tran's wedding cake", order_cost: 99
 Order.create_or_find_by(order_description: "Avdol's Get Well Soon cake", order_cost: 199.99, order_start_date: "2020-05-25 13:00:33", order_due_date: "2020-12-15 14:00:00", order_delivery: 'true', delivery_street_address: "3443 Brother St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "70023", customer_id: 21, order_type_id: 2, order_status_id: 3)
 #22 OK
 Order.create_or_find_by(order_description: "Cake is a lie", order_cost: 999.99, order_start_date: "2020-06-01 13:00:21", order_due_date: "2020-12-25 15:00:00", order_delivery: 'true', delivery_street_address: "1337 Santa St", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "70077", customer_id: 22, order_type_id: 2, order_status_id: 3)
+#23 OK
+Order.create_or_find_by(order_description: "It belongs in a Museum", order_cost: 420.00, order_start_date: "2020-07-07 10:00:00", order_due_date: "2020-11-10 18:00:00", order_date_finish: "2020-11-9 10:30:35", order_delivery: 'true', delivery_street_address: "123 Kant Blvd", delivery_city: "Houston", delivery_state: "TX", delivery_zip_code: "77001", customer_id: 1, order_type_id: "1", order_status_id: "4")
 
 
 #Order 1 OL 1 D

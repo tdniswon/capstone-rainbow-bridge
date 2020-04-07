@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :rental_lines
-  resources :orders
+  resources :orders do 
+    member do
+      patch 'archive'
+    end
+  end
   resources :order_line_restrictions
   resources :order_lines
   resources :tier_fillings
@@ -28,5 +32,6 @@ Rails.application.routes.draw do
   root "main#index"
   resources :reports
   resources :api
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
