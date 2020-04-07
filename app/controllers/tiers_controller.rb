@@ -1,10 +1,11 @@
 class TiersController < ApplicationController
   before_action :set_tier, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /tiers
   # GET /tiers.json
   def index
-    @tiers = Tier.all
+    @pagy,@tiers = pagy(Tier.all.order(sort_column + ' ' + sort_direction))
   end
 
   # GET /tiers/1
@@ -85,5 +86,12 @@ class TiersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def tier_params
       params.require(:tier).permit(:order_line_id, :position, :tier_size, :tier_special_notes, :cake_flavor_id, :frosting_flavor_id, :shape_id, tier_fillings_attributes: [:tier_id, :filling_id, :_destroy])
+    end
+    def sort_column
+      Tier.column_names.include?(params[:sort]) ? params[:sort] : "position"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
 end
