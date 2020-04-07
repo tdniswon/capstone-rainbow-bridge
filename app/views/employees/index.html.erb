@@ -6,13 +6,12 @@
   </div>
   <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
-    <center>
-      <input class="searchBar" type="text" id="firstInput" onkeyup="firstName()" placeholder="Search by Employee's First Name" title="Type Employee's Name">&nbsp;&nbsp;&nbsp;
-      <input class="searchBar" type="text" id="secondInput" onkeyup="lastName()" placeholder="Search by Employee's Last Name" title="Type Employee's Name">&nbsp;&nbsp;&nbsp;
-
-  </center>
-		<center>
-      <h4>View Therapist Records</h4>
+      <input class="searchBar" type="text" id="firstInput" onkeyup="firstName()" placeholder="Search by First Name" title="Type Employee's Name">&nbsp;&nbsp;&nbsp;
+      <input class="searchBar" type="text" id="secondInput" onkeyup="lastName()" placeholder="Search by Last Name" title="Type Employee's Name">&nbsp;&nbsp;&nbsp;
+      <input class="searchBar" type="text" id="thirdInput" onkeyup="email()" placeholder="Search by Email" title="Type Employee's Name">&nbsp;&nbsp;&nbsp;
+      <input class="searchBar" type="text" id="fourthInput" onkeyup="phone()" placeholder="Search by Phone Number" title="Type Employee's Name">&nbsp;&nbsp;&nbsp;
+      <input class="searchBar" type="text" id="fifthInput" onkeyup="status()" placeholder="Search by Status" title="Type Employee's Name">&nbsp;&nbsp;&nbsp;
+      <input class="searchBar" type="text" id="sixthInput" onkeyup="type2()" placeholder="Search by Type" title="Type Employee's Name">&nbsp;&nbsp;&nbsp;
   </form>
 <%= link_to 'New Employee', new_employee_path, class: "btn btn-primary" %>
   <table id = "smort table" class="table table-hover">
@@ -87,4 +86,84 @@ function firstName() {
 				}
 			}
 		</script>
+    <script>
+    			function email() {
+    				var input, filter, table, tr, td, i, txtValue;
+    				input = document.getElementById("thirdInput");
+    				filter = input.value.toUpperCase();
+    				table = document.getElementById("smort table");
+    				tr = table.getElementsByTagName("tr");
+    				for (i = 0; i < tr.length; i++) {
+    					td = tr[i].getElementsByTagName("td")[2];
+    					if (td) {
+    						txtValue = td.textContent || td.innerText;
+    						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    							tr[i].style.display = "";
+    						} else {
+    							tr[i].style.display = "none";
+    						}
+    					}
+    				}
+    			}
+    		</script>
+        <script>
+        			function phone() {
+        				var input, filter, table, tr, td, i, txtValue;
+        				input = document.getElementById("fourthInput");
+        				filter = input.value.toUpperCase();
+        				table = document.getElementById("smort table");
+        				tr = table.getElementsByTagName("tr");
+        				for (i = 0; i < tr.length; i++) {
+        					td = tr[i].getElementsByTagName("td")[3];
+        					if (td) {
+        						txtValue = td.textContent || td.innerText;
+        						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        							tr[i].style.display = "";
+        						} else {
+        							tr[i].style.display = "none";
+        						}
+        					}
+        				}
+        			}
+        		</script>
+            <script>
+            			function status() {
+            				var input, filter, table, tr, td, i, txtValue;
+            				input = document.getElementById("fifthInput");
+            				filter = input.value.toUpperCase();
+            				table = document.getElementById("smort table");
+            				tr = table.getElementsByTagName("tr");
+            				for (i = 0; i < tr.length; i++) {
+            					td = tr[i].getElementsByTagName("td")[4];
+            					if (td) {
+            						txtValue = td.textContent || td.innerText;
+            						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            							tr[i].style.display = "";
+            						} else {
+            							tr[i].style.display = "none";
+            						}
+            					}
+            				}
+            			}
+            		</script>
+                <script>
+                			function type2() {
+                				var input, filter, table, tr, td, i, txtValue;
+                				input = document.getElementById("sixthInput");
+                				filter = input.value.toUpperCase();
+                				table = document.getElementById("smort table");
+                				tr = table.getElementsByTagName("tr");
+                				for (i = 0; i < tr.length; i++) {
+                					td = tr[i].getElementsByTagName("td")[5];
+                					if (td) {
+                						txtValue = td.textContent || td.innerText;
+                						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                							tr[i].style.display = "";
+                						} else {
+                							tr[i].style.display = "none";
+                						}
+                					}
+                				}
+                			}
+                		</script>
 </div>
