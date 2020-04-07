@@ -74,6 +74,7 @@ EmployeeType.find_or_create_by(employee_type_description: "Delivery Driver")
 #EmployeeStatus.destroy_all
 EmployeeStatus.find_or_create_by(employee_status_name: "Inactive")
 EmployeeStatus.find_or_create_by(employee_status_name: "Active")
+EmployeeStatus.find_or_create_by(employee_status_name: "Archived")
 
 #Employee.destroy_all
 Employee.create_or_find_by(employee_first_name: "Deepali", employee_last_name: "Agrawal", employee_email: "Deepali.agrawal@gmail.com", employee_phone: "315-312-8596", employee_status_id:  '2', employee_type_id: '1')
@@ -86,6 +87,7 @@ Employee.create_or_find_by(employee_first_name: "Neeraj", employee_last_name: "S
 TaskStatus.find_or_create_by(task_status_name: "Not Started")
 TaskStatus.find_or_create_by(task_status_name: "In Progress")
 TaskStatus.find_or_create_by(task_status_name: "Complete")
+TaskStatus.find_or_create_by(task_status_name: "Archived")
 
 #OrderType.destroy_all
 OrderType.find_or_create_by(order_description: "Residential")
@@ -107,10 +109,12 @@ OrderStatus.find_or_create_by(order_status_name: "Archived")
 #OrderLineStatus.destroy_all
 OrderLineStatus.find_or_create_by(order_line_status_name: "Incomplete")
 OrderLineStatus.find_or_create_by(order_line_status_name: "Complete")
+OrderLineStatus.find_or_create_by(order_line_status_name: "Archived")
 
 #CustomerStatus.destroy_all
 CustomerStatus.find_or_create_by(customer_status_name: "Inactive")
 CustomerStatus.find_or_create_by(customer_status_name: "Active")
+CustomerStatus.find_or_create_by(customer_status_name: "Archived")
 
 #Customer.destroy_all
 Customer.create_or_find_by(customer_first_name: "Elisha",customer_last_name: "Diaz",customer_email: "ecdiaz2@uh.edu",customer_phone: "832-310-8111",customer_street_address: "8377 Kent Street", customer_city: "Houston", customer_state: "TX",customer_zip_code: "77055",customer_status_id: "2")
@@ -153,6 +157,7 @@ Shape.find_or_create_by(shape_name: "Rectangular")
 TaskStatus.find_or_create_by(task_status_name: "Not Started")
 TaskStatus.find_or_create_by(task_status_name: "In Progress")
 TaskStatus.find_or_create_by(task_status_name: "Complete")
+TaskStatus.find_or_create_by(task_status_name: "Archived")
 
 
 #1 OK

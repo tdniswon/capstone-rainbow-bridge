@@ -5,7 +5,7 @@ class OrderLinesController < ApplicationController
   # GET /order_lines
   # GET /order_lines.json
   def index
-    @pagy,@order_lines = pagy(OrderLine.all.order(sort_column + ' ' + sort_direction))
+    @pagy,@order_lines = pagy(OrderLine.where.not(order_line_status_id: 4).order(sort_column + ' ' + sort_direction))
   end
 
   # GET /order_lines/1
@@ -62,12 +62,9 @@ class OrderLinesController < ApplicationController
 
   # DELETE /order_lines/1
   # DELETE /order_lines/1.json
-  def destroy
-    @order_line.destroy
-    respond_to do |format|
-      format.html { redirect_to order_lines_url, notice: 'Order line was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def archive
+    @order_line = OrderLine.find params[:id]
+    @order_line.update(order_line_status_id: 4)
   end
 
   private

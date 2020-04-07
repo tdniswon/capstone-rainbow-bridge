@@ -7,13 +7,34 @@ Rails.application.routes.draw do
     end
   end
   resources :order_line_restrictions
-  resources :order_lines
+  resources :order_lines do 
+    member do
+      patch 'archive'
+    end
+  end
   resources :tier_fillings
   resources :task_assignments
-  resources :tasks
-  resources :tiers
-  resources :employees
-  resources :customers
+  resources :tasks do
+    member do
+      patch 'archive'
+    end
+  end
+  resources :tiers do
+    member do
+      patch 'archive'
+    end
+  end
+
+  resources :employees do
+    member do
+      patch 'archive'
+    end
+  end
+  resources :customers do
+    member do
+      patch 'archive'
+    end
+  end
   resources :rental_items
   resources :cake_flavors
   resources :shapes

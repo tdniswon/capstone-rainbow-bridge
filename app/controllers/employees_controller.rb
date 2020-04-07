@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @pagy,@employees = pagy(Employee.all.order(sort_column + ' ' + sort_direction))
+    @pagy,@employees = pagy(Employee.where.not(employee_status_id: 3 ).order(sort_column + ' ' + sort_direction))
   end
 
   # GET /employees/1
@@ -54,12 +54,9 @@ class EmployeesController < ApplicationController
 
   # DELETE /employees/1
   # DELETE /employees/1.json
-  def destroy
-    @employee.destroy
-    respond_to do |format|
-      format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def archive
+    @employee = Employee.find params[:id]
+    @employee.update(employee_status_id: 3)
   end
 
   private

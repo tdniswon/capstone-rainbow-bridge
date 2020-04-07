@@ -42,7 +42,7 @@
           <td><%= order_line.order.order_description %></td>
           <td><%= link_to 'Show', order_line %></td>
           <td><%= link_to 'Edit', edit_order_line_path(order_line) %></td>
-          <td><%= link_to 'Delete', order_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Archive', archive_order_line_path(order_line),method: :patch  %></td>
         </tr>
       <% end %>
     </tbody>

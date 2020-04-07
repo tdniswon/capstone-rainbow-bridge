@@ -64,9 +64,6 @@ class OrdersController < ApplicationController
   def archive
     @order = Order.find params[:id]
     @order.update(order_status_id: 4)
-    #format.json { render :show, status: :ok, location: @order }
-  
- 
   end
 
   private

@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @pagy,@tasks = pagy(Task.all.order(sort_column + ' ' + sort_direction))
+    @pagy,@tasks = pagy(Task.where.not(task_status_id: 4 ).order(sort_column + ' ' + sort_direction))
   end
 
   # GET /tasks/1
@@ -62,12 +62,9 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
-  def destroy
-    @task.destroy
-    respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def archive
+    @task = Task.find params[:id]
+    @task.update(task_status_id: 4)
   end
 
   private
