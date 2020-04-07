@@ -2,12 +2,12 @@
 
 <p>
     <strong>Task:</strong>
-    <%= @task_assignment.task_id %>
+    <%= link_to @task_assignment.task.task_name, @task_assignment.task %>
 </p>
 
 <p>
     <strong>Employee:</strong>
-    <%= @task_assignment.employee_id %>
+    <%= link_to @task_assignment.employee.employee_first_name + ' ' + @task_assignment.employee.employee_last_name, @task_assignment.employee%>
 </p>
 
 <%= link_to 'Edit', rails_admin.edit_path(model_name: 'task_assignment', id: @task_assignment.id) %> |

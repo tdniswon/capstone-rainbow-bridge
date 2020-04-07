@@ -32,8 +32,8 @@
     </p>
 
     <p>
-        <strong>Order line:</strong>
-        <%= @tier.order_line_id %>
+      <strong>Order:</strong>
+        <%= link_to @tier.order_line_id, @tier.order_line %>
     </p>
 
     <hr>
