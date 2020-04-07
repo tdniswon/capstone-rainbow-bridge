@@ -4,6 +4,11 @@
     <h1>Order Contents</h1>
 
     <p>
+        <strong>Order Line ID:</strong>
+        <%= @order_line.id %>
+    </p>
+
+    <p>
         <strong>Order Line Description:</strong>
         <%= @order_line.order_line_description %>
     </p>
@@ -32,11 +37,12 @@
         <strong>Order Line Status:</strong>
         <%= @order_line.order_line_status.order_line_status_name %>
     </p>
-
     <p>
-        <strong>Order Line ID:</strong>
-        <%= @order_line.order_id %>
-    </p>
+      <Strong>Order ID:</strong>
+        <%= link_to @order_line.order.id, @order_line.order %>
+      </p>
+
+
 
     <% @attached =  @order_line.images.attached? %>
 
@@ -230,6 +236,6 @@
 
     <hr>
 
-    <%= link_to 'Edit', edit_order_line_path(@order_line), Class:"btn btn-primary" %> 
+    <%= link_to 'Edit', edit_order_line_path(@order_line), Class:"btn btn-primary" %>
     <%= link_to 'Back', :back,Class:"btn btn-primary" %>
 </div>

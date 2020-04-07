@@ -22,6 +22,20 @@
     <strong>Employee type:</strong>
     <%= @employee.employee_type.employee_type_description %>
 </p>
-
-<%= link_to 'Edit', edit_employee_path(@employee),Class:"btn btn-primary" %> 
+<table class="table table-hover">
+    <tbody>
+    <thead class="thead-light">
+        <tr >
+            <th scope="col">Tasks</th>
+        </tr>
+        </thead>
+        <% @employee.task_assignments.each do |ta| %>
+        <tr>
+            <td><%= ta.task.task_name %></td>
+            <td><%= link_to 'Show Details', ta %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to 'Edit', edit_employee_path(@employee),Class:"btn btn-primary" %>
 <%= link_to 'Back', :back,Class:"btn btn-primary" %>
