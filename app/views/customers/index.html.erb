@@ -7,15 +7,15 @@
   </div>
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="firstInput" onkeyup="firstName()" placeholder="Search by First Name" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="secondInput" onkeyup="lastName()" placeholder="Search by Last Name" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirdInput" onkeyup="email()" placeholder="Search by Email" title="Type Email">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fourthInput" onkeyup="phone()" placeholder="Search by Phone" title="Type Phone">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fifthInput" onkeyup="address()" placeholder="Search by Address" title="Type Address">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="sixthInput" onkeyup="city()" placeholder="Search by City" title="Type City">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="seventhInput" onkeyup="state()" placeholder="Search by State" title="Type State">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eigthInput" onkeyup="zip()" placeholder="Search by Zip Code" title="Type Zip Code">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="ninthInput" onkeyup="status()" placeholder="Search by Status" title="Type Status">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="firstInput" onkeyup="status()" placeholder="Search by Status" title="Type Status">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="secondInput" onkeyup="firstName()" placeholder="Search by First Name" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirdInput" onkeyup="lastName()" placeholder="Search by Last Name" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fourthInput" onkeyup="email()" placeholder="Search by Email" title="Type Email">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fifthInput" onkeyup="phone()" placeholder="Search by Phone" title="Type Phone">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="sixthInput" onkeyup="address()" placeholder="Search by Address" title="Type Address">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="seventhInput" onkeyup="city()" placeholder="Search by City" title="Type City">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eighthInput" onkeyup="state()" placeholder="Search by State" title="Type State">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="ninthInput" onkeyup="zip()" placeholder="Search by Zip Code" title="Type Zip Code">
 
   </form>
   <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary"%>
@@ -23,6 +23,7 @@
   <table id= "smort_table" class="table table-hover">
     <thead class="thead-light">
       <tr>
+        <th scope="col"><%= sortable "customer_status_id", "Customer Status" %> </th>
         <th scope="col"> <%= sortable "customer_first_name", "First Name" %>  </th>
         <th scope="col"><%= sortable "customer_last_name", "Last Name" %> </th>
         <th scope="col"><%= sortable "customer_email", "Email" %> </th>
@@ -31,7 +32,6 @@
         <th scope="col"><%= sortable "customer_city", "City" %> </th>
         <th scope="col"><%= sortable "customer_state", "State" %> </th>
         <th scope="col"><%= sortable "customer_zip_code", "Zipcode" %> </th>
-        <th scope="col"><%= sortable "customer_status_id", "Customer Status" %> </th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -39,6 +39,7 @@
     <tbody>
       <% @customers.each do |customer| %>
         <tr>
+          <td><%= customer.customer_status.customer_status_name %></td>
           <td><%= customer.customer_first_name %></td>
           <td><%= customer.customer_last_name %></td>
           <td><%= customer.customer_email %></td>
@@ -47,7 +48,6 @@
           <td><%= customer.customer_city %></td>
           <td><%= customer.customer_state %></td>
           <td><%= customer.customer_zip_code %></td>
-          <td><%= customer.customer_status.customer_status_name %></td>
           <td><%= link_to 'Show', customer %></td>
           <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
           <td><%= link_to 'Archive',archive_customer_path(customer),method: :patch  %></td>
@@ -62,14 +62,34 @@
 </nav>
   <br>
   <script>
+    function status() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("firstInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("smort_table");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+  <script>
   function firstName() {
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("firstInput");
+  input = document.getElementById("secondInput");
   filter = input.value.toUpperCase();
   table = document.getElementById("smort_table");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -84,12 +104,12 @@
   <script>
       function lastName() {
         var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("secondInput");
+        input = document.getElementById("thirdInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("smort_table");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[1];
+          td = tr[i].getElementsByTagName("td")[2];
           if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -104,12 +124,12 @@
     <script>
         function email() {
           var input, filter, table, tr, td, i, txtValue;
-          input = document.getElementById("thirdInput");
+          input = document.getElementById("fourthInput");
           filter = input.value.toUpperCase();
           table = document.getElementById("smort_table");
           tr = table.getElementsByTagName("tr");
           for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[2];
+            td = tr[i].getElementsByTagName("td")[3];
             if (td) {
               txtValue = td.textContent || td.innerText;
               if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -124,12 +144,12 @@
       <script>
           function phone() {
             var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("fourthInput");
+            input = document.getElementById("fifthInput");
             filter = input.value.toUpperCase();
             table = document.getElementById("smort_table");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[3];
+              td = tr[i].getElementsByTagName("td")[4];
               if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -144,12 +164,12 @@
         <script>
             function address() {
               var input, filter, table, tr, td, i, txtValue;
-              input = document.getElementById("fifthInput");
+              input = document.getElementById("sixthInput");
               filter = input.value.toUpperCase();
               table = document.getElementById("smort_table");
               tr = table.getElementsByTagName("tr");
               for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[4];
+                td = tr[i].getElementsByTagName("td")[5];
                 if (td) {
                   txtValue = td.textContent || td.innerText;
                   if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -164,12 +184,12 @@
           <script>
               function city() {
                 var input, filter, table, tr, td, i, txtValue;
-                input = document.getElementById("sixthInput");
+                input = document.getElementById("seventhInput");
                 filter = input.value.toUpperCase();
                 table = document.getElementById("smort_table");
                 tr = table.getElementsByTagName("tr");
                 for (i = 0; i < tr.length; i++) {
-                  td = tr[i].getElementsByTagName("td")[5];
+                  td = tr[i].getElementsByTagName("td")[6];
                   if (td) {
                     txtValue = td.textContent || td.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -184,12 +204,12 @@
             <script>
                 function state() {
                   var input, filter, table, tr, td, i, txtValue;
-                  input = document.getElementById("seventhInput");
+                  input = document.getElementById("eigthInput");
                   filter = input.value.toUpperCase();
                   table = document.getElementById("smort_table");
                   tr = table.getElementsByTagName("tr");
                   for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[6];
+                    td = tr[i].getElementsByTagName("td")[7];
                     if (td) {
                       txtValue = td.textContent || td.innerText;
                       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -204,12 +224,12 @@
               <script>
                   function zip() {
                     var input, filter, table, tr, td, i, txtValue;
-                    input = document.getElementById("eigthInput");
+                    input = document.getElementById("ninthInput");
                     filter = input.value.toUpperCase();
                     table = document.getElementById("smort_table");
                     tr = table.getElementsByTagName("tr");
                     for (i = 0; i < tr.length; i++) {
-                      td = tr[i].getElementsByTagName("td")[7];
+                      td = tr[i].getElementsByTagName("td")[8];
                       if (td) {
                         txtValue = td.textContent || td.innerText;
                         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -221,24 +241,4 @@
                     }
                   }
                 </script>
-                <script>
-                    function status() {
-                      var input, filter, table, tr, td, i, txtValue;
-                      input = document.getElementById("ninthInput");
-                      filter = input.value.toUpperCase();
-                      table = document.getElementById("smort_table");
-                      tr = table.getElementsByTagName("tr");
-                      for (i = 0; i < tr.length; i++) {
-                        td = tr[i].getElementsByTagName("td")[8];
-                        if (td) {
-                          txtValue = td.textContent || td.innerText;
-                          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                          } else {
-                            tr[i].style.display = "none";
-                          }
-                        }
-                      }
-                    }
-                  </script>
 </div>
