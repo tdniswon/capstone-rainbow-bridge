@@ -6,25 +6,27 @@
   </div>
   <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="firstInput" onkeyup="firstName()" placeholder="Search by Customer's Name" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="secondInput" onkeyup="description()" placeholder="Search by Order Description" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirdInput" onkeyup="cost()" placeholder="Search by Cost" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fourthInput" onkeyup="start()" placeholder="Search by Start Date" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fifthInput" onkeyup="due()" placeholder="Search by Due Date" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="sixthInput" onkeyup="finish()" placeholder="Search by Finish Date" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="seventhInput" onkeyup="delivery()" placeholder="Search by Delivery" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eigthInput" onkeyup="address()" placeholder="Search by Street Address" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="ninthInput" onkeyup="city()" placeholder="Search by City" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="tenthInput" onkeyup="state()" placeholder="Search by State" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eleventhInput" onkeyup="zip()" placeholder="Search by Zip Code" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="twelvthInput" onkeyup="type()" placeholder="Search by Order Type" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirteenthInput" onkeyup="status()" placeholder="Search by Order Status" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="firstInput" onkeyup="status()" placeholder="Search by Status" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="secondInput" onkeyup="type()" placeholder="Search by Order Type" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirdInput" onkeyup="firstName()" placeholder="Search by Name" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fourthInput" onkeyup="description()" placeholder="Search by Description" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fifthInput" onkeyup="cost()" placeholder="Search by Cost" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="sixthInput" onkeyup="start()" placeholder="Search by Start Date" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="seventhInput" onkeyup="due()" placeholder="Search by Due Date" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eigthInput" onkeyup="finish()" placeholder="Search by Finish Date" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="ninthInput" onkeyup="delivery()" placeholder="Search by Delivery" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="tenthInput" onkeyup="address()" placeholder="Search by Address" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eleventhInput" onkeyup="city()" placeholder="Search by City" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="twelvthInput" onkeyup="state()" placeholder="Search by State" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirteenthInput" onkeyup="zip()" placeholder="Search by Zip Code" title="Type Customer's Name">
 
   </form>
 <%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
   <table id = "order_table" class="table table-hover">
     <thead class="thead-light">
       <tr>
+        <th scope="col"><%= sortable "order_status_id", "Status" %></th>
+        <th scope="col"><%= sortable "order_type_id", "Type" %></th>
         <th scope="col"><%= sortable "customer_last_name", "Name" %></th>
         <th scope="col"><%= sortable "order_description", "Description" %></th>
         <th scope="col"><%= sortable "order_cost", "Cost" %></th>
@@ -34,10 +36,8 @@
         <th scope="col"><%= sortable "order_delivery", "Delivery" %></th>
         <th scope="col"><%= sortable "delivery_street_address", "Address" %></th>
         <th scope="col"><%= sortable "delivery_city", "City" %></th>
+        <th scope="col"><%= sortable "delivery_state", "State" %> </th>
         <th scope="col"><%= sortable "delivery_zip_code", "Zip" %></th>
-        <th scope="col"><%= sortable "order_type_id", "Type" %></th>
-        <th scope="col"><%= sortable "order_status_id", "Status" %></th>
-        <th scope="col"><%= sortable "order_date_finish", "Last Name" %> </th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -45,19 +45,19 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
+          <td><%= order.order_status.order_status_name %></td>
+          <td><%= order.order_type.order_description %></td>
           <td><%= order.customer.customer_first_name %> <%= order.customer.customer_last_name %></td>
           <td><%= order.order_description %></td>
           <td><%= order.order_cost %></td>
-          <td><%= order.order_start_date.to_formatted_s(:long_ordinal) %></td>
-          <td><%= order.order_due_date.to_formatted_s(:long_ordinal) %></td>
-          <td><%= order.order_date_finish.try(:to_formatted_s,:long_ordinal) %></td>
+          <td><%= order.order_start_date.try(:strftime,"%B %e, %l:%M %p") %></td>
+          <td><%= order.order_due_date.try(:strftime,"%B %e, %l:%M %p") %></td>
+          <td><%= order.order_date_finish.try(:strftime,"%B %e, %l:%M %p") %></td>
           <td><%= order.order_delivery %></td>
           <td><%= order.delivery_street_address %></td>
           <td><%= order.delivery_city %></td>
           <td><%= order.delivery_state %></td>
           <td><%= order.delivery_zip_code %></td>
-          <td><%= order.order_type.order_description %></td>
-          <td><%= order.order_status.order_status_name %></td>
           <td><%= link_to 'Show', order %></td>
           <td><%= link_to 'Edit', edit_order_path(order) %></td>
           <td><%= link_to 'Archive', archive_order_path(order),method: :patch  %></td>
@@ -69,7 +69,7 @@
 </nav>
   <br>
   <script>
-  function firstName() {
+  function status() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("firstInput");
     filter = input.value.toUpperCase();
@@ -89,7 +89,7 @@
   }
   </script>
   <script>
-  function description() {
+  function type() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("secondInput");
     filter = input.value.toUpperCase();
@@ -109,7 +109,7 @@
   }
   </script>
   <script>
-  function cost() {
+  function firstName() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("thirdInput");
     filter = input.value.toUpperCase();
@@ -129,7 +129,7 @@
   }
   </script>
   <script>
-  function start() {
+  function description() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("fourthInput");
     filter = input.value.toUpperCase();
@@ -149,7 +149,7 @@
   }
   </script>
   <script>
-  function due() {
+  function cost() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("fifthInput");
     filter = input.value.toUpperCase();
@@ -169,7 +169,7 @@
   }
   </script>
   <script>
-  function finish () {
+  function start() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("sixthInput");
     filter = input.value.toUpperCase();
@@ -189,7 +189,7 @@
   }
   </script>
   <script>
-  function delivery() {
+  function due() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("seventhInput");
     filter = input.value.toUpperCase();
@@ -209,7 +209,7 @@
   }
   </script>
   <script>
-  function address() {
+  function finish () {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("eigthInput");
     filter = input.value.toUpperCase();
@@ -229,7 +229,7 @@
   }
   </script>
   <script>
-  function city() {
+  function delivery() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("ninthInput");
     filter = input.value.toUpperCase();
@@ -249,7 +249,7 @@
   }
   </script>
   <script>
-  function state() {
+  function address() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("tenthInput");
     filter = input.value.toUpperCase();
@@ -269,7 +269,7 @@
   }
   </script>
   <script>
-  function zip() {
+  function city() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("eleventhInput");
     filter = input.value.toUpperCase();
@@ -289,7 +289,7 @@
   }
   </script>
   <script>
-  function type() {
+  function state() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("twelvthInput");
     filter = input.value.toUpperCase();
@@ -309,7 +309,7 @@
   }
   </script>
   <script>
-  function status() {
+  function zip() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("thirteenthInput");
     filter = input.value.toUpperCase();
