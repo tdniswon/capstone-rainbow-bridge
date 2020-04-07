@@ -2,12 +2,12 @@
 
 <p>
     <strong>Order line:</strong>
-    <%= @order_line_restriction.order_line_id %>
+    <%= link_to @order_line_restriction.order_line.order_line_description , @order_line_restriction.order_line %>
 </p>
 
 <p>
     <strong>Dietary restriction:</strong>
-    <%= @order_line_restriction.dietary_restriction_id %>
+    <%= @order_line_restriction.dietary_restriction.dietary_restriction_name %>
 </p>
 
 <%= link_to 'Edit', rails_admin.edit_path(model_name: 'order_line_restriction', id: @order_line_restriction.id) %> |

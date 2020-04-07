@@ -5,7 +5,7 @@
 
     <p>
         <strong>Order Line ID:</strong>
-        <%= @order_line.order_id %>
+        <%= @order_line.id %>
     </p>
 
     <p>
@@ -38,7 +38,7 @@
         <%= @order_line.order_line_status.order_line_status_name %>
     </p>
     <p>
-      <Strong>Order:</strong>
+      <Strong>Order ID:</strong>
         <%= link_to @order_line.order.id, @order_line.order %>
       </p>
 
