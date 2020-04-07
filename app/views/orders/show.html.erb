@@ -55,7 +55,7 @@
 
     <p>
         <strong>Customer:</strong>
-        <%= @order.customer.customer_first_name %> <%= @order.customer.customer_last_name %>
+        <%= link_to @order.customer.customer_first_name + ' ' + @order.customer.customer_last_name, @order.customer%>
     </p>
 
     <p>
@@ -175,6 +175,6 @@
         </tbody>
     </table>
 
-    <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %> 
+    <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
     <%= link_to 'Back', orders_path ,class: "btn btn-primary" %>
 </div>

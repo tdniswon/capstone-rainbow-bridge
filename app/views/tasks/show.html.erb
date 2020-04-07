@@ -33,7 +33,7 @@
 
     <p>
         <strong>Order Line:</strong>
-        <%= @task.order_line_id %>
+        <%= link_to @task.order_line_id, @task.order_line %>
     </p>
 
     <hr>
@@ -66,6 +66,6 @@
 
     <hr>
 
-    <%= link_to 'Edit', edit_task_path(@task),Class:"btn btn-primary" %> 
+    <%= link_to 'Edit', edit_task_path(@task),Class:"btn btn-primary" %>
     <%= link_to 'Back', :back, Class:"btn btn-primary" %>
 </div>

@@ -38,6 +38,7 @@ class RentalLinesController < ApplicationController
           format.json { render :show, status: :created, location: @rental_line }
         end
       else
+        @order = params[:nested_o]
         format.html { render :new }
         format.json { render json: @rental_line.errors, status: :unprocessable_entity }
       end

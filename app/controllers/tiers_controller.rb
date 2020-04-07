@@ -17,6 +17,17 @@ class TiersController < ApplicationController
   def new
     @tier = Tier.new
     @order_line = params[:order_line_id]
+
+    @sameOrderLineTiers = Tier.where(order_line_id: @order_line)
+    puts(@sameOrderLineTiers)
+    @maxPosition = @sameOrderLineTiers.maximum("position")
+    puts(@maxPosition)
+    if !@maxPosition
+      puts("nil")
+      @maxPosition = 0
+    end
+    @setPosition = @maxPosition + 1
+    puts(@setPosition)
   end
 
   # GET /tiers/1/edit
@@ -47,7 +58,9 @@ class TiersController < ApplicationController
           puts("@@@@@@@@@@@@@@@@@@@@@@")
         end
       else
+        @order_line = params[:nested_ol]
         format.html { render :new }
+        puts("$$$$$$$$$$$$$$$$$$$$$$$$$$")
         format.json { render json: @tier.errors, status: :unprocessable_entity }
       end
     end
@@ -75,6 +88,19 @@ class TiersController < ApplicationController
       format.html { redirect_to tiers_url, notice: 'Tier was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def position
+    @sameOrderLineTiers = Tier.where(order_line_id: @order_line.id)
+    puts(@sameOrderLineTiers)
+    @maxPosition = @sameOrderLineTiers.maximum("position")
+    puts(@maxPosition)
+    if !@maxPosition
+      puts("nil")
+      @maxPosition = 0
+    end
+    @setPosition = @maxPosition + 1
+    puts(@setPosition)
   end
 
   private

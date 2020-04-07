@@ -38,6 +38,7 @@ class OrderLineRestrictionsController < ApplicationController
           format.json { render :show, status: :created, location: @order_line_restriction }
         end
       else
+        @order_line = params[:nested_ol]
         format.html { render :new }
         format.json { render json: @order_line_restriction.errors, status: :unprocessable_entity }
       end

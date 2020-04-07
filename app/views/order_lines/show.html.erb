@@ -4,6 +4,11 @@
     <h1>Order Contents</h1>
 
     <p>
+        <strong>Order Line ID:</strong>
+        <%= @order_line.id %>
+    </p>
+
+    <p>
         <strong>Order Line Description:</strong>
         <%= @order_line.order_line_description %>
     </p>
@@ -32,11 +37,12 @@
         <strong>Order Line Status:</strong>
         <%= @order_line.order_line_status.order_line_status_name %>
     </p>
-
     <p>
-        <strong>Order Line ID:</strong>
-        <%= @order_line.order_id %>
-    </p>
+      <Strong>Order ID:</strong>
+        <%= link_to @order_line.order.id, @order_line.order %>
+      </p>
+
+
 
     <% @attached =  @order_line.images.attached? %>
 
@@ -81,33 +87,50 @@
         </div>
     <% end %>
 
-    <hr>
-
-    <div class="container text-center">
-        <h2>Order Content's Dietary Restrictions</h2>
-        <%= button_to "Add a Dietary Restriction", new_order_line_restriction_path, params: {order_line_id: @order_line}, method: :get, class: "text-center btn btn-primary" %>
-    </div>
-
     <br>
 
-    <table  class="table table-hover">
-        <tbody>
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">Order Line ID</th>
-                <th scope="col">Dietary Restriction</th>
-                <th col span="3">
-            </tr>
-            </thead>
-            <% @order_line.order_line_restrictions.each do |olr| %>
-            <tr>
-                <td><%= olr.order_line_id %></td>
-                <td><%= olr.dietary_restriction.dietary_restriction_name %></td>
-                <td><%= link_to 'Show Details', olr %></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
+    <% @attachedMockup =  @order_line.mockups.attached? %>
+
+    <% if @attachedMockup %>
+        <div class="text-center">
+            <h3>Mockups</h3>
+        </div>
+        <div class="container" id="carouselBorder">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="ci">
+                    <ol class="carousel-indicators">
+                        <% @order_line.mockups.each_with_index do |photo, n| %>
+                            <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+                        <% end %>
+                    </ol>
+                </div>
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="text-center">
+                            <%= image_tag(@order_line.mockups.first, class: "img-fluid img-rounded") %>
+                        </div>
+                    </div>
+                    <% @order_line.mockups.drop(1).each do |photo| %>
+                        <div class="carousel-item">
+                            <div class="text-center">
+                                <%= image_tag(photo, class: "img-fluid img-rounded")  %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    <% end %>
 
     <hr>
 
@@ -140,6 +163,34 @@
                 <td><%= ot.frosting_flavor.frosting_name %></td>
                 <td><%= ot.shape.shape_name %></td>
                 <td><%= link_to 'Show Details', ot %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <div class="container text-center">
+        <h2>Order Content's Dietary Restrictions</h2>
+        <%= button_to "Add a Dietary Restriction", new_order_line_restriction_path, params: {order_line_id: @order_line}, method: :get, class: "text-center btn btn-primary" %>
+    </div>
+
+    <br>
+
+    <table  class="table table-hover">
+        <tbody>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Order Line ID</th>
+                <th scope="col">Dietary Restriction</th>
+                <th col span="3">
+            </tr>
+            </thead>
+            <% @order_line.order_line_restrictions.each do |olr| %>
+            <tr>
+                <td><%= olr.order_line_id %></td>
+                <td><%= olr.dietary_restriction.dietary_restriction_name %></td>
+                <td><%= link_to 'Show Details', olr %></td>
             </tr>
             <% end %>
         </tbody>
@@ -185,6 +236,6 @@
 
     <hr>
 
-    <%= link_to 'Edit', edit_order_line_path(@order_line), Class:"btn btn-primary" %> 
+    <%= link_to 'Edit', edit_order_line_path(@order_line), Class:"btn btn-primary" %>
     <%= link_to 'Back', :back,Class:"btn btn-primary" %>
 </div>
