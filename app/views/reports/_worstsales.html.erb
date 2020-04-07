@@ -1,10 +1,10 @@
-
-<%= bar_chart OrderLine.group(:product_id).count %>
-
+<% @productName = Product.joins(:order_lines) %>
 
 
-<% @dinguses = OrderLine.group(:product_id).count %>
-<% @dkeys = @dinguses.keys %>
+
+
+<%= column_chart @productName.group(:product_name).count %>
+
 
 
 <h1>Product Orders</h1>
