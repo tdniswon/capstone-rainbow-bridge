@@ -38,7 +38,12 @@ class OrdersController < ApplicationController
           format.html { redirect_to @order, notice: 'Order was successfully created.' }
           format.json { render :show, status: :created, location: @order }
         end
+        @custID = params[:order][:customer_id]
+        @cust = Customer.where(:id => @custID).first
+        @cust.customer_status_id = 2
+        @cust.save
       else
+        @customer = params[:nested_customer]
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end

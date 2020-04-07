@@ -40,6 +40,7 @@ class TasksController < ApplicationController
           format.json { render :show, status: :created, location: @task }
         end
       else
+        @order_line = params[:nested_ol]
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end

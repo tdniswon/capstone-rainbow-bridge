@@ -38,6 +38,7 @@ class TaskAssignmentsController < ApplicationController
           format.json { render :show, status: :created, location: @task_assignment }
         end
       else
+        @task = params[:nested_task]
         format.html { render :new }
         format.json { render json: @task_assignment.errors, status: :unprocessable_entity }
       end

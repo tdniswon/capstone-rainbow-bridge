@@ -38,6 +38,7 @@ class TierFillingsController < ApplicationController
           format.json { render :show, status: :created, location: @tier_filling }
         end
       else
+        @tier = params[:nested_tier]
         format.html { render :new }
         format.json { render json: @tier_filling.errors, status: :unprocessable_entity }
       end
