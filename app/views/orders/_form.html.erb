@@ -14,6 +14,31 @@
   <div class="form-row">
 
     <div class="form-group col-md-4">
+      <label for="inputAddress">Order Start Date</label>
+      <div>
+        <%= form.datetime_select :order_start_date, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputAddress">Delivery Due Date</label>
+      <div>
+        <%= form.datetime_select :order_due_date, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputAddress">Delivery Finish Date</label>
+      <div>
+        <%= form.datetime_select :order_due_date, class: "form-control" %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-4">
       <label for="inputCust">Customer</label>
       <%= form.collection_select(:customer_id, Customer.all, :id, :full_name,{prompt: "Select One...", selected: @customer}, {class: "form-control"}) %>
     </div>
@@ -75,31 +100,6 @@
     <div class="form-group col-md-2">
       <label for="inputZip">Delivery Zip Code</label>
       <%= form.text_field :delivery_zip_code, class: "form-control", placeholder: "77890" %>
-    </div>
-
-  </div>
-
-  <div class="form-row">
-
-    <div class="form-group col-md-4">
-      <label for="inputAddress">Order Start Date</label>
-      <div>
-        <%= form.datetime_select :order_start_date, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputAddress">Delivery Due Date</label>
-      <div>
-        <%= form.datetime_select :order_due_date, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputAddress">Delivery Finish Date</label>
-      <div>
-        <%= form.datetime_select :order_due_date, class: "form-control" %>
-      </div>
     </div>
 
   </div>

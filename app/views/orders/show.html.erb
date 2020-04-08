@@ -1,14 +1,20 @@
 <div class="container-fluid">
     <p id="notice"><%= notice %></p>
-
+    <div class="container">
     <h1>Order Details</h1>
-
     <p>
-        <strong>Order Description:</strong>
-        <%= @order.order_description %>
+        <strong>Order Status:</strong>
+        <%= @order.order_status.order_status_name %>
+        <strong>Customer:</strong>
+        <%= link_to @order.customer.customer_first_name + ' ' + @order.customer.customer_last_name, @order.customer%>
+
     </p>
 
     <p>
+        <strong>Order Type:</strong>
+        <%= @order.order_type.order_description %>
+        <strong>Order Description:</strong>
+        <%= @order.order_description %>
         <strong>Order Cost:</strong>
         <%= @order.order_cost %>
     </p>
@@ -16,14 +22,8 @@
     <p>
         <strong>Order Start Date:</strong>
         <%= @order.order_start_date.to_formatted_s(:long_ordinal) %>
-    </p>
-
-    <p>
         <strong>Order Due Date:</strong>
         <%= @order.order_due_date.to_formatted_s(:long_ordinal) %>
-    </p>
-
-    <p>
         <strong>Order Date Finish:</strong>
         <%= @order.order_date_finish.try(:to_formatted_s, :long_ordinal)%>
     </p>
@@ -31,42 +31,17 @@
     <p>
         <strong>Order Delivery:</strong>
         <%= @order.order_delivery %>
-    </p>
-
-    <p>
         <strong>Delivery Street Address:</strong>
         <%= @order.delivery_street_address %>
-    </p>
-
-    <p>
         <strong>Delivery City:</strong>
         <%= @order.delivery_city %>
-    </p>
-
-    <p>
         <strong>Delivery State:</strong>
         <%= @order.delivery_state %>
-    </p>
-
-    <p>
-        <strong>Delivery Zip Code:</strong>
+         <strong>Delivery Zip Code:</strong>
         <%= @order.delivery_zip_code %>
     </p>
 
-    <p>
-        <strong>Customer:</strong>
-        <%= link_to @order.customer.customer_first_name + ' ' + @order.customer.customer_last_name, @order.customer%>
-    </p>
-
-    <p>
-        <strong>Order Type:</strong>
-        <%= @order.order_type.order_description %>
-    </p>
-
-    <p>
-        <strong>Order Status:</strong>
-        <%= @order.order_status.order_status_name %>
-    </p>
+    </div>
 
     <% @attached =  @order.inspiration_images.attached? %>
 
