@@ -51,26 +51,6 @@
   <script>
 function status() {
 var input, filter, table, tr, td, i, txtValue;
-input = document.getElementById("6Input");
-filter = input.value.toUpperCase();
-table = document.getElementById("task_table");
-tr = table.getElementsByTagName("tr");
-for (i = 0; i < tr.length; i++) {
-  td = tr[i].getElementsByTagName("td")[5];
-  if (td) {
-    txtValue = td.textContent || td.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      tr[i].style.display = "";
-    } else {
-      tr[i].style.display = "none";
-    }
-  }
-}
-}
-</script>
-<script>
-function order_line() {
-var input, filter, table, tr, td, i, txtValue;
 input = document.getElementById("firstInput");
 filter = input.value.toUpperCase();
 table = document.getElementById("task_table");
@@ -88,15 +68,35 @@ for (i = 0; i < tr.length; i++) {
 }
 }
 </script>
+<script>
+function order_line() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("2Input");
+filter = input.value.toUpperCase();
+table = document.getElementById("task_table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[1];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+}
+</script>
   <script>
 function task() {
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("2Input");
+  input = document.getElementById("3Input");
   filter = input.value.toUpperCase();
   table = document.getElementById("task_table");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
+    td = tr[i].getElementsByTagName("td")[2];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -110,26 +110,6 @@ function task() {
 </script>
 <script>
 function description() {
-var input, filter, table, tr, td, i, txtValue;
-input = document.getElementById("3Input");
-filter = input.value.toUpperCase();
-table = document.getElementById("task_table");
-tr = table.getElementsByTagName("tr");
-for (i = 0; i < tr.length; i++) {
-  td = tr[i].getElementsByTagName("td")[2];
-  if (td) {
-    txtValue = td.textContent || td.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      tr[i].style.display = "";
-    } else {
-      tr[i].style.display = "none";
-    }
-  }
-}
-}
-</script>
-<script>
-function start() {
 var input, filter, table, tr, td, i, txtValue;
 input = document.getElementById("4Input");
 filter = input.value.toUpperCase();
@@ -149,7 +129,7 @@ for (i = 0; i < tr.length; i++) {
 }
 </script>
 <script>
-function due() {
+function start() {
 var input, filter, table, tr, td, i, txtValue;
 input = document.getElementById("5Input");
 filter = input.value.toUpperCase();
@@ -169,7 +149,7 @@ for (i = 0; i < tr.length; i++) {
 }
 </script>
 <script>
-function finish() {
+function due() {
 var input, filter, table, tr, td, i, txtValue;
 input = document.getElementById("6Input");
 filter = input.value.toUpperCase();
@@ -177,6 +157,26 @@ table = document.getElementById("task_table");
 tr = table.getElementsByTagName("tr");
 for (i = 0; i < tr.length; i++) {
   td = tr[i].getElementsByTagName("td")[5];
+  if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+}
+</script>
+<script>
+function finish() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("7Input");
+filter = input.value.toUpperCase();
+table = document.getElementById("task_table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[6];
   if (td) {
     txtValue = td.textContent || td.innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {

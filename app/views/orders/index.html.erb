@@ -7,7 +7,7 @@
   <nav class="navbar navbar-light bg-light">
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="firstInput" onkeyup="status()" placeholder="Search by Status" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="secondInput" onkeyup="type()" placeholder="Search by Order Type" title="Type Customer's Name">
+    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="secondInput" onkeyup="type2()" placeholder="Search by Order Type" title="Type Customer's Name">
     <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirdInput" onkeyup="firstName()" placeholder="Search by Name" title="Type Customer's Name">
     <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fourthInput" onkeyup="description()" placeholder="Search by Description" title="Type Customer's Name">
     <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fifthInput" onkeyup="cost()" placeholder="Search by Cost" title="Type Customer's Name">
@@ -89,7 +89,7 @@
   }
   </script>
   <script>
-  function type() {
+  function type2() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("secondInput");
     filter = input.value.toUpperCase();
