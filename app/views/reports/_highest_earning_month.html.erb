@@ -1,0 +1,2 @@
+<h1> Highest Earning Month </h1>
+<%=  column_chart Order.group_by_month(:order_start_date, format:"%b").sum(:order_cost), xtitle: 'Month', ytitle: 'Revenue' %>
