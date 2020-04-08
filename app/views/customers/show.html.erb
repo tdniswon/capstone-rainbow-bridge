@@ -3,41 +3,27 @@
         <p id="notice"><%= notice %></p>
 
         <h1><%= @customer.customer_first_name %> <%= @customer.customer_last_name %></h1>
-
-
-        <p>
-            <strong>Email:</strong>
-            <%= @customer.customer_email %>
+         <p>
+            <strong>Status:</strong>
+            <%= @customer.customer_status.customer_status_name %>
         </p>
 
         <p>
             <strong>Phone:</strong>
             <%= @customer.customer_phone %>
+            <strong>Email:</strong>
+            <%= @customer.customer_email %>
         </p>
 
-        <p>
+        <p center>
             <strong>Street Address:</strong>
             <%= @customer.customer_street_address %>
-        </p>
-
-        <p>
             <strong>City:</strong>
             <%= @customer.customer_city %>
-        </p>
-
-        <p>
             <strong>State:</strong>
-            <%= @customer.customer_state %>
-        </p>
-
-        <p>
+            <%= @customer.customer_state %> 
             <strong>Zip Code:</strong>
             <%= @customer.customer_zip_code %>
-        </p>
-
-        <p>
-            <strong>Status:</strong>
-            <%= @customer.customer_status.customer_status_name %>
         </p>
     </div>
 

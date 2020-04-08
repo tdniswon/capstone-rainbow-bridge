@@ -1,0 +1,4 @@
+<h1>Deliveries per Driver </h1>
+<% @etasks = Employee.joins(task_assignments: :task) %>
+<% @deliveries = @etasks.where employee_type_id: '2' %>
+<%= column_chart @deliveries.group(:employee_last_name).count %>

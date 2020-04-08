@@ -1,0 +1,2 @@
+<h1>Order Numbers by Month</h1>
+<%= column_chart Order.group_by_month(:order_start_date, format: "%b").count, xtitle: "Month", ytitle: "Order Number" %>
