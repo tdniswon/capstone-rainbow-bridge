@@ -1,32 +1,27 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1><%= @employee.employee_first_name %> <%= @employee.employee_last_name %></h1>
-
-
-<p>
-    <strong>Employee email:</strong>
-    <%= @employee.employee_email %>
-</p>
-
-<p>
-    <strong>Employee phone:</strong>
-    <%= @employee.employee_phone %>
-</p>
-
 <p>
     <strong>Employee status:</strong>
     <%= @employee.employee_status.employee_status_name %>
-</p>
-
-<p>
     <strong>Employee type:</strong>
     <%= @employee.employee_type.employee_type_description %>
 </p>
+
+<p>
+<strong>Employee phone:</strong>
+    <%= @employee.employee_phone %>
+    <strong>Employee email:</strong>
+    <%= @employee.employee_email %>
+</p>
+</div>
+<br>
 <table class="table table-hover">
     <tbody>
     <thead class="thead-light">
         <tr >
             <th scope="col">Tasks</th>
+            <th col span=3></th>
         </tr>
         </thead>
         <% @employee.task_assignments.each do |ta| %>

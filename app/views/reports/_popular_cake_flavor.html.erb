@@ -1,0 +1,39 @@
+<div class="text-center">
+<h1>Most Popular Cake Flavors</h1>
+</div>
+
+<% @flavor = Tier.group(:cake_flavor_id).count  %>
+<% @flavorNames = [] %>
+
+<% @flavor.each do |r| %>
+    <% temparr = [] %>
+    <% temparr.push(CakeFlavor.where(:id => r[0]).take.flavor_name) %>
+    <% temparr.push(r[1]) %>
+    <% @flavorNames.push(temparr) %>
+    <%end%>
+    <br>
+
+
+<div class="container" >
+    <%= pie_chart @flavorNames, id: "flavorNames", height: "400px", library: { legend: {labels: { fontSize: 16 } } } %>
+</div>
+
+<br>
+
+<table class="table table-hover">
+    <thead class="thead-light">
+        <tr>
+            <th>Cake Flavor</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+<tbody>
+        <% @flavorNames.each do |r| %>
+        <tr>
+            <td><%= r[0] %></td>
+            <td><%= r[1] %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
