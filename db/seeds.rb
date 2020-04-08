@@ -13,6 +13,8 @@ CakeFlavor.find_or_create_by(flavor_name: "Vanilla")
 CakeFlavor.find_or_create_by(flavor_name: "Chocolate")
 CakeFlavor.find_or_create_by(flavor_name: "Marble")
 CakeFlavor.find_or_create_by(flavor_name: "Red Velvet")
+CakeFlavor.find_or_create_by(flavor_name: "Carrot")
+CakeFlavor.find_or_create_by(flavor_name: "Spice Cake")
 CakeFlavor.find_or_create_by(flavor_name: "Coffee")
 CakeFlavor.find_or_create_by(flavor_name: "Almond")
 
@@ -20,10 +22,10 @@ CakeFlavor.find_or_create_by(flavor_name: "Almond")
 
 #Filling.destroy_all
 Filling.find_or_create_by(filling_name: "Strawberry Buttercream", filling_description: "Strawberry Buttercream")
-Filling.find_or_create_by(filling_name: "Raspberry", filling_description: "Raspberry")
-Filling.find_or_create_by(filling_name: "Crunch Buttercream", filling_description: "Crunch Buttercream")
+Filling.find_or_create_by(filling_name: "Raspberry Buttercream", filling_description: "Raspberry Buttercream")
+Filling.find_or_create_by(filling_name: "Coffe Crunch Buttercream", filling_description: "Coffe Crunch Buttercream")
 Filling.find_or_create_by(filling_name: "Coffee Buttercream", filling_description: "Coffee Buttercream")
-Filling.find_or_create_by(filling_name: "M&Ms", filling_description: "M&Ms")
+Filling.find_or_create_by(filling_name: "M&M Buttercream", filling_description: "M&M Buttercream")
 Filling.find_or_create_by(filling_name: "Chocolate Chips", filling_description: "Chocolate Chips")
 Filling.find_or_create_by(filling_name: "Oreos", filling_description: "Oreos")
 Filling.find_or_create_by(filling_name: "Ferrero Rocher", filling_description: "Ferrero Rocher")
@@ -32,7 +34,7 @@ Filling.find_or_create_by(filling_name: "Mint Chocolate Chip Buttercream", filli
 Filling.find_or_create_by(filling_name: "Nutella Buttercream", filling_description: "Nutella Buttercream")
 Filling.find_or_create_by(filling_name: "Vanilla Buttercream", filling_description: "Vanilla Buttercream")
 Filling.find_or_create_by(filling_name: "Chocolate Buttercream", filling_description: "Chocolate Buttercream")
-
+Filling.find_or_create_by(filling_name: "Chocolate Ganache", filling_description: "Chocolate Ganache")
 
 #FrostingFlavor.destroy_all
 FrostingFlavor.find_or_create_by(frosting_name: "Chocolate Fondant")
@@ -66,14 +68,18 @@ Product.find_or_create_by(product_name: "Mini Cupcakes", product_description: "C
 Product.find_or_create_by(product_name: "Dipped Oreos", product_description: "Custom dipped Oreos")
 Product.find_or_create_by(product_name: "Wedding Cake Tasting", product_description: "Custom wedding cake tasting")
 Product.find_or_create_by(product_name: "Cake Flavors", product_description: "Custom cakes flavors")
+Product.find_or_create_by(product_name: "Cake Loafs", product_description: "Custom cakes Loafs")
 
 #EmployeeType.destroy_all
 EmployeeType.find_or_create_by(employee_type_description: "Baker")
 EmployeeType.find_or_create_by(employee_type_description: "Delivery Driver")
 
 #EmployeeStatus.destroy_all
-EmployeeStatus.find_or_create_by(employee_status_name: "Inactive")
 EmployeeStatus.find_or_create_by(employee_status_name: "Active")
+EmployeeStatus.find_or_create_by(employee_status_name: "Inactive")
+EmployeeStatus.find_or_create_by(employee_status_name: "Inactive - Always Tardy")
+EmployeeStatus.find_or_create_by(employee_status_name: "Inactive - Poor Work Ethic")
+EmployeeStatus.find_or_create_by(employee_status_name: "Inactive - Difficult to Work With")
 EmployeeStatus.find_or_create_by(employee_status_name: "Archived")
 
 #Employee.destroy_all
@@ -88,32 +94,41 @@ TaskStatus.find_or_create_by(task_status_name: "Not Started")
 TaskStatus.find_or_create_by(task_status_name: "In Progress")
 TaskStatus.find_or_create_by(task_status_name: "Complete")
 TaskStatus.find_or_create_by(task_status_name: "Archived")
+TaskStatus.find_or_create_by(task_status_name: "Incomplete")
+TaskStatus.find_or_create_by(task_status_name: "On Hold")
 
 #OrderType.destroy_all
 OrderType.find_or_create_by(order_description: "Residential")
-OrderType.find_or_create_by(order_description: "Wedding")
-OrderType.find_or_create_by(order_description: "Pick up")
-OrderType.find_or_create_by(order_description: "Birthday")
-OrderType.find_or_create_by(order_description: "Baby Shower")
-OrderType.find_or_create_by(order_description: "Holiday")
-OrderType.find_or_create_by(order_description: "Anniversary")
-OrderType.find_or_create_by(order_description: "Special Occasion or Event")
-OrderType.find_or_create_by(order_description: "Other")
+OrderType.find_or_create_by(order_description: "Commerical")
+
 
 #OrderStatus.destroy_all
 OrderStatus.find_or_create_by(order_status_name: "Inquired")
 OrderStatus.find_or_create_by(order_status_name: "In Progress")
 OrderStatus.find_or_create_by(order_status_name: "Complete")
+OrderStatus.find_or_create_by(order_status_name: "On Hold")
+OrderStatus.find_or_create_by(order_status_name: "Need Retainer")
+OrderStatus.find_or_create_by(order_status_name: "Need Payment")
+OrderStatus.find_or_create_by(order_status_name: "Assembly")
+OrderStatus.find_or_create_by(order_status_name: "Out for Delivery")
+OrderStatus.find_or_create_by(order_status_name: "Cancelled")
 OrderStatus.find_or_create_by(order_status_name: "Archived")
 
 #OrderLineStatus.destroy_all
+OrderLineStatus.find_or_create_by(order_line_status_name: "Not Started")
 OrderLineStatus.find_or_create_by(order_line_status_name: "Incomplete")
 OrderLineStatus.find_or_create_by(order_line_status_name: "Complete")
 OrderLineStatus.find_or_create_by(order_line_status_name: "Archived")
+OrderLineStatus.find_or_create_by(order_line_status_name: "In Progress")
+OrderLineStatus.find_or_create_by(order_line_status_name: "On Hold")
+OrderLineStatus.find_or_create_by(order_line_status_name: "Cancelled")
 
 #CustomerStatus.destroy_all
-CustomerStatus.find_or_create_by(customer_status_name: "Inactive")
 CustomerStatus.find_or_create_by(customer_status_name: "Active")
+CustomerStatus.find_or_create_by(customer_status_name: "Inactive")
+CustomerStatus.find_or_create_by(customer_status_name: "Inactive - Difficult to Work With")
+CustomerStatus.find_or_create_by(customer_status_name: "Inactive - Did Not Return Rental Items")
+CustomerStatus.find_or_create_by(customer_status_name: "Inactive - Late Payment")
 CustomerStatus.find_or_create_by(customer_status_name: "Archived")
 
 #Customer.destroy_all
@@ -152,6 +167,7 @@ Shape.find_or_create_by(shape_name: "Round")
 Shape.find_or_create_by(shape_name: "Square")
 Shape.find_or_create_by(shape_name: "Triangle")
 Shape.find_or_create_by(shape_name: "Rectangular")
+Shape.find_or_create_by(shape_name: "Other")
 
 #TaskStatus.destroy_all
 TaskStatus.find_or_create_by(task_status_name: "Not Started")
