@@ -15,14 +15,16 @@ CakeFlavor.find_or_create_by(flavor_name: "Marble")
 CakeFlavor.find_or_create_by(flavor_name: "Red Velvet")
 CakeFlavor.find_or_create_by(flavor_name: "Coffee")
 CakeFlavor.find_or_create_by(flavor_name: "Almond")
+CakeFlavor.find_or_create_by(flavor_name: "Carrot Cake")
+CakeFlavor.find_or_create_by(flavor_name: "Spice Cake")
 
 
 
 #Filling.destroy_all
 Filling.find_or_create_by(filling_name: "Strawberry Buttercream", filling_description: "Strawberry Buttercream")
 Filling.find_or_create_by(filling_name: "Raspberry", filling_description: "Raspberry")
-Filling.find_or_create_by(filling_name: "Crunch Buttercream", filling_description: "Crunch Buttercream")
-Filling.find_or_create_by(filling_name: "Coffee Buttercream", filling_description: "Coffee Buttercream")
+Filling.find_or_create_by(filling_name: " Coffee Crunch Buttercream", filling_description: " Coffee Crunch Buttercream")
+Filling.find_or_create_by(filling_name: "Chocolate Ganache", filling_description: "Chocolate Ganache")
 Filling.find_or_create_by(filling_name: "M&Ms", filling_description: "M&Ms")
 Filling.find_or_create_by(filling_name: "Chocolate Chips", filling_description: "Chocolate Chips")
 Filling.find_or_create_by(filling_name: "Oreos", filling_description: "Oreos")
@@ -35,13 +37,13 @@ Filling.find_or_create_by(filling_name: "Chocolate Buttercream", filling_descrip
 
 
 #FrostingFlavor.destroy_all
-FrostingFlavor.find_or_create_by(frosting_name: "Chocolate Fondant")
-FrostingFlavor.find_or_create_by(frosting_name: "Vanilla Fondant")
+FrostingFlavor.find_or_create_by(frosting_name: "Fondant")
+FrostingFlavor.find_or_create_by(frosting_name: "Vanilla Buttercream")
 FrostingFlavor.find_or_create_by(frosting_name: "Chocolate Buttercream")
 FrostingFlavor.find_or_create_by(frosting_name: "None")
 
 #DietaryRestriction.destroy_all
-DietaryRestriction.find_or_create_by(dietary_restriction_name: "Milk")
+DietaryRestriction.find_or_create_by(dietary_restriction_name: "Diary")
 DietaryRestriction.find_or_create_by(dietary_restriction_name: "Eggs")
 DietaryRestriction.find_or_create_by(dietary_restriction_name: "Gluten")
 DietaryRestriction.find_or_create_by(dietary_restriction_name: "Nuts")
@@ -91,13 +93,7 @@ TaskStatus.find_or_create_by(task_status_name: "Archived")
 
 #OrderType.destroy_all
 OrderType.find_or_create_by(order_description: "Residential")
-OrderType.find_or_create_by(order_description: "Wedding")
-OrderType.find_or_create_by(order_description: "Pick up")
-OrderType.find_or_create_by(order_description: "Birthday")
-OrderType.find_or_create_by(order_description: "Baby Shower")
-OrderType.find_or_create_by(order_description: "Holiday")
-OrderType.find_or_create_by(order_description: "Anniversary")
-OrderType.find_or_create_by(order_description: "Special Occasion or Event")
+OrderType.find_or_create_by(order_description: "Commercial")
 OrderType.find_or_create_by(order_description: "Other")
 
 #OrderStatus.destroy_all
@@ -150,8 +146,9 @@ Customer.create_or_find_by(customer_first_name: "Bert",customer_last_name: "Robe
 #Shape.destroy_all
 Shape.find_or_create_by(shape_name: "Round")
 Shape.find_or_create_by(shape_name: "Square")
-Shape.find_or_create_by(shape_name: "Triangle")
 Shape.find_or_create_by(shape_name: "Rectangular")
+Shape.find_or_create_by(shape_name: "Other")
+
 
 #TaskStatus.destroy_all
 TaskStatus.find_or_create_by(task_status_name: "Not Started")
