@@ -9,8 +9,11 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @pagy,@customers = pagy(Customer.all.order(sort_column + ' ' + sort_direction))
+    #@pagy,@customers = pagy(Customer.all.order(sort_column + ' ' + sort_direction))
+    @q = Customer.ransack(params[:q])
+    @pagy, @customers = pagy(@q.result)
   end
+
 
   # GET /customers/1
   # GET /customers/1.json
