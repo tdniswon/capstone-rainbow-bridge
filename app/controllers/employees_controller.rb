@@ -5,7 +5,9 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @pagy,@employees = pagy(Employee.where.not(employee_status_id: 3 ).order(sort_column + ' ' + sort_direction))
+    #@pagy,@employees = pagy(Employee.where.not(employee_status_id: 3 ).order(sort_column + ' ' + sort_direction))
+    @q = Employee.ransack(params[:q])
+    @pagy, @employees = pagy(@q.result)
   end
 
   # GET /employees/1

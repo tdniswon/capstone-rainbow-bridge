@@ -5,7 +5,9 @@ class TiersController < ApplicationController
   # GET /tiers
   # GET /tiers.json
   def index
-    @pagy,@tiers = pagy(Tier.all.order(sort_column + ' ' + sort_direction))
+    #@pagy,@tiers = pagy(Tier.all.order(sort_column + ' ' + sort_direction))
+    @q = Tier.ransack(params[:q])
+    @pagy, @tiers = pagy(@q.result)
   end
 
   # GET /tiers/1
