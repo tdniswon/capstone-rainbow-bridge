@@ -31,7 +31,7 @@
 						<td><%= employee.employee_first_name %></td>
 						<td><%= employee.employee_last_name %></td>
 						<td><%= employee.employee_email %></td>
-						<td><%= employee.employee_phone %></td>
+						<td><%= number_to_phone(employee.employee_phone) %></td>
 						<td><%= link_to 'Show', employee %></td>
 						<td><%= link_to 'Edit', edit_employee_path(employee) %></td>
 						<td><%= link_to 'Archive', archive_employee_path(employee),method: :patch  %></td>
@@ -42,5 +42,5 @@
 		<%==pagy_bootstrap_nav(@pagy)%>
 	</nav>
   <br>
-  
+
 </div>

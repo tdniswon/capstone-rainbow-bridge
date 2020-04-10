@@ -10,7 +10,7 @@
         <%= f.search_field :order_status_order_status_name_or_order_type_order_description_or_customer_customer_first_name_or_customer_customer_last_name_or_order_description_or_delivery_street_address_or_delivery_city_or_delivery_state_or_delivery_zip_code_start, placeholder: "Search", class: 'form-control' %>
         <th><%= f.submit class: "btn btn-primary" %>
       <% end %>
-      
+
       <%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
       <table id = "order_table" class="table table-hover">
         <thead class="thead-light">
@@ -39,7 +39,7 @@
               <td><%= order.order_type.order_description %></td>
               <td><%= order.customer.customer_first_name %> <%= order.customer.customer_last_name %></td>
               <td><%= order.order_description %></td>
-              <td><%= order.order_cost %></td>
+              <td><%= number_to_currency(order.order_cost) %></td>
               <td><%= order.order_start_date.try(:strftime,"%B %e, %l:%M %p") %></td>
               <td><%= order.order_due_date.try(:strftime,"%B %e, %l:%M %p") %></td>
               <td><%= order.order_date_finish.try(:strftime,"%B %e, %l:%M %p") %></td>
