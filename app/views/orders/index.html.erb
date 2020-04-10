@@ -53,7 +53,12 @@
           <td><%= order.order_start_date.try(:strftime,"%B %e, %l:%M %p") %></td>
           <td><%= order.order_due_date.try(:strftime,"%B %e, %l:%M %p") %></td>
           <td><%= order.order_date_finish.try(:strftime,"%B %e, %l:%M %p") %></td>
-          <td><%= order.order_delivery %></td>
+          <td><% order.order_delivery %>
+            <% if order.order_delivery == true %>
+            <%= image_tag "check.png", class: "check"%>
+            <% else %>
+              <%= image_tag "cross.png", class: "cross"%>
+            <% end %></td>
           <td><%= order.delivery_street_address %></td>
           <td><%= order.delivery_city %></td>
           <td><%= order.delivery_state %></td>
