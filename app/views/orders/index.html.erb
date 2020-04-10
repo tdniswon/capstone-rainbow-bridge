@@ -4,6 +4,7 @@
   <div class="text-center">
     <h1>Orders</h1>
   </div>
+
     <nav class="navbar navbar-light bg-light">
       <%= search_form_for @q, {class: "form-inline"} do |f| %>
         <%= f.search_field :order_status_order_status_name_or_order_type_order_description_or_customer_customer_first_name_or_customer_customer_last_name_or_order_description_or_delivery_street_address_or_delivery_city_or_delivery_state_or_delivery_zip_code_start, placeholder: "Search", class: 'form-control' %>
@@ -42,7 +43,12 @@
               <td><%= order.order_start_date.try(:strftime,"%B %e, %l:%M %p") %></td>
               <td><%= order.order_due_date.try(:strftime,"%B %e, %l:%M %p") %></td>
               <td><%= order.order_date_finish.try(:strftime,"%B %e, %l:%M %p") %></td>
-              <td><%= order.order_delivery %></td>
+              <td><% order.order_delivery %>
+                <% if order.order_delivery == true %>
+                <%= image_tag "check.png", class: "check"%>
+                <% else %>
+                  <%= image_tag "cross.png", class: "cross"%>
+                <% end %></td>
               <td><%= order.delivery_street_address %></td>
               <td><%= order.delivery_city %></td>
               <td><%= order.delivery_state %></td>
