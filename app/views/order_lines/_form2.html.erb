@@ -13,11 +13,11 @@
 
    <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="">Order Line Start Date</label>
+      <label for="">Order Content Start Date</label>
       <%= form.datetime_select :order_line_start_date, class: "form-control" %>
     </div>
     <div class="form-group col-md-6">
-      <label for="">Order Line Finish Date</label>
+      <label for="">Order Content Finish Date</label>
       <%= form.datetime_select :order_line_finish_date, class: "form-control" %>
     </div>
   </div>
@@ -28,7 +28,7 @@
       <%= form.collection_select(:order_id, Order.all, :id, :order_description, {prompt: "Select One...", selected: @order}, {class: "form-control"}) %>
     </div>
     <div class="form-group col-md-4">
-      <label for="">Order Line Status</label>
+      <label for="">Order Content Status</label>
       <%= form.collection_select(:order_line_status_id, OrderLineStatus.all, :id, :order_line_status_name, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
     <div class="form-group col-md-4">
@@ -39,7 +39,7 @@
   
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="">Order Line Description</label>
+      <label for="">Order Content Description</label>
       <%= form.text_area :order_line_description, class: "form-control",placeholder:"Description" %>
     </div>
 
