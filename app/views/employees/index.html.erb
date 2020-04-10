@@ -5,37 +5,10 @@
     <h1>Employees</h1>
   </div>
 	<nav class="navbar navbar-light bg-light">
-		<form class="form-inline">
-			<%= search_form_for @q do |f| %>
-				<%= f.search_field :employee_status_employee_status_name_cont, placeholder: "Employee Status" %>&nbsp;&nbsp;&nbsp;
-				<%= f.submit %>
-			<% end %>
-
-			<%= search_form_for @q do |f| %>
-				<%= f.search_field :employee_type_employee_type_description_cont, placeholder: "Employee Type" %>&nbsp;&nbsp;&nbsp;
-				<%= f.submit %>
-			<% end %>
-
-			<%= search_form_for @q do |f| %>
-				<%= f.search_field :employee_first_name_cont, placeholder: "Employee First Name" %>&nbsp;&nbsp;&nbsp;
-				<%= f.submit %>
-			<% end %>
-
-			<%= search_form_for @q do |f| %>
-				<%= f.search_field :employee_last_name_cont, placeholder: "Employee Last Name" %>&nbsp;&nbsp;&nbsp;
-				<%= f.submit %>
-			<% end %>
-
-			<%= search_form_for @q do |f| %>
-				<%= f.search_field :employee_email_cont, placeholder: "Employee Email" %>&nbsp;&nbsp;&nbsp;
-				<%= f.submit %>
-			<% end %>
-
-			<%= search_form_for @q do |f| %>
-				<%= f.search_field :employee_phone_cont, placeholder: "Phone Number" %>&nbsp;&nbsp;&nbsp;
-				<%= f.submit %>
-			<% end %>
-		</form>
+		<%= search_form_for @q, {class: "form-inline"} do |f| %>
+			<%= f.search_field :employee_status_employee_status_name_or_employee_type_employee_type_description_or_employee_first_name_or_employee_last_name_or_employee_email_or_employee_phone_start, placeholder: "Search", class: 'form-control' %>
+			<th><%= f.submit class: "btn btn-primary" %>
+		<% end %>
 		<%= link_to 'New Employee', new_employee_path, class: "btn btn-primary" %>
 		<table id = "smort table" class="table table-hover">
 			<thead class="thead-light">

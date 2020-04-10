@@ -6,57 +6,15 @@
     <h1>Customers</h1>
   </div>
   <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
 
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_status_customer_status_name_cont, placeholder: "Status" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_first_name_cont, placeholder: "First Name" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_last_name_cont, placeholder: "Last Name" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_email_cont, placeholder: "E-mail" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_phone_cont, placeholder: "Phone" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_street_address_cont, placeholder: "Street Address" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_city_cont, placeholder: "City" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_state_cont, placeholder: "State" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :customer_zip_code_cont, placeholder: "Zip Code" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-    </form>
-   
-    <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary"%>&nbsp;&nbsp;&nbsp;
+    <%= search_form_for @q, {class: "form-inline"} do |f| %>
+      <%= f.search_field :customer_status_customer_status_name_or_customer_first_name_or_customer_last_name_or_customer_email_or_customer_phone_or_customer_street_address_or_customer_city_or_customer_state_or_customer_zip_code_start, placeholder: "Search", class: 'form-control' %>
+      <th><%= f.submit class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary"%>
 
     <table id= "smort_table" class="table table-hover">
+
       <thead class="thead-light">
         <tr>
           <th scope="col"><%= sort_link(@q, :customer_status_id, "Customer Status", default_order: :desc) %></th>

@@ -5,43 +5,10 @@
   <h1>Order Content</h1>
 </div>
   <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-      <%= search_form_for @q do |f| %>
-          <%= f.search_field :order_line_status_order_line_status_name_cont, placeholder: "Order Status" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :order_order_description_cont, placeholder: "Order" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :product_product_name_cont, placeholder: "Product Name" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :order_line_description_cont, placeholder: "Description" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :order_line_start_date_cont, placeholder: "Start Date" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :order_line_finish_date_cont, placeholder: "Finish Date" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :special_order_notes_cont, placeholder: "Special Notes" %>&nbsp;&nbsp;&nbsp;
-          <%= f.submit %>
-        <% end %>
-
-    </form>
+    <%= search_form_for @q, {class: "form-inline"} do |f| %>
+      <%= f.search_field :order_line_status_order_line_status_name_or_order_order_description_or_product_product_name_or_order_line_description_or_special_order_notes_start, placeholder: "Search", class: 'form-control' %>
+      <th><%= f.submit class: "btn btn-primary" %>
+    <% end %>
     <%= link_to 'New Order Content', new_order_line_path, class: "btn btn-primary" %>
     <table id= "order_line_table" class="table table-hover">
       <thead class="thead-light">
