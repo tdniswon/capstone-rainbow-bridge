@@ -4,334 +4,63 @@
   <div class="text-center">
     <h1>Orders</h1>
   </div>
-  <nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="firstInput" onkeyup="status()" placeholder="Search by Status" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="secondInput" onkeyup="type2()" placeholder="Search by Order Type" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirdInput" onkeyup="firstName()" placeholder="Search by Name" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fourthInput" onkeyup="description()" placeholder="Search by Description" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fifthInput" onkeyup="cost()" placeholder="Search by Cost" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="sixthInput" onkeyup="start()" placeholder="Search by Start Date" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="seventhInput" onkeyup="due()" placeholder="Search by Due Date" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eigthInput" onkeyup="finish()" placeholder="Search by Finish Date" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="ninthInput" onkeyup="delivery()" placeholder="Search by Delivery" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="tenthInput" onkeyup="address()" placeholder="Search by Address" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eleventhInput" onkeyup="city()" placeholder="Search by City" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="twelvthInput" onkeyup="state()" placeholder="Search by State" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirteenthInput" onkeyup="zip()" placeholder="Search by Zip Code" title="Type Customer's Name">
 
-  </form>
-<%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
-  <table id = "order_table" class="table table-hover">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col"><%= sortable "order_status_id", "Status" %></th>
-        <th scope="col"><%= sortable "order_type_id", "Type" %></th>
-        <th scope="col"><%= sortable "customer_last_name", "Name" %></th>
-        <th scope="col"><%= sortable "order_description", "Description" %></th>
-        <th scope="col"><%= sortable "order_cost", "Cost" %></th>
-        <th scope="col"><%= sortable "order_start_date", "Start" %></th>
-        <th scope="col"><%= sortable "order_due_date", "Due" %></th>
-        <th scope="col"><%= sortable "order_date_finish", "Finish" %></th>
-        <th scope="col"><%= sortable "order_delivery", "Delivery" %></th>
-        <th scope="col"><%= sortable "delivery_street_address", "Address" %></th>
-        <th scope="col"><%= sortable "delivery_city", "City" %></th>
-        <th scope="col"><%= sortable "delivery_state", "State" %> </th>
-        <th scope="col"><%= sortable "delivery_zip_code", "Zip" %></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @orders.each do |order| %>
-        <tr>
-          <td><%= order.order_status.order_status_name %></td>
-          <td><%= order.order_type.order_description %></td>
-          <td><%= order.customer.customer_first_name %> <%= order.customer.customer_last_name %></td>
-          <td><%= order.order_description %></td>
-          <td><%= order.order_cost %></td>
-          <td><%= order.order_start_date.try(:strftime,"%B %e, %l:%M %p") %></td>
-          <td><%= order.order_due_date.try(:strftime,"%B %e, %l:%M %p") %></td>
-          <td><%= order.order_date_finish.try(:strftime,"%B %e, %l:%M %p") %></td>
-          <td><% order.order_delivery %>
-            <% if order.order_delivery == true %>
-            <%= image_tag "check.png", class: "check"%>
-            <% else %>
-              <%= image_tag "cross.png", class: "cross"%>
-            <% end %></td>
-          <td><%= order.delivery_street_address %></td>
-          <td><%= order.delivery_city %></td>
-          <td><%= order.delivery_state %></td>
-          <td><%= order.delivery_zip_code %></td>
-          <td><%= link_to 'Show', order %></td>
-          <td><%= link_to 'Edit', edit_order_path(order) %></td>
-          <td><%= link_to 'Archive', archive_order_path(order),method: :patch  %></td>
-        </tr>
+    <nav class="navbar navbar-light bg-light">
+      <%= search_form_for @q, {class: "form-inline"} do |f| %>
+        <%= f.search_field :order_status_order_status_name_or_order_type_order_description_or_customer_customer_first_name_or_customer_customer_last_name_or_order_description_or_delivery_street_address_or_delivery_city_or_delivery_state_or_delivery_zip_code_start, placeholder: "Search", class: 'form-control' %>
+        <th><%= f.submit class: "btn btn-primary" %>
       <% end %>
-    </tbody>
-  </table>
-  <%==pagy_bootstrap_nav(@pagy)%>
-</nav>
-  <br>
-  <script>
-  function status() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("firstInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function type2() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("secondInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function firstName() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("thirdInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[2];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function description() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("fourthInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[3];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function cost() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("fifthInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[4];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function start() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("sixthInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[5];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function due() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("seventhInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[6];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function finish () {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("eigthInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[7];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function delivery() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("ninthInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[8];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function address() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("tenthInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[9];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function city() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("eleventhInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[10];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function state() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("twelvthInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[11];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  <script>
-  function zip() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("thirteenthInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("order_table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[12];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
+      
+      <%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
+      <table id = "order_table" class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col"><%= sort_link(@q, :order_status_id, "Status", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :order_type_id, "Type", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :customer_last_name, "Name", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :order_description, "Description", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :order_cost, "Cost", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :order_start_date, "Start", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :order_due_date, "Due", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :order_date_finish, "Finish", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :order_delivery, "Delivery", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :delivery_street_address, "Address", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :delivery_city, "City", default_order: :desc) %></th>
+            <th scope="col"><%= sort_link(@q, :delivery_state, "State", default_order: :desc) %> </th>
+            <th scope="col"><%= sort_link(@q, :delivery_zip_code, "Zip", default_order: :desc) %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.order_status.order_status_name %></td>
+              <td><%= order.order_type.order_description %></td>
+              <td><%= order.customer.customer_first_name %> <%= order.customer.customer_last_name %></td>
+              <td><%= order.order_description %></td>
+              <td><%= order.order_cost %></td>
+              <td><%= order.order_start_date.try(:strftime,"%B %e, %l:%M %p") %></td>
+              <td><%= order.order_due_date.try(:strftime,"%B %e, %l:%M %p") %></td>
+              <td><%= order.order_date_finish.try(:strftime,"%B %e, %l:%M %p") %></td>
+              <td><% order.order_delivery %>
+                <% if order.order_delivery == true %>
+                <%= image_tag "check.png", class: "check"%>
+                <% else %>
+                  <%= image_tag "cross.png", class: "cross"%>
+                <% end %></td>
+              <td><%= order.delivery_street_address %></td>
+              <td><%= order.delivery_city %></td>
+              <td><%= order.delivery_state %></td>
+              <td><%= order.delivery_zip_code %></td>
+              <td><%= link_to 'Show', order %></td>
+              <td><%= link_to 'Edit', edit_order_path(order) %></td>
+              <td><%= link_to 'Archive', archive_order_path(order),method: :patch  %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <%==pagy_bootstrap_nav(@pagy)%>
+  </nav>
 
 </div>

@@ -5,7 +5,9 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @pagy,@orders = pagy(Order.where.not(order_status_id: 4 ).order(sort_column + ' ' + sort_direction))
+    #@pagy,@orders = pagy(Order.where.not(order_status_id: 4 ).order(sort_column + ' ' + sort_direction))
+    @q = Order.ransack(params[:q])
+    @pagy, @orders = pagy(@q.result)
   end
 
   # GET /orders/1

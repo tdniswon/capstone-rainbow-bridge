@@ -5,7 +5,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @pagy,@tasks = pagy(Task.where.not(task_status_id: 4 ).order(sort_column + ' ' + sort_direction))
+    #@pagy,@tasks = pagy(Task.where.not(task_status_id: 4 ).order(sort_column + ' ' + sort_direction))
+    @q = Task.ransack(params[:q])
+    @pagy, @tasks = pagy(@q.result)
   end
 
   # GET /tasks/1

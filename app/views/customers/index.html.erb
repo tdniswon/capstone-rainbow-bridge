@@ -5,240 +5,51 @@
   <div class="text-center">
     <h1>Customers</h1>
   </div>
-<nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="firstInput" onkeyup="status()" placeholder="Search by Status" title="Type Status">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="secondInput" onkeyup="firstName()" placeholder="Search by First Name" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="thirdInput" onkeyup="lastName()" placeholder="Search by Last Name" title="Type Customer's Name">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fourthInput" onkeyup="email()" placeholder="Search by Email" title="Type Email">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="fifthInput" onkeyup="phone()" placeholder="Search by Phone" title="Type Phone">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="sixthInput" onkeyup="address()" placeholder="Search by Address" title="Type Address">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="seventhInput" onkeyup="city()" placeholder="Search by City" title="Type City">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="eighthInput" onkeyup="state()" placeholder="Search by State" title="Type State">
-    <input class="form-control mr-sm-2" type="search" aria-label="Search"  id="ninthInput" onkeyup="zip()" placeholder="Search by Zip Code" title="Type Zip Code">
+  <nav class="navbar navbar-light bg-light">
 
-  </form>
-  <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary"%>
+    <%= search_form_for @q, {class: "form-inline"} do |f| %>
+      <%= f.search_field :customer_status_customer_status_name_or_customer_first_name_or_customer_last_name_or_customer_email_or_customer_phone_or_customer_street_address_or_customer_city_or_customer_state_or_customer_zip_code_start, placeholder: "Search", class: 'form-control' %>
+      <th><%= f.submit class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary"%>
 
-  <table id= "smort_table" class="table table-hover">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col"><%= sortable "customer_status_id", "Customer Status" %> </th>
-        <th scope="col"> <%= sortable "customer_first_name", "First Name" %>  </th>
-        <th scope="col"><%= sortable "customer_last_name", "Last Name" %> </th>
-        <th scope="col"><%= sortable "customer_email", "Email" %> </th>
-        <th scope="col"><%= sortable "customer_phone", "Phone" %> </th>
-        <th scope="col"><%= sortable "customer_street_address", "Street Address" %> </th>
-        <th scope="col"><%= sortable "customer_city", "City" %> </th>
-        <th scope="col"><%= sortable "customer_state", "State" %> </th>
-        <th scope="col"><%= sortable "customer_zip_code", "Zipcode" %> </th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+    <table id= "smort_table" class="table table-hover">
 
-    <tbody>
-      <% @customers.each do |customer| %>
+      <thead class="thead-light">
         <tr>
-          <td><%= customer.customer_status.customer_status_name %></td>
-          <td><%= customer.customer_first_name %></td>
-          <td><%= customer.customer_last_name %></td>
-          <td><%= customer.customer_email %></td>
-          <td><%= customer.customer_phone %></td>
-          <td><%= customer.customer_street_address %></td>
-          <td><%= customer.customer_city %></td>
-          <td><%= customer.customer_state %></td>
-          <td><%= customer.customer_zip_code %></td>
-          <td><%= link_to 'Show', customer %></td>
-          <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-          <td><%= link_to 'Archive',archive_customer_path(customer),method: :patch  %></td>
+          <th scope="col"><%= sort_link(@q, :customer_status_id, "Customer Status", default_order: :desc) %></th>
+          <th scope="col"><%= sort_link(@q, :customer_first_name, "First Name", default_order: :desc) %>  </th>
+          <th scope="col"><%= sort_link(@q, :customer_last_name, "Last Name", default_order: :desc) %> </th>
+          <th scope="col"><%= sort_link(@q, :customer_email, "Email", default_order: :desc) %> </th>
+          <th scope="col"><%= sort_link(@q, :customer_phone, "Phone", default_order: :desc) %> </th>
+          <th scope="col"><%= sort_link(@q, :customer_street_address, "Street Address", default_order: :desc) %> </th>
+          <th scope="col"><%= sort_link(@q, :customer_city, "City", default_order: :desc) %> </th>
+          <th scope="col"><%= sort_link(@q, :customer_state, "State", default_order: :desc) %> </th>
+          <th scope="col"><%= sort_link(@q, :customer_zip_code, "Zipcode", default_order: :desc) %> </th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
+      </thead>
 
-  </table>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.customer_status.customer_status_name %></td>
+            <td><%= customer.customer_first_name %></td>
+            <td><%= customer.customer_last_name %></td>
+            <td><%= customer.customer_email %></td>
+            <td><%= customer.customer_phone %></td>
+            <td><%= customer.customer_street_address %></td>
+            <td><%= customer.customer_city %></td>
+            <td><%= customer.customer_state %></td>
+            <td><%= customer.customer_zip_code %></td>
+            <td><%= link_to 'Show', customer %></td>
+            <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+            <td><%= link_to 'Archive',archive_customer_path(customer),method: :patch  %></td>
+          </tr>
+        <% end %>
+      </tbody>
 
-  <%==pagy_bootstrap_nav(@pagy)%>
-
-</nav>
-  <br>
-  <script>
-    function status() {
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("firstInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("smort_table");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }
-      }
-    }
-  </script>
-  <script>
-  function firstName() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("secondInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("smort_table");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-  }
-  </script>
-  <script>
-      function lastName() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("thirdInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("smort_table");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[2];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }
-        }
-      }
-    </script>
-    <script>
-        function email() {
-          var input, filter, table, tr, td, i, txtValue;
-          input = document.getElementById("fourthInput");
-          filter = input.value.toUpperCase();
-          table = document.getElementById("smort_table");
-          tr = table.getElementsByTagName("tr");
-          for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[3];
-            if (td) {
-              txtValue = td.textContent || td.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-              } else {
-                tr[i].style.display = "none";
-              }
-            }
-          }
-        }
-      </script>
-      <script>
-          function phone() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("fifthInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("smort_table");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-              td = tr[i].getElementsByTagName("td")[4];
-              if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  tr[i].style.display = "";
-                } else {
-                  tr[i].style.display = "none";
-                }
-              }
-            }
-          }
-        </script>
-        <script>
-            function address() {
-              var input, filter, table, tr, td, i, txtValue;
-              input = document.getElementById("sixthInput");
-              filter = input.value.toUpperCase();
-              table = document.getElementById("smort_table");
-              tr = table.getElementsByTagName("tr");
-              for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[5];
-                if (td) {
-                  txtValue = td.textContent || td.innerText;
-                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                  } else {
-                    tr[i].style.display = "none";
-                  }
-                }
-              }
-            }
-          </script>
-          <script>
-              function city() {
-                var input, filter, table, tr, td, i, txtValue;
-                input = document.getElementById("seventhInput");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("smort_table");
-                tr = table.getElementsByTagName("tr");
-                for (i = 0; i < tr.length; i++) {
-                  td = tr[i].getElementsByTagName("td")[6];
-                  if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                      tr[i].style.display = "";
-                    } else {
-                      tr[i].style.display = "none";
-                    }
-                  }
-                }
-              }
-            </script>
-            <script>
-                function state() {
-                  var input, filter, table, tr, td, i, txtValue;
-                  input = document.getElementById("eigthInput");
-                  filter = input.value.toUpperCase();
-                  table = document.getElementById("smort_table");
-                  tr = table.getElementsByTagName("tr");
-                  for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[7];
-                    if (td) {
-                      txtValue = td.textContent || td.innerText;
-                      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                      } else {
-                        tr[i].style.display = "none";
-                      }
-                    }
-                  }
-                }
-              </script>
-              <script>
-                  function zip() {
-                    var input, filter, table, tr, td, i, txtValue;
-                    input = document.getElementById("ninthInput");
-                    filter = input.value.toUpperCase();
-                    table = document.getElementById("smort_table");
-                    tr = table.getElementsByTagName("tr");
-                    for (i = 0; i < tr.length; i++) {
-                      td = tr[i].getElementsByTagName("td")[8];
-                      if (td) {
-                        txtValue = td.textContent || td.innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                          tr[i].style.display = "";
-                        } else {
-                          tr[i].style.display = "none";
-                        }
-                      }
-                    }
-                  }
-                </script>
+    </table>
+    <%==pagy_bootstrap_nav(@pagy)%>
+  </nav>
 </div>
