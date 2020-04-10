@@ -4,7 +4,7 @@
   <div class="form-row">
     <div class="form-group col-md-5">
       <label for="employeeName">Employee</label>
-      <%= f.collection_select(:employee_id, Employee.all, :id, :fullname, {prompt: "Select One..."}, {class: "form-control"}) %>
+      <%= f.collection_select(:employee_id, Employee.where(employee_status_id: 2), :id, :fullname, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
   </div>
   
