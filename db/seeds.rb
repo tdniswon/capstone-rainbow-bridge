@@ -82,7 +82,7 @@ EmployeeStatus.find_or_create_by(employee_status_name: "Archived")
 Employee.create_or_find_by(employee_first_name: "Deepali", employee_last_name: "Agrawal", employee_email: "Deepali.agrawal@gmail.com", employee_phone: "315-312-8596", employee_status_id:  '2', employee_type_id: '1')
 Employee.create_or_find_by(employee_first_name: "Pricella", employee_last_name: "Raj", employee_email: "pricella.raj@gmail.com", employee_phone: "512-555-0101", employee_status_id: "2", employee_type_id: "2")
 Employee.create_or_find_by(employee_first_name: "Helen", employee_last_name: "Thompson", employee_email: "h.thompson@outlook.com", employee_phone: "832-316-9262", employee_status_id: "2", employee_type_id: "1")
-Employee.create_or_find_by(employee_first_name: "Casey", employee_last_name: "Wright", employee_email: "wright.casey@outlook.com", employee_phone: "218-312-7316", employee_status_id: "2", employee_type_id: "1")
+Employee.create_or_find_by(employee_first_name: "Casey", employee_last_name: "Wright", employee_email: "wright.casey@outlook.com", employee_phone: "218-312-7316", employee_status_id: "1", employee_type_id: "2")
 Employee.create_or_find_by(employee_first_name: "Neeraj", employee_last_name: "Signh", employee_email: "singh.neeraj@hotmail.com", employee_phone: "832-640-6595", employee_status_id: "1", employee_type_id: "1")
 
 #TaskStatus.destroy_allcreate_or_find_byd

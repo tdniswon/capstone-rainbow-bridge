@@ -5,7 +5,9 @@ class OrderLinesController < ApplicationController
   # GET /order_lines
   # GET /order_lines.json
   def index
-    @pagy,@order_lines = pagy(OrderLine.where.not(order_line_status_id: 4).order(sort_column + ' ' + sort_direction))
+    #@pagy,@order_lines = pagy(OrderLine.where.not(order_line_status_id: 4).order(sort_column + ' ' + sort_direction))
+    @q = OrderLine.where.not(order_line_status_id: 3).ransack(params[:q])
+    @pagy, @order_lines = pagy(@q.result)
   end
 
   # GET /order_lines/1
@@ -65,7 +67,11 @@ class OrderLinesController < ApplicationController
   # DELETE /order_lines/1.json
   def archive
     @order_line = OrderLine.find params[:id]
-    @order_line.update(order_line_status_id: 4)
+    @order_line.update(order_line_status_id: 3)
+    respond_to do |format|
+      format.html { redirect_to order_lines_url, notice: 'Order Content was successfully Archived.' }
+      format.json { head :no_content }
+    end
   end
 
   private

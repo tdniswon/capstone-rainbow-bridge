@@ -1,8 +1,11 @@
 
-<% @employees = Employee.where employee_type_id: '1' %>
+<% @employees = Employee.where("employee_type_id = 1 AND employee_status_id = 2") %>
 
 <h1>Bakers</h1>
-<table>
+<table class="table table-hover">
+    <thead class="thead-light">
+			<th>Current Bakers</th>
+			  </thead>
 	<tr>
 	<% @employees.each do | employee| %>
 	<td><%= employee.employee_first_name + ' ' + employee.employee_last_name%></td>

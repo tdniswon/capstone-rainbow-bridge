@@ -14,7 +14,7 @@
   <div class="form-row">
 
     <div class="form-group col-md-3">
-      <%= form.label :order_line_id %>
+      <%= form.label :order_line_id, "Order Content" %>
       <%= form.collection_select(:order_line_id, OrderLine.all, :id, :order_line_description, {prompt: "Select One...", selected: @order_line}, {class: "form-control"}) %>
     </div>
 

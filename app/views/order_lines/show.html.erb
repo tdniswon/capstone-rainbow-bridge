@@ -3,7 +3,7 @@
     <div class="container">
     <h1>Order Contents</h1>
     <p>
-        <strong>Order Line Status:</strong>
+        <strong>Order Content Status:</strong>
         <%= @order_line.order_line_status.order_line_status_name %>
         <Strong>Order ID:</strong>
         <%= link_to @order_line.order.id, @order_line.order %>
@@ -11,18 +11,18 @@
         <%= @order_line.product.product_name %>
     </p>
     <p>
-        <strong>Order Line ID:</strong>
+        <strong>Order Content ID:</strong>
         <%= @order_line.id %>
-        <strong>Order Line Description:</strong>
+        <strong>Order Content Description:</strong>
         <%= @order_line.order_line_description %>
         <strong>Special Order Notes:</strong>
         <%= @order_line.special_order_notes %>
     </p>
 
     <p>
-        <strong>Order Line Start Date:</strong>
+        <strong>Order Content Start Date:</strong>
         <%= @order_line.order_line_start_date.to_formatted_s(:long_ordinal) %>
-        <strong>Order Line Finish Date:</strong>
+        <strong>Order Content Finish Date:</strong>
         <%= @order_line.order_line_finish_date.try(:to_formatted_s, :long_ordinal) %>
     </p>
     </div>
@@ -165,7 +165,7 @@
         <tbody>
         <thead class="thead-light">
             <tr>
-                <th scope="col">Order Line ID</th>
+                <th scope="col">Order Content ID</th>
                 <th scope="col">Dietary Restriction</th>
                 <th col span="3">
             </tr>
@@ -199,7 +199,7 @@
                 <th scope="col">Task Due Date</th>
                 <th scope="col">Task Finish Date</th>
                 <th scope="col">Task Status</th>
-                <th scope="col">Order Line ID</th>
+                <th scope="col">Order Content ID</th>
                 <th col span="3">
             </tr>
             </thead>
