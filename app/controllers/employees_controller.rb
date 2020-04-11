@@ -6,7 +6,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     #@pagy,@employees = pagy(Employee.where.not(employee_status_id: 3 ).order(sort_column + ' ' + sort_direction))
-    @q = Employee.ransack(params[:q])
+    @q = Employee.where.not(employee_status_id: 3).ransack(params[:q])
     @pagy, @employees = pagy(@q.result)
   end
 
@@ -59,6 +59,10 @@ class EmployeesController < ApplicationController
   def archive
     @employee = Employee.find params[:id]
     @employee.update(employee_status_id: 3)
+    respond_to do |format|
+      format.html { redirect_to employees_url, notice: 'Employee was successfully Archived.' }
+      format.json { head :no_content }
+    end
   end
 
   private

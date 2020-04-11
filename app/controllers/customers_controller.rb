@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     #@pagy,@customers = pagy(Customer.all.order(sort_column + ' ' + sort_direction))
-    @q = Customer.ransack(params[:q])
+    @q = Customer.where.not(customer_status_id: 3).ransack(params[:q])
     @pagy, @customers = pagy(@q.result)
   end
 
@@ -63,6 +63,10 @@ class CustomersController < ApplicationController
   def archive
     @customer = Customer.find params[:id]
     @customer.update(customer_status_id: 3)
+    respond_to do |format|
+      format.html { redirect_to customers_url, notice: 'Customer was successfully Archived.' }
+      format.json { head :no_content }
+    end
   end
 
   private
