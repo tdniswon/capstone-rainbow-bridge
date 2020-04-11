@@ -6,7 +6,7 @@ class Tier < ApplicationRecord
   has_many :tier_fillings
 
   # validates :position, numericality: {only_integer: true} # No validation because it's automated.
-  validates :tier_size, presence: true, format: {with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}
+  validates :tier_size, presence: true, format: {with: /\A[a-zA-Z0-9"' ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}
 
 
   accepts_nested_attributes_for :tier_fillings
