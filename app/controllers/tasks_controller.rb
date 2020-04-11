@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     #@pagy,@tasks = pagy(Task.where.not(task_status_id: 4 ).order(sort_column + ' ' + sort_direction))
-    @q = Task.ransack(params[:q])
+    @q = Task.where.not(task_status_id: 4).ransack(params[:q])
     @pagy, @tasks = pagy(@q.result)
   end
 
@@ -68,6 +68,10 @@ class TasksController < ApplicationController
   def archive
     @task = Task.find params[:id]
     @task.update(task_status_id: 4)
+    respond_to do |format|
+      format.html { redirect_to tasks_url, notice: 'Task was successfully Archived.' }
+      format.json { head :no_content }
+    end
   end
 
   private
