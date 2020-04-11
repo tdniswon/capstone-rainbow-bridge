@@ -10,5 +10,5 @@
     <%= link_to @task_assignment.employee.employee_first_name + ' ' + @task_assignment.employee.employee_last_name, @task_assignment.employee%>
 </p>
 
-<%= link_to 'Edit', rails_admin.edit_path(model_name: 'task_assignment', id: @task_assignment.id) %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Edit', rails_admin.edit_path(model_name: 'task_assignment', id: @task_assignment.id), Class:"btn btn-primary" %> 
+<%= link_to 'Back', :back, Class:"btn btn-primary" %>

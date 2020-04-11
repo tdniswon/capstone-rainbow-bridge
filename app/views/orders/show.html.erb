@@ -16,7 +16,7 @@
         <strong>Order Description:</strong>
         <%= @order.order_description %>
         <strong>Order Cost:</strong>
-        <%= @order.order_cost %>
+        <%= number_to_currency(@order.order_cost) %>
     </p>
 
     <p>
@@ -143,7 +143,7 @@
             <% @order.rental_lines.each do |rl| %>
             <tr>
                 <td><%= rl.order_id %></td>
-                <td><%= rl.rental_item_id %></td>
+                <td><%= rl.rental_item.rental_item_name %></td>
                 <td><%= link_to 'Show Details', rl %></td>
             </tr>
             <% end %>

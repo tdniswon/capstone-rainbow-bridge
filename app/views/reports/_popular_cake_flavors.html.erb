@@ -1,3 +1,5 @@
 <h1>Most Popular Cake Flavors</h1>
 <% @flavors = CakeFlavor.joins(:tiers)%>
 <%= column_chart @flavors.group(:flavor_name).count %>
+
+    
