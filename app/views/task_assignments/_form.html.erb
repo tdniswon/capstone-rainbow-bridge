@@ -18,7 +18,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="">Employee</label>
-      <%= form.collection_select(:employee_id, Employee.all, :id, :fullname, {prompt: "Select One..."}, {class: "form-control"}) %>
+      <%= form.collection_select(:employee_id, Employee.where(employee_status_id: 2), :id, :fullname, {prompt: "Select One..."}, {class: "form-control"}) %>
     </div>
   </div>
 
