@@ -30,7 +30,11 @@
 
     <p>
         <strong>Order Delivery:</strong>
-        <%= @order.order_delivery %>
+         <% if @order.order_delivery == true %>
+        <%= image_tag "check.png", class: "check"%>
+        <% else %>
+          <%= image_tag "cross.png", class: "cross"%>
+        <% end %>
         <strong>Delivery Street Address:</strong>
         <%= @order.delivery_street_address %>
         <strong>Delivery City:</strong>
