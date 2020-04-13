@@ -14,6 +14,12 @@ class ApiController < ApplicationController
         puts"**********"
         puts params[:api]
         puts"**********"
+
+        if params[:api] == "Delivery"
+            apiDelivery = true
+        else
+            apiDelivery = false
+        end
      
         puts("Test Test Test")
         # @customer = Customer.new
@@ -34,7 +40,7 @@ class ApiController < ApplicationController
             puts @oldCustomer.id
             @order = Order.new
             @order.customer_id = @oldCustomer.id
-            @order.order_delivery = true # params[:api][:order_delivery] #probably won't need this due to nature of boolean
+            @order.order_delivery = apiDelivery # params[:api][:order_delivery] #probably won't need this due to nature of boolean
             @order.order_start_date = DateTime.now # params[:api][:order_start_date]
             @order.order_due_date = params[:api][:order_due_date]
             @order.order_description = params[:api][:order_description]
@@ -55,6 +61,7 @@ class ApiController < ApplicationController
             @customer.customer_state = params[:api][:state]
             #@customerid = CustomerStatus.where(customer_status_name: "Active").first
             @customer.customer_status_id = 1 # params[:api][:customer_status] #change this later
+            @customer.customer_zip_code = params[:api][:zip]
             @customer.save
             @newCustomer = Customer.where(customer_email: params[:api][:email]).last
             puts"the customer email is"
@@ -64,7 +71,7 @@ class ApiController < ApplicationController
             #############################
             @order = Order.new
             @order.customer_id = @newCustomer.id
-            @order.order_delivery = true # params[:api][:order_delivery] #probably won't need this due to nature of boolean
+            @order.order_delivery = apiDelivery # params[:api][:order_delivery] #probably won't need this due to nature of boolean
             @order.order_start_date = DateTime.now # params[:api][:order_start_date]
             @order.order_due_date = params[:api][:order_due_date]
             @order.order_description = params[:api][:order_description]
