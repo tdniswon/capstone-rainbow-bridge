@@ -141,14 +141,12 @@
             <tr>
                 <th scope="col">Order ID</th>
                 <th scope="col">Rental Item ID</th>
-                <th colspan="3"></th>
             </tr>
             </thead>
             <% @order.rental_lines.each do |rl| %>
             <tr>
                 <td><%= rl.order_id %></td>
                 <td><%= rl.rental_item.rental_item_name %></td>
-                <td><%= link_to 'Show Details', rl %></td>
             </tr>
             <% end %>
         </tbody>
