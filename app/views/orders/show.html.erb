@@ -103,12 +103,12 @@
         <tbody>
         <thead class="thead-light">
             <tr>
-                <th scope="col">Order Line Description</th>
-                <th scope="col">Order Line Start Date</th>
-                <th scope="col">Order Line Finish Date</th>
+                <th scope="col">Order Content Description</th>
+                <th scope="col">Order Content Start Date</th>
+                <th scope="col">Order Content Finish Date</th>
                 <th scope="col">Special Order Notes</th>
                 <th scope="col">Product</th>
-                <th scope="col">Order Line Status</th>
+                <th scope="col">Order Content Status</th>
                 <th colspan="3"></th>
             </tr>
             </thead>
@@ -141,14 +141,12 @@
             <tr>
                 <th scope="col">Order ID</th>
                 <th scope="col">Rental Item ID</th>
-                <th colspan="3"></th>
             </tr>
             </thead>
             <% @order.rental_lines.each do |rl| %>
             <tr>
                 <td><%= rl.order_id %></td>
                 <td><%= rl.rental_item.rental_item_name %></td>
-                <td><%= link_to 'Show Details', rl %></td>
             </tr>
             <% end %>
         </tbody>

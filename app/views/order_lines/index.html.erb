@@ -14,7 +14,7 @@
       <thead class="thead-light">
         <tr>
           <th scope="col"><%= sort_link(@q, :order_line_status_id, "Status", default_order: :desc) %></th>
-          <th scope="col"><%= sort_link(@q, :order_description, "Order", default_order: :desc) %></th>
+          <th scope="col"><%= sort_link(@q, :order_order_description, "Order", default_order: :desc) %></th>
           <th scope="col"><%= sort_link(@q, :product_id, "Product", default_order: :desc) %></th>
           <th scope="col"><%= sort_link(@q, :order_line_description, "Description", default_order: :desc) %></th>
           <th scope="col"><%= sort_link(@q, :order_line_start_date, "Start Date", default_order: :desc) %></th>

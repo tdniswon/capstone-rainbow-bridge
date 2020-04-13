@@ -28,11 +28,11 @@
             <% @employee.task_assignments.each do |ta| %>
             <tr>
                 <td><%= ta.task.task_name %></td>
-                <td><%= link_to 'Show Details', ta %></td>
+                <td><%= link_to 'Show Details', ta.task %></td>
             </tr>
             <% end %>
         </tbody>
     </table>
     <%= link_to 'Edit', edit_employee_path(@employee),Class:"btn btn-primary" %>
-    <%= link_to 'Back', :back,Class:"btn btn-primary" %>
+    <%= link_to 'Back', employees_path ,Class:"btn btn-primary" %>
 </div>

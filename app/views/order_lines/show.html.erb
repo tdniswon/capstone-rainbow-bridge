@@ -167,14 +167,12 @@
             <tr>
                 <th scope="col">Order Content ID</th>
                 <th scope="col">Dietary Restriction</th>
-                <th col span="3">
             </tr>
             </thead>
             <% @order_line.order_line_restrictions.each do |olr| %>
             <tr>
                 <td><%= olr.order_line_id %></td>
                 <td><%= olr.dietary_restriction.dietary_restriction_name %></td>
-                <td><%= link_to 'Show Details', olr %></td>
             </tr>
             <% end %>
         </tbody>
@@ -207,9 +205,9 @@
             <tr>
                 <td><%= otasks.task_name %></td>
                 <td><%= otasks.task_description %></td>
-                <td><%= otasks.task_start_date %></td>
-                <td><%= otasks.task_due_date %></td>
-                <td><%= otasks.task_finish_date %></td>
+                <td><%= otasks.task_start_date.try(:to_formatted_s, :long_ordinal) %></td>
+                <td><%= otasks.task_due_date.try(:to_formatted_s, :long_ordinal) %></td>
+                <td><%= otasks.task_finish_date.try(:to_formatted_s, :long_ordinal) %></td>
                 <td><%= otasks.task_status.task_status_name %></td>
                 <td><%= otasks.order_line_id %></td>
                 <td><%= link_to 'Show Details', otasks %></td>
