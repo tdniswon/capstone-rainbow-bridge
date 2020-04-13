@@ -28,7 +28,7 @@
             <% @employee.task_assignments.each do |ta| %>
             <tr>
                 <td><%= ta.task.task_name %></td>
-                <td><%= link_to 'Show Details', ta %></td>
+                <td><%= link_to 'Show Details', ta.task %></td>
             </tr>
             <% end %>
         </tbody>
