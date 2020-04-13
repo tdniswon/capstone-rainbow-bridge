@@ -205,9 +205,9 @@
             <tr>
                 <td><%= otasks.task_name %></td>
                 <td><%= otasks.task_description %></td>
-                <td><%= otasks.task_start_date %></td>
-                <td><%= otasks.task_due_date %></td>
-                <td><%= otasks.task_finish_date %></td>
+                <td><%= otasks.task_start_date.try(:to_formatted_s, :long_ordinal) %></td>
+                <td><%= otasks.task_due_date.try(:to_formatted_s, :long_ordinal) %></td>
+                <td><%= otasks.task_finish_date.try(:to_formatted_s, :long_ordinal) %></td>
                 <td><%= otasks.task_status.task_status_name %></td>
                 <td><%= otasks.order_line_id %></td>
                 <td><%= link_to 'Show Details', otasks %></td>

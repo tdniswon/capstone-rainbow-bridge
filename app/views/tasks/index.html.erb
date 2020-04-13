@@ -15,7 +15,7 @@
       <thead class="thead-light">
         <tr>
           <th scope="col"><%= sort_link(@q, :task_status_id, "Task Status", default_order: :desc) %></th>
-          <th scope="col"><%= sort_link(@q, :order_line_id, "Order Line", default_order: :desc) %></th>
+          <th scope="col"><%= sort_link(@q, :order_line_order_line_description, "Order Content", default_order: :desc) %></th>
           <th scope="col"><%= sort_link(@q, :task_name, "Task Name", default_order: :desc) %></th>
           <th scope="col"><%= sort_link(@q, :task_description, "Description", default_order: :desc) %></th>
           <th scope="col"><%= sort_link(@q, :task_start_date, "Start Date", default_order: :desc) %></th>
@@ -29,7 +29,7 @@
         <% @tasks.each do |task| %>
           <tr>
             <td><%= task.task_status.task_status_name %></td>
-            <td><%= task.order_line_id %></td>
+            <td><%= task.order_line.order_line_description %></td>
             <td><%= task.task_name %></td>
             <td><%= task.task_description %></td>
             <td><%= task.task_start_date.try(:strftime,"%B %e, %l:%M %p") %></td>

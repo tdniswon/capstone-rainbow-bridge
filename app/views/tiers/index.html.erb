@@ -16,9 +16,9 @@
           <th><%= sort_link(@q, :order_line_id, "Order Content", default_order: :desc) %></th>
           <th><%= sort_link(@q, :position, "Position", default_order: :desc) %></th>
           <th><%= sort_link(@q, :tier_size, "Tier Size", default_order: :desc) %></th>
-          <th><%= sort_link(@q, :shape_name, "Shape", default_order: :desc) %></th>
-          <th><%= sort_link(@q, :flavor_name, "Flavor", default_order: :desc) %></th>
-          <th><%= sort_link(@q, :frosting_name, "Frosting", default_order: :desc) %></th>
+          <th><%= sort_link(@q, :shape_shape_name, "Shape", default_order: :desc) %></th>
+          <th><%= sort_link(@q, :cake_flavor_flavor_name, "Flavor", default_order: :desc) %></th>
+          <th><%= sort_link(@q, :frosting_flavor_frosting_name, "Frosting", default_order: :desc) %></th>
           <th><%= sort_link(@q, :tier_special_notes, "Special Notes", default_order: :desc) %></th>
           <th colspan="3"></th>
         </tr>
@@ -27,7 +27,7 @@
       <tbody>
         <% @tiers.each do |tier| %>
           <tr>
-            <td><%= tier.order_line_id %></td>
+            <td><%= tier.order_line.order_line_description %></td>
             <td><%= tier.position %></td>
             <td><%= tier.tier_size %></td>
             <td><%= tier.shape.shape_name %></td>
