@@ -14,7 +14,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Tier</label>
-      <%= form.collection_select(:tier_id, Tier.all, :id, :position, {prompt: "Select One...", selected: @tier}, {class: "form-control"}) %>
+      <%= form.collection_select(:tier_id, Tier.all, :id, :desc_pos, {prompt: "Select One...", selected: @tier}, {class: "form-control", disabled: true}) %>
     </div>
 
     <div class="form-group col-md-6">

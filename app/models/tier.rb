@@ -56,5 +56,9 @@ class Tier < ApplicationRecord
     # if OrderLine.exists?(id: self.order_line_id)
   end
 
+  def desc_pos
+    "#{order_line.order_line_description} Position: #{position}"
+  end
+
   has_paper_trail
 end
