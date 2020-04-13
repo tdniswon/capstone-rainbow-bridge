@@ -62,12 +62,11 @@
                 <td><%= order.order_start_date.to_formatted_s(:long_ordinal) %></td>
                 <td><%= order.order_due_date.to_formatted_s(:long_ordinal) %></td>
                 <td><%= order.order_date_finish.try(:to_formatted_s, :long_ordinal) %></td>
-                <td><% order.order_delivery %>
-                    <% if order.order_delivery == true %>
-                    <%= image_tag "check.png", class: "check"%>
-                    <% else %>
-                    <%= image_tag "cross.png", class: "cross"%>
-                    <% end %></td>
+                <td><% if order.order_delivery == true %>
+                <%= image_tag "check.png", class: "check"%>
+                <% else %>
+                  <%= image_tag "cross.png", class: "cross"%>
+                <% end %></td>
                 <td><%= order.delivery_street_address %>" "<%= order.delivery_city %></td>
                 <td><%= order.delivery_city %></td>
                 <td><%= order.delivery_state %></td>
