@@ -15,7 +15,7 @@ class ApiController < ApplicationController
         puts params[:api]
         puts"**********"
 
-        if params[:api] == "Delivery"
+        if params[:api][:delivery] == "Delivery"
             apiDelivery = true
         else
             apiDelivery = false
