@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   has_many :rental_lines
   has_many_attached :inspiration_images
 
-  validates :order_description, format: {with: /\A[-a-zA-Z0-9.'&\/ ]+\z/, message: 'Only Alphanumerical and Numbers Allowed'}, allow_blank: true
+  validates :order_description, allow_blank: true
   validates :order_due_date, presence: true
   validates :order_start_date, presence: true
   validates :order_cost, format: {with: /\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.[0-9][0-9])?+/, message: 'Format: $XXX.XX'}, allow_blank: true

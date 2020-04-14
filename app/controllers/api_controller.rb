@@ -60,7 +60,7 @@ class ApiController < ApplicationController
             @customer.customer_city = params[:api][:city]
             @customer.customer_state = params[:api][:state]
             #@customerid = CustomerStatus.where(customer_status_name: "Active").first
-            @customer.customer_status_id = 1 # params[:api][:customer_status] #change this later
+            @customer.customer_status_id = 2 # params[:api][:customer_status] #change this later
             @customer.customer_zip_code = params[:api][:zip]
             @customer.save
             @newCustomer = Customer.where(customer_email: params[:api][:email]).last
